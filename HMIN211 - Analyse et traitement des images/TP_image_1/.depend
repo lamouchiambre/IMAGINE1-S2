@@ -1,0 +1,1 @@
+histogram3c.o: histogram3c.cpp image_ppm.h
