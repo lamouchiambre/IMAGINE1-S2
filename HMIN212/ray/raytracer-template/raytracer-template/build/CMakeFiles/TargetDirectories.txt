@@ -1,0 +1,12 @@
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/CMakeFiles/rebuild_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/CMakeFiles/edit_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/CMakeFiles/raytracer.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/CMakeFiles/glad.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/glfw-3.2/CMakeFiles/rebuild_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/glfw-3.2/CMakeFiles/edit_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/glfw-3.2/src/CMakeFiles/rebuild_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/glfw-3.2/src/CMakeFiles/edit_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/glfw-3.2/src/CMakeFiles/glfw.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/pngdecode/CMakeFiles/rebuild_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/pngdecode/CMakeFiles/edit_cache.dir
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/pngdecode/CMakeFiles/pngdecode.dir
