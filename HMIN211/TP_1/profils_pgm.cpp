@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     allocation_tableau(ImgIn, OCTET, nTaille);
     lire_image_pgm(cNomImgLue, ImgIn, nH * nW);
     
-    if (type == "lines"){
+    if (strcmp(type,"lines")){
         for (int i = 0; i < nW; i++)
         {
             printf("%d",ImgIn[indice * nW + i]);

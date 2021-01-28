@@ -10,14 +10,14 @@ int main(int argc, char* argv[]){
     int indice;
     //colonne 1; ligne 0
 
-    if (argc != 3) 
+    if (argc != 2) 
     {
         printf("Usage: ImageIn.pgm couleur \n"); 
         exit (1) ;
     }
 
     sscanf (argv[1],"%s",cNomImgLue) ;
-    sscanf (argv[2],"%s",couleur);
+    //sscanf (argv[2],"%s",couleur);
     sscanf ("R","%s",rouge);
     // //sscanf (argv[4],"%s",type);
 
