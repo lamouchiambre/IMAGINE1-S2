@@ -3,9 +3,9 @@ CXX_FLAGS	= -Wall -g -O0 -ansi -pedantic -std=c99
 
 LD_FLAGS 	=
 
-PROGS		= couleur #histogram3c #seuillage4p #test_grey
+PROGS		= test_grey #couleur #histogram3c #seuillage4p 
 
-SOURCES		= test_couleur.cpp #histogram3c.cpp # seuillage4p.cpp #test_grey.cpp
+SOURCES		= test_grey.cpp #test_couleur.cpp #histogram3c.cpp # seuillage4p.cpp 
 
 HEADERS		= image.hpp
 

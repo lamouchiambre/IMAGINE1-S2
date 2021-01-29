@@ -1,1 +1,1 @@
-histogram3c.o: histogram3c.cpp image_ppm.h
+test_grey.o: test_grey.cpp image_ppm.h
