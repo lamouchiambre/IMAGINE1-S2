@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AndroidToastExemple</string>
+    <string name="menu_settings">Paramètres</string>
+    <string name="button_label">Montrer message</string>
+    <string name="image_content">image</string>
+    <!--    exercice 2 -->
+    <string name="firstapplication">ma première application Android</string>
+    <!-- fin exo 2-->
+    <string name="mainbutton">bouton principale</string>
+    <string name="btn">Bouton 2</string>
+    <string name="toastMsg">Ceci est un Toast</string>
+    <string name="dialogMsg">Exercice 4</string>
+    <string name="toastMsgLong">Clic long</string>
+    <string name="linux_box">Linux</string>
+    <string name="macos_box">MacOS</string>
+    <string name="windows_box">Windows</string>
+    <string name="display_label">Montrer</string>
+</resources>

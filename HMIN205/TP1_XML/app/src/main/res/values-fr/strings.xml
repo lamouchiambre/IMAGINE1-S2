@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TP1_XML</string>
+    <string name="prenom">Prénom :</string>
+    <string name="nom">Nom :</string>
+    <string name="age">Age :</string>
+    <string name="domaine_de_competence">Domaine de competence :</string>
+    <string name="telephone">Téléphone :</string>
+    <string name="soumettre">Soumettre</string>
+</resources>

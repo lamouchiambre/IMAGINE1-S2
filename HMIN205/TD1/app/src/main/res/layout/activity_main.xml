@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".MainActivity">-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Hello World!"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/mainbutton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/button_label" />-->
+
+<!--Exercice 2 Afficher ma premiere application-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/firstapplication" />-->
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+<!-- fin excercie 2-->
+
+<!-- excercie 3 -->
+<!-- Layout 1
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ android:orientation="horizontal" >
+ <Button
+ android:id="@+id/button1"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Button 1" />
+ <Button
+ android:id="@+id/button2"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Button 2" />
+ <Button
+ android:id="@+id/button3"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Button 3"
+ android:layout_weight="1"/>
+</LinearLayout>
+-->
+<!--Layout 2
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent" >
+ <Button
+ android:id="@+id/button1"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:text="Button 1"/>
+ <TextView
+ android:id="@+id/textView"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_below="@+id/button3"
+ android:layout_marginTop="65dp"
+ android:text="Username :"
+ android:textAppearance="?android:attr/textAppearanceLarge" />
+ <EditText
+ android:id="@+id/editText"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_alignParentRight="true"
+ android:layout_alignTop="@+id/textView"
+ android:layout_toRightOf="@+id/button2"
+ android:inputType="text" />
+ <Button
+ android:id="@+id/button0"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_alignParentRight="true"
+ android:layout_below="@+id/editText"
+ android:text="Submit" />
+ <Button
+ android:id="@+id/button3"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_alignParentLeft="true"
+ android:layout_below="@+id/button1"
+ android:text="Button 3" />
+ <Button
+ android:id="@+id/button2"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_below="@+id/button1"
+ android:layout_toRightOf="@+id/button1"
+ android:text="Button 2" />
+</RelativeLayout>
+-->
+
+<!-- Layout 3
+jhkh<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:id="@+id/tableLayout"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ android:shrinkColumns="*"
+ android:stretchColumns="*" >
+
+<TableRow
+    android:id="@+id/tableRow1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dip" >
+    <TextView
+        android:id="@+id/textView1"
+        android:text="Col 1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <Button
+        android:id="@+id/button1"
+        android:text="Col 2" />
+</TableRow>
+<TableRow
+android:id="@+id/tableRow2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:padding="5dip" >
+<EditText
+    android:id="@+id/editText1"
+    android:layout_span="2"
+    android:text="Col 1 & 2" />
+</TableRow>
+
+<View
+android:layout_height="4dip"
+android:background="#FF00" />
+
+<TableRow
+android:id="@+id/tableRow3"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:padding="5dip" >
+<TextView
+    android:id="@+id/textView2"
+    android:text="Col 1" />
+<Button
+    android:id="@+id/button2"
+    android:text="Col 2" />
+<Button
+    android:id="@+id/button3"
+    android:text="Col 3" />
+<Button
+    android:id="@+id/button5"
+    android:text="Col 4" />
+</TableRow>
+<TableRow
+android:id="@+id/tableRow4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:padding="5dip" >
+<Button
+    android:id="@+id/button4"
+    android:layout_column="2"
+    android:text="Col 3" />
+</TableRow>
+<TableRow
+android:id="@+id/tableRow5"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:padding="5dip" >
+<Button
+    android:id="@+id/button6"
+    android:layout_column="1"
+    android:text="Col 2" />
+</TableRow>
+    </TableLayout>
+-->
+
+<!--    </LinearLayout>-->
+
+<!-- Exo4 -->
+<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        tools:ignore="MissingConstraints">-->
+<!--        <Button-->
+<!--            android:id="@+id/mainbutton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/mainbutton" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/btn" />-->
+<!--    </LinearLayout>-->
+
+<!-- Exo 5 -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+        <CheckBox
+            android:id="@+id/linux_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/linux_box" />
+        <CheckBox
+            android:id="@+id/macos_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/macos_box"
+            android:checked="true" />
+        <CheckBox
+            android:id="@+id/windows_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/windows_box" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/display_label" />
+    </LinearLayout>
+
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

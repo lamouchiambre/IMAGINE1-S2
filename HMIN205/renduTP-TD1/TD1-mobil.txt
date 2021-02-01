@@ -1,0 +1,41 @@
+TD 1 Ambre Lamouchi
+
+Exercice 1:
+2) Il suffit d'ajouter le code
+	EditText et = new EditText(this);
+	et.setText("");
+	setContentView(et);
+dans le fichier java.
+
+3) Le code fait exactement la meme chose, seulement l'interface est défini par dans le fichier xml.
+
+4) <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+Exercice 2:
+
+1) 
+Il y a un button dans le LinearLayout et le avrigle string sont definie dans les ressouces, dans le fichier strng.xml.
+
+2)
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/firstapplication" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+Exercice 3:
+
+voir sur le fichier des screenshot.
+
+Exercice 4:
+
+Exerxice 5:
+
+Cela affiche une CheckBox avec 3 check (Linux, Mac, Windows) et un boutton qui afficher les options cochée.
+Exercice 6:
+
+voir pdf du metamodel

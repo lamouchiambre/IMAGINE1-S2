@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TP1_JAVA</string>
+    <string name="prenom">prénom :</string>
+    <string name="nom">nom :</string>
+    <string name="age">age :</string>
+    <string name="domain">domaine de compétences :</string>
+    <string name="telephone">téléphone :</string>
+    <string name="soumettre">soumettre</string>
+</resources>
