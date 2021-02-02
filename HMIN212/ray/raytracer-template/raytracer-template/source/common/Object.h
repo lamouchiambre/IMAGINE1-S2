@@ -31,9 +31,9 @@ public:
     } ShadingValues;
 
     typedef struct{
-        double t;
-        vec4 P;
-        vec4 N;
+        double t; //distance d'un point de rayon  et l'origine
+        vec4 P; //origine du rayon
+        vec4 N; //vecteur directeur
         int ID_;
         std::string name;
     } IntersectionValues;

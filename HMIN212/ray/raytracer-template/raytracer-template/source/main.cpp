@@ -217,6 +217,11 @@ bool shadowFeeler(vec4 p0, Object *object){
   return inShadow;
 }
 
+/*fonction trie*/
+bool trieShere(Sphere o1, Sphere o2){
+  return true;
+}
+
 /* -------------------------------------------------------------------------- */
 /* ----------  cast Ray = p0 + t*dir and intersect with sphere      --------- */
 /* ----------  return color, right now shading is approx based      --------- */
@@ -225,6 +230,25 @@ vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
   vec4 color = vec4(0.0,0.0,0.0,0.0);
   
   if(depth > maxDepth){ return color; }
+
+  // trier le tableau 
+  std::sort(sceneObjects.begin(),sceneObject.end(), trieShere);
+  //for (int i = 0; i < sceneObjects.size(); i++){
+  while (sceneObjects[i]->intersect())
+  {
+      /* code */
+    color = castRay(p0, E, sceneObjects[i], depth -1);
+  }
+    
+  //}
+ // for(Object)
+  /*
+
+    pour tout les object de la scene
+      si object.intersect est vrai
+      color = castRay();
+    
+  */
   
   //TODO: Raytracing code here
   
