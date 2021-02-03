@@ -79,6 +79,10 @@ int compareLex(const void * x, const void * y)
   {
     t = -1;
   }
+  else if((point1.abscisse = point2.abscisse) && (point1.ordonnee < point2.ordonnee)){
+   t = -1;
+  }
+  // a simplifier peut etre
   //fin
 
   
@@ -135,13 +139,15 @@ bool compareSeg(seg s1,seg s2){
   point p3=s2.deb;
   point p4=s2.fin;
   
-    //
-    //
-    //A COMPLETER
-    //
-    //
+  if(p1.abscisse <= p3.abscisse){
+    long long det12_13 = (p2.abscisse-p1.abscisse)*(p3.ordonnee-p1.ordonnee) - (p3.abscisse-p1.abscisse)*(p2.ordonnee-p1.ordonnee);
+    return det12_13 < 0;
+  }else{
+    long long det34_31 = (p4.abscisse-p3.abscisse)*(p1.ordonnee-p3.ordonnee) - (p1.abscisse-p3.abscisse)*(p4.ordonnee-p3.ordonnee);
+    return det34_31 < 0;
+  }
 
-   return false;
+   //return false;
 }
 
 
@@ -182,21 +188,16 @@ bool Intersection(int n, seg segments[]){
 
       segPred=ordre.lower_bound(segCourant); 
       segSuiv=ordre.upper_bound (segCourant);
-   
-    //
-    //
-    //A COMPLETER
-    //
-    //
-      
+
+      //siIntersection(AuDessus(T,Si),Si)vraiealors retournerOUI;
+      //8siIntersection(AuDessous(T,Si),Si)vraiealors retournerOUI;
+        
     }else{
       
-    //
-    //
-    //A COMPLETER
-    //
-    //
-    
+    //si p est l’extrémité droite d’un segment Si alors
+    //    siIntersection(AuDessus(T,Si),AuDessous(T,Si))vraiealors retournerOUI;
+    //        Supprimer(T,Si);    
+
     }
   }
   
