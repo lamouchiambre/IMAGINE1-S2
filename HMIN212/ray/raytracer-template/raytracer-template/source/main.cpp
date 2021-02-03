@@ -228,29 +228,21 @@ bool trieShere(Sphere o1, Sphere o2){
 /* ----------  depth                                                --------- */
 vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
   vec4 color = vec4(0.0,0.0,0.0,0.0);
-  
+
   if(depth > maxDepth){ return color; }
 
-  // trier le tableau 
-  std::sort(sceneObjects.begin(),sceneObject.end(), trieShere);
-  //for (int i = 0; i < sceneObjects.size(); i++){
-  while (sceneObjects[i]->intersect())
+  Object::IntersectionValues result;
+  double min  = std::numeric_limits<double>::infinity();
+  for (int i = 0; i < sceneObjects.size(); i++)
   {
-      /* code */
-    color = castRay(p0, E, sceneObjects[i], depth -1);
+      result = sceneObjects[i]->intersect(p0,E);
+      //std::cout << result.t << std::endl;
+      //std::cout << result.t << std::endl;
+      if(result.t < min){
+        color = sceneObjects[i]->shadingValues.color;
+        min = result.t;
+      }
   }
-    
-  //}
- // for(Object)
-  /*
-
-    pour tout les object de la scene
-      si object.intersect est vrai
-      color = castRay();
-    
-  */
-  
-  //TODO: Raytracing code here
   
   return color;
   
@@ -462,101 +454,7 @@ void initUnitSquare(){
 
 }
 
-
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-    glfwSetWindowShouldClose(window, GLFW_TRUE);
-  if (key == GLFW_KEY_1 && action == GLFW_PRESS){
-    scene = _SPHERE;
-    initUnitSphere();
-  }
-  if (key == GLFW_KEY_2 && action == GLFW_PRESS){
-    scene = _SQUARE;
-    initUnitSquare();
-  }
-  if (key == GLFW_KEY_3 && action == GLFW_PRESS){
-    scene = _BOX;
-    initCornellBox();
-  }
-  if (key == GLFW_KEY_R && action == GLFW_PRESS)
-    rayTrace();
-}
-
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-static void mouseClick(GLFWwindow* window, int button, int action, int mods){
-
-  if (GLFW_RELEASE == action){
-    GLState::moving=GLState::scaling=GLState::panning=false;
-    return;
-  }
-
-  if( mods & GLFW_MOD_SHIFT){
-    GLState::scaling=true;
-  }else if( mods & GLFW_MOD_ALT ){
-    GLState::panning=true;
-  }else{
-    GLState::moving=true;
-    TrackBall::trackball(GLState::lastquat, 0, 0, 0, 0);
-  }
-
-  double xpos, ypos;
-  glfwGetCursorPos(window, &xpos, &ypos);
-  GLState::beginx = xpos; GLState::beginy = ypos;
-
-  std::vector < vec4 > ray_o_dir = findRay(xpos, ypos);
-  castRayDebug(ray_o_dir[0], vec4(ray_o_dir[1].x, ray_o_dir[1].y, ray_o_dir[1].z,0.0));
-
-}
-
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-void mouseMove(GLFWwindow* window, double x, double y){
-
-  int W, H;
-  glfwGetFramebufferSize(window, &W, &H);
-
-
-  float dx=(x-GLState::beginx)/(float)W;
-  float dy=(GLState::beginy-y)/(float)H;
-
-  if (GLState::panning)
-    {
-    GLState::ortho_x  +=dx;
-    GLState::ortho_y  +=dy;
-
-    GLState::beginx = x; GLState::beginy = y;
-    return;
-    }
-  else if (GLState::scaling)
-    {
-    GLState::scalefactor *= (1.0f+dx);
-
-    GLState::beginx = x;GLState::beginy = y;
-    return;
-    }
-  else if (GLState::moving)
-    {
-    TrackBall::trackball(GLState::lastquat,
-                         (2.0f * GLState::beginx - W) / W,
-                         (H - 2.0f * GLState::beginy) / H,
-                         (2.0f * x - W) / W,
-                         (H - 2.0f * y) / H
-                         );
-
-    TrackBall::add_quats(GLState::lastquat, GLState::curquat, GLState::curquat);
-    TrackBall::build_rotmatrix(GLState::curmat, GLState::curquat);
-
-    GLState::beginx = x;GLState::beginy = y;
-    return;
-    }
-}
-
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
+/*----------------------------------------------------------------------------*/
 void initGL(){
 
   GLState::light_ambient  = vec4(lightColor.x, lightColor.y, lightColor.z, 1.0 );
@@ -651,6 +549,111 @@ void initGL(){
   GLState::render_line = false;
 
 }
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GLFW_TRUE);
+    if (key == GLFW_KEY_1 && action == GLFW_PRESS){
+
+        if( scene != _SPHERE ){
+            initUnitSphere();
+            initGL();
+            scene = _SPHERE;
+        }
+
+    }
+    if (key == GLFW_KEY_2 && action == GLFW_PRESS){
+        if( scene != _SQUARE ){
+            initUnitSquare();
+            initGL();
+            scene = _SQUARE;
+        }
+    }
+    if (key == GLFW_KEY_3 && action == GLFW_PRESS){
+        if( scene != _BOX ){
+            initCornellBox();
+            initGL();
+            scene = _BOX;
+        }
+    }
+    if (key == GLFW_KEY_R && action == GLFW_PRESS)
+        rayTrace();
+}
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+static void mouseClick(GLFWwindow* window, int button, int action, int mods){
+
+  if (GLFW_RELEASE == action){
+    GLState::moving=GLState::scaling=GLState::panning=false;
+    return;
+  }
+
+  if( mods & GLFW_MOD_SHIFT){
+    GLState::scaling=true;
+  }else if( mods & GLFW_MOD_ALT ){
+    GLState::panning=true;
+  }else{
+    GLState::moving=true;
+    TrackBall::trackball(GLState::lastquat, 0, 0, 0, 0);
+  }
+
+  double xpos, ypos;
+  glfwGetCursorPos(window, &xpos, &ypos);
+  GLState::beginx = xpos; GLState::beginy = ypos;
+
+  std::vector < vec4 > ray_o_dir = findRay(xpos, ypos);
+  castRayDebug(ray_o_dir[0], vec4(ray_o_dir[1].x, ray_o_dir[1].y, ray_o_dir[1].z,0.0));
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+void mouseMove(GLFWwindow* window, double x, double y){
+
+  int W, H;
+  glfwGetFramebufferSize(window, &W, &H);
+
+
+  float dx=(x-GLState::beginx)/(float)W;
+  float dy=(GLState::beginy-y)/(float)H;
+
+  if (GLState::panning)
+    {
+    GLState::ortho_x  +=dx;
+    GLState::ortho_y  +=dy;
+
+    GLState::beginx = x; GLState::beginy = y;
+    return;
+    }
+  else if (GLState::scaling)
+    {
+    GLState::scalefactor *= (1.0f+dx);
+
+    GLState::beginx = x;GLState::beginy = y;
+    return;
+    }
+  else if (GLState::moving)
+    {
+    TrackBall::trackball(GLState::lastquat,
+                         (2.0f * GLState::beginx - W) / W,
+                         (H - 2.0f * GLState::beginy) / H,
+                         (2.0f * x - W) / W,
+                         (H - 2.0f * y) / H
+                         );
+
+    TrackBall::add_quats(GLState::lastquat, GLState::curquat, GLState::curquat);
+    TrackBall::build_rotmatrix(GLState::curmat, GLState::curquat);
+
+    GLState::beginx = x;GLState::beginy = y;
+    return;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
