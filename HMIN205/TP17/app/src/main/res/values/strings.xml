@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TP1-7</string>
+    <string name="nom">last_name</string>
+    <string name="age">age</string>
+    <string name="domaine_de_competence">area of competence</string>
+    <string name="telephone">phone</string>
+    <string name="soumettre">submit</string>
+    <string name="prenom">first name</string>
+</resources>

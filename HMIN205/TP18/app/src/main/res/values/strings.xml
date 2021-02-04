@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TP1-8</string>
+    <string name="depart">départ</string>
+    <string name="arriver">arrivée</string>
+    <string name="date_depart">date de départ</string>
+    <string name="chercher">chercher</string>
+</resources>
