@@ -36,28 +36,16 @@ double Sphere::raySphereIntersection(vec4 p0, vec4 V){
   if((B*B - 4.0*A*C) >= 0){
     double t1 = ((-B - sqrt(B*B - 4.0*A*C))/2.0*A);
     double t2 = ((-B + sqrt(B*B - 4.0*A*C))/2.0*A);
-    /*
-    if(!(t1 < 0 && t2 < 0)){
-      double det1 = std::max(t1,t2);
-      double det2 = std::min(t1,t2);
-      if (det2 < 0)
-      {
-        t = ((p0.x + det1*V.x)*(p0.x + det1*V.x) + (p0.y + det1*V.y)*(p0.y + det1*V.y) + (p0.z + det1*V.z)*(p0.z + det1*V.z));
-      }else
-      {
-        t = ((p0.x + det2*V.x)*(p0.x + det2*V.x) + (p0.y + det2*V.y)*(p0.y + det2*V.y) + (p0.z + det2*V.z)*(p0.z + det2*V.z));
-      }
-      
-      
-    } */
     
     if (t1 > EPSILON){
       //prendre t1;
-      t = (( t1*V.x - p0.x )*( t1*V.x - p0.x ) + ( t1*V.y - p0.y)*(t1*V.y - p0.y) + (t1*V.z - p0.z)*(t1*V.z - p0.z));
+      t = t1;
+      //(( t1*V.x - p0.x )*( t1*V.x - p0.x ) + ( t1*V.y - p0.y)*(t1*V.y - p0.y) + (t1*V.z - p0.z)*(t1*V.z - p0.z));
     } else
     {
       if(t1 < EPSILON && t2 > EPSILON){
-        t = (( t2*V.x - p0.x )*( t2*V.x - p0.x ) + ( t2*V.y - p0.y)*(t2*V.y - p0.y) + (t2*V.z - p0.z)*(t2*V.z - p0.z));
+        t = t2;
+        //(( t2*V.x - p0.x )*( t2*V.x - p0.x ) + ( t2*V.y - p0.y)*(t2*V.y - p0.y) + (t2*V.z - p0.z)*(t2*V.z - p0.z));
         //std::cout << "t2 " ;
       }
     } 
@@ -72,7 +60,10 @@ double Sphere::raySphereIntersection(vec4 p0, vec4 V){
 Object::IntersectionValues Square::intersect(vec4 p0, vec4 V){
   IntersectionValues result;
   //TODO: Ray-square setup
-  
+  result.P = p0;
+  result.N = V;
+  result.t = raySquareIntersection(p0,V);
+  result.ID_ = 1;
   return result;
 }
 
@@ -81,5 +72,67 @@ Object::IntersectionValues Square::intersect(vec4 p0, vec4 V){
 double Square::raySquareIntersection(vec4 p0, vec4 V){
   double t   = std::numeric_limits< double >::infinity();
   //TODO: Ray-square intersection;
+  this->normal.x;
+  //determination de l'equation cartesienne Ax + By + Cz + D = 0
+  //Determiner D = -(Apx + Bpy +Cpz)
+  double A = normal.x;
+  double B = normal.y;
+  double C = normal.z;
+  double D = -(A * point.x + B * point.y + C * point.z);
+
+  if ((A*p0.x + B*p0.y + C*p0.z) != 0)
+  {
+    double tmp = -(A*p0.x + B*p0.y + C*p0.z + D)/(A*V.x + B*V.y + C * V.z);
+
+    if(tmp > EPSILON){
+      t = tmp;
+      //( tmp*V.x - p0.x )*(tmp*V.x - p0.x ) 
+      //    + ( tmp*V.y - p0.y )*(tmp*V.y - p0.y )
+      //    + (tmp*V.z - p0.z  )*(tmp*V.z - p0.z);
+          //t = tmp;
+      // t est dans le plan, il faut verifier si le point est dans le carrer
+      
+      //projection sur le plan
+      vec3 a, b, c, d, vt;
+      if (C > 0.5){
+        //oublier z
+        a = { mesh.vertices[5].x, mesh.vertices[5].y };
+        b = { mesh.vertices[1].x, mesh.vertices[1].y };
+        c = { mesh.vertices[2].x, mesh.vertices[2].y };
+        d = { mesh.vertices[3].x, mesh.vertices[3].y };
+        vt = {p0.x+ t*V.x,p0.y+ t*V.y };
+      }else
+      {
+        if (A > 0.5)
+        {
+          //oublier x
+          a = { mesh.vertices[5].y, mesh.vertices[5].z };
+          b = { mesh.vertices[1].y, mesh.vertices[1].z };
+          c = { mesh.vertices[2].y, mesh.vertices[2].z };
+          d = { mesh.vertices[3].y, mesh.vertices[3].z };
+          vt = {p0.y + t*V.y, p0.z + t*V.z };
+        }
+        else
+        {
+          // oublier y 
+          a = { mesh.vertices[5].x, mesh.vertices[5].z };
+          b = { mesh.vertices[1].x, mesh.vertices[1].z };
+          c = { mesh.vertices[2].x, mesh.vertices[2].z };
+          d = { mesh.vertices[3].x, mesh.vertices[3].z };
+          vt = {p0.x + t*V.x, p0.z + t*V.z };
+        }
+
+        // double p1 = cross();
+        // double p2
+        // double p3
+        // double p4
+        /*a continier */
+      }
+      
+
+    }
+
+  }
+  
   return t;
 }
