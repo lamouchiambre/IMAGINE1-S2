@@ -4,4 +4,7 @@
     <string name="arriver">arrivée</string>
     <string name="date_depart">date de départ</string>
     <string name="chercher">chercher</string>
+    <string name="date">date</string>
+    <string name="time">heure</string>
+    <string name="rechercher">rechercher</string>
 </resources>
