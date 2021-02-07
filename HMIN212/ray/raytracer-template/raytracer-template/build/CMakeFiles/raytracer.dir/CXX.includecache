@@ -122,29 +122,27 @@ GL/glu.h
 
 ../pngdecode/zss.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/CheckError.h
+../source/common/CheckError.h
 common.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
+../source/common/common.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/ObjMesh.h
+../source/common/ObjMesh.h
 common.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
+../source/common/common.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/Object.cpp
-math.h
+../source/common/Object.h
+common.h
+../source/common/common.h
+
+../source/common/SourcePath.h
+string
 -
-common.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/Object.h
+../source/common/Trackball.h
 common.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
+../source/common/common.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/Trackball.h
-common.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
-
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
+../source/common/common.h
 vector
 -
 list
@@ -172,25 +170,31 @@ glad/glad.h
 GLFW/glfw3.h
 -
 pngenc.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/pngenc.h
+../source/common/pngenc.h
 vec.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/vec.h
+../source/common/vec.h
 mat.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/mat.h
+../source/common/mat.h
 CheckError.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/CheckError.h
+../source/common/CheckError.h
 ObjMesh.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/ObjMesh.h
+../source/common/ObjMesh.h
 Object.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/Object.h
+../source/common/Object.h
 Trackball.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/Trackball.h
+../source/common/Trackball.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/mat.h
+../source/common/mat.h
 common.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
+../source/common/common.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/vec.h
+../source/common/vec.h
 common.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common/common.h
+../source/common/common.h
+
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/main.cpp
+common.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/common.h
+SourcePath.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/source/SourcePath.h
 

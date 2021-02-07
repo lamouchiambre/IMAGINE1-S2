@@ -289,19 +289,19 @@ void initCornellBox(){
   
   sceneObjects.clear();
   
-  // { //Back Wall
-  //   sceneObjects.push_back(new Square("Back Wall", Translate(0.0, 0.0, -2.0)*Scale(2.0,2.0,1.0)));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(1.0,1.0,1.0,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+{ //Back Wall
+    sceneObjects.push_back(new Square("Back Wall", Translate(0.0, 0.0, -2.0)*Scale(2.0,2.0,1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(1.0,1.0,0.1,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
   { //Left Wall
     sceneObjects.push_back(new Square("Left Wall", RotateY(90)*Translate(0.0, 0.0, -2.0)*Scale(2.0,2.0,1.0)));
@@ -331,47 +331,47 @@ void initCornellBox(){
     sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
   }
   
-  // { //Floor
-  //   sceneObjects.push_back(new Square("Floor", RotateX(-90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(1.0,1.0,1.0,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+  { //Floor
+    sceneObjects.push_back(new Square("Floor", RotateX(-90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(0.5,1.0,0.4,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
-  // { //Ceiling
-  //   sceneObjects.push_back(new Square("Ceiling", RotateX(90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(1.0,1.0,1.0,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+  { //Ceiling
+    sceneObjects.push_back(new Square("Ceiling", RotateX(90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(1.0,1.0,0.2,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
-  // { //Front Wall
-  //   sceneObjects.push_back(new Square("Front Wall",RotateY(180)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(1.0,1.0,1.0,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+  { //Front Wall
+    sceneObjects.push_back(new Square("Front Wall",RotateY(180)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(1.0,0.5,0.6,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
   
   {
