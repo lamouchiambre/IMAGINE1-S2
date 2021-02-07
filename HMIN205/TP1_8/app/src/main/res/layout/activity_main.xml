@@ -30,6 +30,7 @@
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:id="@+id/spinner"
                 />
 
@@ -75,48 +76,641 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Gare depart"/>
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="gare rriver"/>
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="time"/>
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="heur"/>
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
                     </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="Gare depart"/>
+                            android:gravity="center"
+                            android:text="10h10" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="60dp"
                             android:layout_height="wrap_content"
-                            android:text="gare rriver"/>
+                            android:text="10h40"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="time"/>
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:text="heur"/>
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+                    <!--- //////////////////////// -->
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:alpha="0.5"
+                        android:background="?android:attr/listDivider"
+                        android:layout_marginVertical="5dp"/>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="10h00" />
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:text="10h30"
+                            android:gravity="center"/>
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="Gare depart"
+                            android:gravity="center"/>
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="19dp"
+                            android:layout_marginHorizontal="5dp"
+                            android:alpha="0.5"
+                            android:background="?android:attr/listDivider" />
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="gare Arriver" />
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
                 </ScrollView>
+        <!-- Line -->
+
+
+        <!-- Line -->
+
 
     </LinearLayout>
 

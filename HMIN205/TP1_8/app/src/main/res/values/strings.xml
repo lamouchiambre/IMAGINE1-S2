@@ -5,4 +5,16 @@
     <string name="date">date</string>
     <string name="time">time</string>
     <string name="chercher">chercher</string>
+    <string name="time_of_the_day_example2a">day</string>
+    <string name="name_station_example2a">station</string>
+    <string name="time_of_the_day_example2b">day2</string>
+    <string name="name_station_example2b">station2</string>
+    <string name="name_train_example2a">name train</string>
+    <string name="price_example2a">10$</string>
+    <string name="price_example1a">10$</string>
+    <string name="name_train_example1a">name train</string>
+    <string name="name_station_example1b">station b</string>
+    <string name="time_of_the_day_example1b">day2</string>
+    <string name="name_station_example1a">station 2</string>
+    <string name="time_of_the_day_example1a">station a</string>
 </resources>
