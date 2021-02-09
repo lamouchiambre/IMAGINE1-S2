@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+bb3534b7cc163e8f1bfb095b5a5a4a6b glfw-3.2/docs/CMakeFiles/docs
