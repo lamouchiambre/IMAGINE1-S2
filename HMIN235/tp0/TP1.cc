@@ -73,13 +73,13 @@ int compareLex(const void * x, const void * y)
   point point1= *(point *)x;
   point point2= *(point *)y;
 
-  int t;
+  int t = 1;
 
   if (point1.abscisse < point2.abscisse)
   {
     t = -1;
   }
-  else if((point1.abscisse = point2.abscisse) && (point1.ordonnee < point2.ordonnee)){
+  else if((point1.abscisse == point2.abscisse) && (point1.ordonnee < point2.ordonnee)){
    t = -1;
   }
   // a simplifier peut etre
@@ -147,7 +147,7 @@ bool compareSeg(seg s1,seg s2){
     return det34_31 < 0;
   }
 
-   //return false;
+   return false;
 }
 
 
@@ -163,10 +163,14 @@ bool Intersection(int n, seg segments[]){
   for(int i=0;i<n;i++){
     extremites[2*i]=segments[i].deb;
     extremites[2*i+1]=segments[i].fin;
+    cout <<extremites[2*i].nSegment << " " << extremites[2*i+1].nSegment<<endl;
   }
 
   TriLex(n,extremites);
-
+  cout <<"------------"<<endl;
+  for(int i =0;i<n;i++){
+    cout <<extremites[2*i].nSegment << " " << extremites[2*i+1].nSegment<<endl;
+  }
   set<seg, decltype(compareSeg)*> ordre(compareSeg);
   set<seg, decltype(compareSeg)*>::iterator segSuiv, segPred;
   
@@ -182,17 +186,41 @@ bool Intersection(int n, seg segments[]){
     int nSeg=Pcourant.nSegment;
     seg segCourant=segments[nSeg];
 
-   
+   printf("%d\n", nSeg);
     if(Pcourant.extr=='d'){
       ordre.insert(segCourant);
-
       segPred=ordre.lower_bound(segCourant); 
-      segSuiv=ordre.upper_bound (segCourant);
-
-      //siIntersection(AuDessus(T,Si),Si)vraiealors retournerOUI;
-      //8siIntersection(AuDessous(T,Si),Si)vraiealors retournerOUI;
+      segSuiv=ordre.upper_bound(segCourant);
+      segPred--;
+    
+      //segPred--;
+      
+      if((*segSuiv).deb.nSegment < 10 && (*segSuiv).deb.nSegment >= 0){
+        printf("suivant\n");
+        if (Intersectent(*segSuiv, segCourant)){
+          return true;
+      }
+      }
+      if((*segPred).deb.nSegment < 10 && (*segPred).deb.nSegment >= 0){
+        printf("precedent,%i \n", (*segPred).deb.nSegment);
+        if(Intersectent(*segPred, segCourant)){
+        return true;
+      }
+      }
+      
         
     }else{
+      segPred=ordre.lower_bound(segCourant); 
+      segSuiv=ordre.upper_bound(segCourant);
+      
+      if((*segPred--).deb.nSegment < 10 && (*segPred).deb.nSegment >= 0 && (*segSuiv).deb.nSegment < 10 && (*segSuiv).deb.nSegment >= 0){
+        if(Intersectent(*segPred,*segSuiv)){
+        return true;
+        }
+        ordre.erase(segCourant);
+      }
+      
+      
       
     //si p est l’extrémité droite d’un segment Si alors
     //    siIntersection(AuDessus(T,Si),AuDessous(T,Si))vraiealors retournerOUI;

@@ -3,45 +3,45 @@
 <title>Intersection de segments</title>
 
 <rect width="800" height="800" x="0" y="0" fill="white" />
-<circle cx="323" cy="256" r="8"/>
-<circle cx="503" cy="234" r="8"/>
-<line x1="323" y1="256" x2="503" y2="234" stroke="black" />
-<text x="298" y="256">S0</text>
-<circle cx="399" cy="591" r="8"/>
-<circle cx="524" cy="631" r="8"/>
-<line x1="399" y1="591" x2="524" y2="631" stroke="black" />
-<text x="374" y="591">S1</text>
-<circle cx="549" cy="469" r="8"/>
-<circle cx="697" cy="426" r="8"/>
-<line x1="549" y1="469" x2="697" y2="426" stroke="black" />
-<text x="524" y="469">S2</text>
-<circle cx="308" cy="413" r="8"/>
-<circle cx="352" cy="451" r="8"/>
-<line x1="308" y1="413" x2="352" y2="451" stroke="black" />
-<text x="283" y="413">S3</text>
-<circle cx="78" cy="107" r="8"/>
-<circle cx="183" cy="124" r="8"/>
-<line x1="78" y1="107" x2="183" y2="124" stroke="black" />
-<text x="53" y="107">S4</text>
-<circle cx="92" cy="197" r="8"/>
-<circle cx="169" cy="178" r="8"/>
-<line x1="92" y1="197" x2="169" y2="178" stroke="black" />
-<text x="67" y="197">S5</text>
-<circle cx="286" cy="134" r="8"/>
-<circle cx="411" cy="134" r="8"/>
-<line x1="286" y1="134" x2="411" y2="134" stroke="black" />
-<text x="261" y="134">S6</text>
-<circle cx="340" cy="387" r="8"/>
-<circle cx="463" cy="342" r="8"/>
-<line x1="340" y1="387" x2="463" y2="342" stroke="black" />
-<text x="315" y="387">S7</text>
-<circle cx="227" cy="377" r="8"/>
-<circle cx="354" cy="341" r="8"/>
-<line x1="227" y1="377" x2="354" y2="341" stroke="black" />
-<text x="202" y="377">S8</text>
-<circle cx="494" cy="676" r="8"/>
-<circle cx="622" cy="703" r="8"/>
-<line x1="494" y1="676" x2="622" y2="703" stroke="black" />
-<text x="469" y="676">S9</text>
+<circle cx="158" cy="355" r="8"/>
+<circle cx="339" cy="308" r="8"/>
+<line x1="158" y1="355" x2="339" y2="308" stroke="black" />
+<text x="133" y="355">S0</text>
+<circle cx="81" cy="561" r="8"/>
+<circle cx="118" cy="551" r="8"/>
+<line x1="81" y1="561" x2="118" y2="551" stroke="black" />
+<text x="56" y="561">S1</text>
+<circle cx="375" cy="468" r="8"/>
+<circle cx="400" cy="458" r="8"/>
+<line x1="375" y1="468" x2="400" y2="458" stroke="black" />
+<text x="350" y="468">S2</text>
+<circle cx="81" cy="417" r="8"/>
+<circle cx="258" cy="435" r="8"/>
+<line x1="81" y1="417" x2="258" y2="435" stroke="black" />
+<text x="56" y="417">S3</text>
+<circle cx="179" cy="526" r="8"/>
+<circle cx="319" cy="546" r="8"/>
+<line x1="179" y1="526" x2="319" y2="546" stroke="black" />
+<text x="154" y="526">S4</text>
+<circle cx="376" cy="643" r="8"/>
+<circle cx="474" cy="662" r="8"/>
+<line x1="376" y1="643" x2="474" y2="662" stroke="black" />
+<text x="351" y="643">S5</text>
+<circle cx="311" cy="696" r="8"/>
+<circle cx="494" cy="708" r="8"/>
+<line x1="311" y1="696" x2="494" y2="708" stroke="black" />
+<text x="286" y="696">S6</text>
+<circle cx="79" cy="670" r="8"/>
+<circle cx="259" cy="663" r="8"/>
+<line x1="79" y1="670" x2="259" y2="663" stroke="black" />
+<text x="54" y="670">S7</text>
+<circle cx="77" cy="499" r="8"/>
+<circle cx="204" cy="518" r="8"/>
+<line x1="77" y1="499" x2="204" y2="518" stroke="black" />
+<text x="52" y="499">S8</text>
+<circle cx="402" cy="276" r="8"/>
+<circle cx="533" cy="309" r="8"/>
+<line x1="402" y1="276" x2="533" y2="309" stroke="black" />
+<text x="377" y="276">S9</text>
 
 </svg>
