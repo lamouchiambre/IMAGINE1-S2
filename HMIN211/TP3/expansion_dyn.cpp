@@ -34,23 +34,37 @@ int main(int argc, char* argv[])
         for (int j=0; j < nW; j++)
             tabHisto[ImgIn[i*nW+j]] += 1;
     
-    //calcul du seuil
-    int moitiee = nTaille/2;
-    int sum = 0;
-    int indice = -1;
-    while (moitiee > sum)
+    //permiere etape determiner Vo et V1
+    int v0=-1;
+    int v1=-1;
+    for (int i = 0; i < 255; i++)
     {
-        indice++;
-        sum += tabHisto[indice];
+      if (v0 == -1 && tabHisto[i] != 0 )
+      {
+        v0 = i;
+      }
     }
-    int seuil = indice;
-    printf("%d - %d", moitiee, sum);
 
- for (int i=0; i < nH; i++)
-   for (int j=0; j < nW; j++)
-     {
-       if ( ImgIn[i*nW+j] < seuil) ImgOut[i*nW+j]=0; else ImgOut[i*nW+j]=255;
-     }
+    for (int i = 255; i >= 0; i--)
+    {
+      printf("%d - %d\n",i ,tabHisto[i]);
+      if (v1 == -1 && tabHisto[i] != 0 )
+      {
+        printf("je suis la\n");
+        v1 = i;
+      }
+    }
+    printf("v0 : %d | v1 : %d\n", v0, v1);
+    //deuxieme etape determiner les coefficient alpha et beta
+    double beta = (double)(255.0*v0)/(double)(v1-v0);
+    double alpha = (255)/(double)(v1-v0);
+    printf("alpha : %f | beta : %f\n", alpha, beta);
+    for (int i=0; i < nH; i++)
+      for (int j=0; j < nW; j++)
+      {
+        ImgOut[i*nW+j]= (int) (ImgIn[i*nW+j]*alpha + beta);
+        //printf("%i\n",  ImgOut[i*nW+j]);
+      }
 
    ecrire_image_pgm(cNomImgEcrite, ImgOut,  nH, nW);
    free(ImgIn);
