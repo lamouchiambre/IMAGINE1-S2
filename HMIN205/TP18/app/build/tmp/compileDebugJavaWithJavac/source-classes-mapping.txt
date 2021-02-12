@@ -1,0 +1,8 @@
+com/example/tp1_8/MainActivity.java
+ com.example.tp1_8.MainActivity
+com/example/tp1_8/Recherche.java
+ com.example.tp1_8.Recherche
+com/example/tp1_8/Resultats.java
+ com.example.tp1_8.Resultats
+com/example/tp1_8/BuildConfig.java
+ com.example.tp1_8.BuildConfig
