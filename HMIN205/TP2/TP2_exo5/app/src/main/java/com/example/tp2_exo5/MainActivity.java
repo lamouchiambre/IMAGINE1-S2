@@ -1,4 +1,4 @@
-package com.example.tp2_exo4;
+package com.example.tp2_exo5;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     private SensorManager mSensorManager;
+    private Sensor lSensor;
     private Sensor mSensor;
     private TextView valX;
     private TextView valY;
@@ -30,10 +31,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         }
 
+        if (mSensorManager.getDefaultSensor(Sensor.TY) != null) {
+            lSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        }
+
         valX = findViewById(R.id.valX);
         valY = findViewById(R.id.valY);
         valZ = findViewById(R.id.valZ);
-        comment = findViewById(R.id.description);
+        comment = findViewById(R.id.light);
         //valX.setTextColor(Color.parseColor("#FFFFFF"));
 
         boolean supported = mSensorManager.registerListener(

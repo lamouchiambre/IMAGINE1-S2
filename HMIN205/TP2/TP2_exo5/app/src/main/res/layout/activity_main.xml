@@ -33,11 +33,13 @@
         android:textSize="40dp" />
 
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/light"
         android:layout_width="match_parent"
         android:layout_height="573dp"
         android:text="tu fais quoi Dude"
         android:textSize="100dp"
         android:gravity="center"/>
+
+
 
 </LinearLayout>
