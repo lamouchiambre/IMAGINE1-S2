@@ -1,16 +1,22 @@
 package com.example.tp2_exo5;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor lSensor;
@@ -19,20 +25,27 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private TextView valY;
     private TextView valZ;
     private TextView comment;
+    private CameraManager flash;
+    private Boolean estAllumee;
+    private Long currentTime;
+    private Long diffTime;
+    private Long startTime;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        startTime = System.currentTimeMillis();
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        estAllumee = false;
 
         if (mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE) != null) {
             mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         }
 
-        if (mSensorManager.getDefaultSensor(Sensor.TY) != null) {
-            lSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        if(true){
+            flash = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         }
 
         valX = findViewById(R.id.valX);
@@ -54,10 +67,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-            onGyroscopeChanged(event);
+        if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE &&
+                getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            try {
+                onGyroscopeChanged(event);
+            } catch (CameraAccessException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -96,9 +115,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-    public void onGyroscopeChanged(SensorEvent event){
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void onGyroscopeChanged(SensorEvent event) throws CameraAccessException {
         // Récupérer les valeurs du capteur
         float x, y, z;
+
+        String cameraId = flash.getCameraIdList()[0];
+        currentTime = System.currentTimeMillis();
+
         if (event.sensor.getType() == Sensor.TYPE_GYROSCOPE) {
             x = (int) event.values[0];
             y = (int) event.values[1];
@@ -107,47 +131,65 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             String strx = "hh";
             //strx+=x;
 
-            valX.setText("x : "+ x);
+            valX.setText("x : " + x);
             valY.setText("y : " + y);
             valZ.setText("z : " + z);
 
-            if(x>0){
-                valX.setTextColor(Color.rgb(0,255,0));
+            if (x > 0) {
+                valX.setTextColor(Color.rgb(0, 255, 0));
                 comment.setText("Haut");
-            }else {
-                if(x<0) {
+            } else {
+                if (x < 0) {
                     valX.setTextColor(Color.rgb(255, 0, 0));
                     comment.setText("Bas");
-                }else
+                } else
                     valX.setTextColor(Color.rgb(255, 255, 255));
             }
 
-            if(y>0){
-                valY.setTextColor(Color.rgb(0,255,0));
-                if(y*y>x*x){
+            if (y > 0) {
+                valY.setTextColor(Color.rgb(0, 255, 0));
+                if (y * y > x * x) {
                     comment.setText("Droite");
                 }
-            }else {
-                if(y<0) {
-                    valY.setTextColor(Color.rgb(255,0,0));
+            } else {
+                if (y < 0) {
+                    valY.setTextColor(Color.rgb(255, 0, 0));
                     comment.setText("Gauche");
+                } else
+                    valY.setTextColor(Color.rgb(255, 255, 255));
+            }
+
+            if (z > 0) {
+                valZ.setTextColor(Color.rgb(0, 255, 0));
+            } else {
+                if (z < 0) {
+                    valZ.setTextColor(Color.rgb(255, 0, 0));
+                } else
+                    valZ.setTextColor(Color.rgb(255, 255, 255));
+            }
+
+            //startTime = null;
+            diffTime = currentTime - startTime;
+
+
+            if( (x*x + y*y + z*z) > 100 ){
+                startTime = currentTime;
+                startTime = currentTime;
+                estAllumee = !estAllumee;
+                if(estAllumee){
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        flash.setTorchMode(cameraId, true);
+                    }
+                }else{
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        flash.setTorchMode(cameraId,false);
+                    }
                 }
-                else
-                    valY.setTextColor(Color.rgb(255,255,255));
             }
 
-            if(z>0){
-                valZ.setTextColor(Color.rgb(0,255,0));
-            }else {
-                if(z<0){
-                    valZ.setTextColor(Color.rgb(255,0,0));
-                }else
-                    valZ.setTextColor(Color.rgb(255,255,255));
-            }
+        }/**/
 
-        }
     }
-
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         switch (accuracy) {
