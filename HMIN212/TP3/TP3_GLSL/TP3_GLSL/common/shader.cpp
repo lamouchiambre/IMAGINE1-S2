@@ -18,7 +18,8 @@ GLuint load_shaders(const char * vertex_file_path,const char * fragment_file_pat
 
         // Create the shaders
         //*** A completer *************/
-        //use glCreateShader()
+        unsigned int vertexShader;
+        vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
         //**********************/
 
@@ -53,6 +54,8 @@ GLuint load_shaders(const char * vertex_file_path,const char * fragment_file_pat
         //*** A completer *************/
 
         // Compile Vertex Shader
+        glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+        glCompileShader(vertexShader);
 
         printf("Compiling shader : %s\n", vertex_file_path);
         char const * vertex_source_pointer = vertex_shader_code.c_str();
