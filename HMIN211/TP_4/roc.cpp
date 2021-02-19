@@ -71,9 +71,7 @@ int main(int argc, char* argv[])
                     }else
                     {
                         TN[s]++;
-                    }
-                    
-                    
+                    }  
                 }else
                 {
                     if (ImgTmp[i*nW+j] == 0)
@@ -82,22 +80,18 @@ int main(int argc, char* argv[])
                     }else
                     {
                         FN[s]++;
-                    }
-                    
-                }
-                
-                
+                    }   
+                }      
             }
-         }
-        
+         } 
     }
 
     for (int i = 0; i < 256; i++)
     {
         double spe = (double) TP[i]/ (double)(TP[i]+FN[i]);
-        double sen = (double) TN[i]/(double) (TN[i]+FP[i]);
+        double sen = (double) TN[i]/ (double) (TN[i]+FP[i]);
 
-        printf("%i %i %i %i %i %f %f\n",i, TP[i], TN[i], FP[i], FN[i],spe,sen  );
+        printf("%i %i %i %i %i %f %f\n",i, TP[i], TN[i], FP[i], FN[i],spe,1.0-sen);
     }
     
 
