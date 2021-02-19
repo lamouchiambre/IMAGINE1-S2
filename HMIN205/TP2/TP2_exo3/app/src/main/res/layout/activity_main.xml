@@ -9,27 +9,40 @@
     android:layout_gravity="center">
 
     <TextView
-        android:textSize="40dp"
-        android:id="@+id/valY"
+        android:textSize="60dp"
+        android:id="@+id/val"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="valeury" />
+        android:text="accéléromètre"
+        android:gravity="center"/>
 
     <TextView
-        android:textSize="40dp"
+        android:textSize="100dp"
         android:id="@+id/valX"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="valeurx" />
+        android:text="valeurx"
+        android:gravity="center"/>
 
     <TextView
-        android:textSize="40dp"
+        android:textSize="100dp"
+        android:id="@+id/valY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="valeury"
+        android:gravity="center"
+        />
+
+    <TextView
         android:id="@+id/valZ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="valeurz" />
+        android:text="valeurz"
+        android:textSize="100dp"
+        android:gravity="center"
+        />
 
-<!--    <LinearLayout-->
+    <!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:orientation="horizontal"-->

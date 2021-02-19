@@ -58,35 +58,48 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public void onAccelerometerChanged(SensorEvent event){
         // Récupérer les valeurs du capteur
-        float x, y, z;
+        int x, y, z;
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            x = event.values[0];
-            y = event.values[1];
-            z = event.values[2];
+            x = (int) event.values[0];
+            y = (int) event.values[1];
+            z = (int) event.values[2];
 
             String strx = "hh";
             //strx+=x;
 
-            valX.setText("x : "+(int)x);
-            valY.setText("y : " + (int) y);
-            valZ.setText("z : " + (int) z);
+            valX.setText("x : "+ x);
+            valY.setText("y : " + y);
+            valZ.setText("z : " + z);
 
-            if(x>0){
+            if(x > 0){
                 valX.setTextColor(Color.rgb(0,255,0));
             }else {
-                valX.setTextColor(Color.rgb(255,0,0));
+                if ( x < 0)
+                {
+                    valX.setTextColor(Color.rgb(255,0,0));
+                }else {
+                    valX.setTextColor(Color.WHITE);
+                }
             }
 
             if(y>0){
                 valY.setTextColor(Color.rgb(0,255,0));
             }else {
-                valY.setTextColor(Color.rgb(255,0,0));
+                if(y < 0) {
+                    valY.setTextColor(Color.rgb(255, 0, 0));
+                }else{
+                    valY.setTextColor(Color.WHITE);
+                }
             }
 
             if(z>0){
                 valZ.setTextColor(Color.rgb(0,255,0));
             }else {
-                valZ.setTextColor(Color.rgb(255,0,0));
+                if(z < 0) {
+                    valZ.setTextColor(Color.rgb(255, 0, 0));
+                }else{
+                    valZ.setTextColor(Color.WHITE);
+                }
             }
 
         }

@@ -179,10 +179,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 if(estAllumee){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         flash.setTorchMode(cameraId, true);
+                        getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
+
                     }
                 }else{
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         flash.setTorchMode(cameraId,false);
+                        getWindow().getDecorView().setBackgroundColor(Color.BLACK);
                     }
                 }
             }

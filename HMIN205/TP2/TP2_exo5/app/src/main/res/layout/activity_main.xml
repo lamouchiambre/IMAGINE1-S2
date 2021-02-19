@@ -9,19 +9,19 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/valY"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="valeury"
-        android:textSize="40dp" />
-
-    <TextView
         android:id="@+id/valX"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="valeurx"
+        android:textSize="40dp" />
+
+    <TextView
+        android:id="@+id/valY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="valeury"
         android:textSize="40dp" />
 
     <TextView
@@ -36,7 +36,7 @@
         android:id="@+id/light"
         android:layout_width="match_parent"
         android:layout_height="573dp"
-        android:text="tu fais quoi Dude"
+        android:text="  "
         android:textSize="100dp"
         android:gravity="center"/>
 

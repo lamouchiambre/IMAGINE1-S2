@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TP2_exo6</string>
+    <string name="proximity_unavailable">proximitee</string>
+    <string name="proximity">proximity</string>
 </resources>

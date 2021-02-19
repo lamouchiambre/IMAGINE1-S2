@@ -36,7 +36,7 @@
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="573dp"
-        android:text="tu fais quoi Dude"
+        android:text=" "
         android:textSize="100dp"
         android:gravity="center"/>
 
