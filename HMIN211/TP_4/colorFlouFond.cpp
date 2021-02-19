@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
    allocation_tableau(ImgBin, OCTET, nTaille);
    lire_image_pgm(cNomImgBin, ImgBin, nH * nW);
 
-    printf("--------\n");
+    printf("-euh...-------\n");
   int j = 0;
 
    for (int i=nW*3; i < nTaille3-nW*3; i+=3)
@@ -65,7 +65,6 @@ int main(int argc, char* argv[])
             ImgIn[i+3-nW*3+1]
         )/9;
 
-
         int pB = (
             ImgIn[i-3+nW*3+2] +
             ImgIn[i+nW*3+2] +
@@ -77,11 +76,7 @@ int main(int argc, char* argv[])
             ImgIn[i-nW*3+2] +
             ImgIn[i+3-nW*3+2]
         )/9;
-        /*
-        ImgOut[i] = pR;
-        ImgOut[i+1] = pG;
-        ImgOut[i+2] = pB;       //ImgOut[j] = (nR+nG+nB)/3;
-        */
+
         if (ImgBin[j] != 0)
         {
             ImgOut[i] = pR;
@@ -97,19 +92,7 @@ int main(int argc, char* argv[])
         
         j ++;
 
-     }
-
-//    for (int i=0; i < nTaille3; i+=3)
-//      {
-//        nR = ImgIn[i];
-//        nG = ImgIn[i+1];
-//        nB = ImgIn[i+2];
-//        ImgOut[j] = (nR+nG+nB)/3;
-//         //j ++;
-//      }
-
-    //-------------------------------------------//
-
+    }
     
 
    ecrire_image_ppm(cNomImgEcrite, ImgOut,  nH, nW);

@@ -121,7 +121,7 @@ bool Intersectent(seg s1, seg s2){
   long long det_p1p2_p1p3 = (x2-x1)*(y3-y1) - (x3-x1)*(y2-y1);
   long long det_p1p2_p1p4 = (x2-x1)*(y4-y1) - (x4-x1)*(y2-y1);
   long long det_p3p4_p3p1 = (x4-x3)*(y1-y3) - (x1-x3)*(y4-y3);
-  long long det_p3p4_p3p2 = (x4-x3)*(y2-y3) - (x1-x3)*(y2-y3);
+  long long det_p3p4_p3p2 = (x4-x3)*(y2-y3) - (x2-x3)*(y2-y3);
 
   return (det_p1p2_p1p3*det_p1p2_p1p4 <= 0) && (det_p3p4_p3p1*det_p3p4_p3p2 <= 0) ;
 }
@@ -186,45 +186,42 @@ bool Intersection(int n, seg segments[]){
     int nSeg=Pcourant.nSegment;
     seg segCourant=segments[nSeg];
 
-   printf("%d\n", nSeg);
+   printf("seg = %d %c\n", nSeg, Pcourant.extr);
     if(Pcourant.extr=='d'){
-      ordre.insert(segCourant);
+      ordre.insert(segCourant); cout << "insertion de "<< nSeg << endl;
       segPred=ordre.lower_bound(segCourant); 
       segSuiv=ordre.upper_bound(segCourant);
-      segPred--;
-    
-      //segPred--;
-      
-      if((*segSuiv).deb.nSegment < 10 && (*segSuiv).deb.nSegment >= 0){
-        printf("suivant\n");
+
+      //if((*segSuiv).deb.nSegment < 10 && (*segSuiv).deb.nSegment >= 0){
+      if(segSuiv != ordre.end()){
+        //printf("suivant\n");
         if (Intersectent(*segSuiv, segCourant)){
+          printf("0-Intersection en %i %i\n",segCourant.deb.nSegment, (*segSuiv).deb.nSegment);
           return true;
       }
       }
-      if((*segPred).deb.nSegment < 10 && (*segPred).deb.nSegment >= 0){
-        printf("precedent,%i \n", (*segPred).deb.nSegment);
+      //if((*segPred).deb.nSegment < 10 && (*segPred).deb.nSegment >= 0){
+      if (segPred != ordre.begin()){
+        segPred--;
+        //printf("precedent,%i \n", (*segPred).deb.nSegment);
         if(Intersectent(*segPred, segCourant)){
-        return true;
+          printf("1-Intersection en %i %i\n",segCourant.deb.nSegment, (*segPred).deb.nSegment);
+          return true;
+        } 
       }
-      }
-      
-        
+
     }else{
       segPred=ordre.lower_bound(segCourant); 
       segSuiv=ordre.upper_bound(segCourant);
       
-      if((*segPred--).deb.nSegment < 10 && (*segPred).deb.nSegment >= 0 && (*segSuiv).deb.nSegment < 10 && (*segSuiv).deb.nSegment >= 0){
+      if((segSuiv != ordre.end()) && (segPred != ordre.begin())){
+        segPred--;
         if(Intersectent(*segPred,*segSuiv)){
+          printf("2- Intersection en %i %i\n",(*segSuiv).deb.nSegment, (*segPred).deb.nSegment);
         return true;
         }
-        ordre.erase(segCourant);
       }
-      
-      
-      
-    //si p est l’extrémité droite d’un segment Si alors
-    //    siIntersection(AuDessus(T,Si),AuDessous(T,Si))vraiealors retournerOUI;
-    //        Supprimer(T,Si);    
+      ordre.erase(segCourant);  
 
     }
   }
