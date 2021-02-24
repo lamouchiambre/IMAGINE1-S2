@@ -21,14 +21,25 @@ void AffichageEnvConvSVG(int n, point sommet[], vector<point> envconv);
 
 //Generation au hasard de l'ensemble des points
 
+bool estDansDisque(int x, int y){
+  return (x-400)*(x-400) +(y-400)*(y-400) <= 350*350;
+}
 void PointAuHasard(int n, point sommet[]){
   srand(time(NULL));
-  for(int i=0;i<n;i++){
-  //
-  //
-  // A COMPLETER
-  //
-  //
+
+  int i = 0;
+  while (i < n)
+  {
+    int x = rand() % 800;
+    int y = rand() % 800;
+    if (estDansDisque(x,y))
+    {
+      point point;
+      point.abscisse = x;
+      point.ordonnee = y;
+      sommet[i] = point;
+      i++;
+    }
   }
 }
 
@@ -36,14 +47,11 @@ void PointAuHasard(int n, point sommet[]){
 
 //Renvoie vrai si p1 est strictement a droite de la droite p_0p_2
 bool AnglePolaireInferieur(point p0, point p1, point p2){
-  bool p1ADroite=false;
-  //
-  //
-  // A COMPLETER
-  //
-  //
-    {p1ADroite= true;}
-  return p1ADroite;
+  int v_x = p1.abscisse - p0.abscisse;
+  int v_y = p1.ordonnee - p0.ordonnee;
+
+  return (v_x*(p2.ordonnee-p0.ordonnee) - v_y*(p2.abscisse-p0.abscisse) > 0);
+  //return 
 }
 
 //********************************************//
@@ -58,12 +66,8 @@ int ComparePol(const void * p1, const void * p2, void * p0)
   point point2= *(point *)p2;
   point point0= *(point *)p0;
 
-  //
-  //
-  // A COMPLETER
-  //
-  //
-  
+  if( AnglePolaireInferieur(point0,point1,point2)){
+    return -1;}
   return 1;
 }
 
@@ -84,8 +88,9 @@ vector<point>  Graham(int n, point sommet[]){
   for(int i=0;i<n;i++){
     if(sommet[min].ordonnee>sommet[i].ordonnee){min=i;}
   }
-   
+   printf("min %i \n", min);
   point sommetRestants[n-1];
+  int sommetTrier[n-1];
 
   for(int i=0;i<n;i++){
     if(i<min){sommetRestants[i]=sommet[i];}
@@ -94,21 +99,58 @@ vector<point>  Graham(int n, point sommet[]){
 
   TriPol(n,sommetRestants, sommet[min]);
 
+  for (int i = 0; i < n-1; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      if ((sommet[j].ordonnee == sommetRestants[i].ordonnee) && (sommet[j].abscisse == sommetRestants[i].abscisse))
+      {
+        sommetTrier[i] = j;
+      }
+      
+    }
+    
+  }
+
+  for(int i = 0; i < n-1 ; i++){
+    printf( " %i ", sommetTrier[i]);
+  }
+  printf("\n");
+
   envconv.push_back(sommet[min]);
 
   envconv.push_back(sommetRestants[0]);
   envconv.push_back(sommetRestants[1]);
-
+  
   for(int i=2;i<n-1;i++){
-  //
-  //
-  // A COMPLETER
-  //
-  //
-   
+
+    point dernier = envconv.back();
+    envconv.pop_back();
+
+    point avant_dernier = envconv.back();
+    envconv.push_back(dernier);
+
+    while (AnglePolaireInferieur(avant_dernier, sommetRestants[i], dernier))
+    {
+      envconv.pop_back();
+
+      dernier = envconv.back();
+      envconv.pop_back();
+
+      avant_dernier = envconv.back();
+      envconv.push_back(dernier);
+      
+    }
+
+    envconv.push_back(sommetRestants[i]);
+    printf("push back %i\n",i);
+
+   printf("%i\n",i);
   }
 
   envconv.push_back(sommet[min]);
+  printf("taille %li\n", envconv.size());
+  
   return envconv; 
 }
 

@@ -19,54 +19,150 @@ void AffichageEnvConvSVG(int n, point sommet[], list<point> envconv);
 //********************************************//
 
 //Generation au hasard de l'ensemble des points
-
+bool estDansDisque(int x, int y){
+  return (x-400)*(x-400) +(y-400)*(y-400) <= 350*350;
+}
 void PointAuHasard(int n, point sommet[]){
   srand(time(NULL));
-  for(int i=0;i<n;i++){
-    //
-    //
-    // A COMPLETER
-    //
-    //
+
+  int i = 0;
+  while (i < n)
+  {
+    int x = rand() % 800;
+    int y = rand() % 800;
+    if (estDansDisque(x,y))
+    {
+      point point;
+      point.abscisse = x;
+      point.ordonnee = y;
+      sommet[i] = point;
+      i++;
+    }
   }
 }
 
 //********************************************//
 
 //Renvoie Vrai si p2 est strictement a droite de la droite p_0p_1
+
 bool AnglePolaireInferieur(point p0, point p1, point p2){
-    //
-    //
-    // A COMPLETER
-    //
-    //
-  return false;
+  int v_x = p1.abscisse - p0.abscisse;
+  int v_y = p1.ordonnee - p0.ordonnee;
+
+  return (v_x*(p2.ordonnee-p0.ordonnee) - v_y*(p2.abscisse-p0.abscisse) > 0);
 }
+
+//********************************************//
+/*
+list<point>  Jarvis(int n, point sommet[]){
+  list<point> envconv;
+  
+  int min=0; //indice du sommet le plus bas
+
+  envconv.push_back(sommet[min]);
+  
+  
+  int point_courant = min; //indice du point courant
+  bool arret = false;
+  bool flag = true;
+  int k = 1;
+
+    //while (!arret && k < n){
+  printf("avant for \n");
+  for (int i = 0; i < n; i++)
+  {
+    //printf("je suis dans for\n");
+    if (AnglePolaireInferieur(sommet[point_courant], sommet[k], sommet[i]))
+    {
+      flag = false;
+      printf("point %i est à gauche de vect(%i, %i)\n", i, point_courant, k);
+      }
+    
+    //printf("point %i et de vect(%i, %i)\n", i, point_courant, k);
+  }
+  if(flag){
+    arret = true;
+  }
+  k++;
+
+  printf("\n");
+
+  point_courant = k--;
+  envconv.push_back(sommet[point_courant]);
+  return envconv;
+}*/
+
+// bool AnglePolaireInferieur(point p0, point p1, point p2){
+//   int v_x = p1.abscisse - p0.abscisse;
+//   int v_y = p1.ordonnee - p0.ordonnee;
+
+//   return (v_x*p2.ordonnee - v_y*p2.ordonnee) > 0;
+// }
 
 //********************************************//
 
 list<point>  Jarvis(int n, point sommet[]){
   list<point> envconv;
-  
+  int j = 0;
   int min=0; //indice du sommet le plus bas
   for(int i=0;i<n;i++){
-    //
-    //
-    // A COMPLETER
-    //
-    //
+    if (sommet[min].ordonnee > sommet[i].ordonnee)
+    {
+      min = i;
+    }else
+    {
+      if ( (sommet[min].ordonnee == sommet[i].ordonnee) && (sommet[min].abscisse > sommet[i].abscisse))
+      {
+        min = i;
+      }
+
+    }
+
   }
+  printf("min %i\n", min);
+  
   envconv.push_back(sommet[min]);
-  
-  
+
   int point_courant = min; //indice du point courant
+  //int prec = min;
   do{
-    //
-    //
-    // A COMPLETER
-    //
-    //
-  }while(point_courant!=min);
+    int max = 0;
+    
+    // chercher le plus à gauche
+    bool arret = false;
+    bool flag = true;
+    int k = 0;
+    printf("deb_________________\n");
+    while (!arret && k < n){
+      //printf("--------------- \n");
+      flag = true;
+      for (int i = 0; i < n; i++)
+      {
+        if (AnglePolaireInferieur(sommet[point_courant], sommet[k], sommet[i]))
+        {
+          flag = false;
+          //printf("point %i est à gauche de vect(%i, %i)\n", i, point_courant, k);
+        }
+      }
+      
+      if(flag && k != point_courant ){
+        printf("je prends %i\n", k);
+        arret = true;
+      }
+      k++;
+    }
+    printf("fin_________________\n");
+
+    point_courant = k - 1;
+    printf("%li\n", envconv.size());
+    envconv.push_back(sommet[point_courant]);
+
+    j++;
+
+  }while(point_courant != min );
+  
+  //std::cout << envconv << std::endl;
+
   return envconv;
 }
 
