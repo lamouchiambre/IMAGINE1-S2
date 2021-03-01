@@ -81,7 +81,12 @@ int main(int argc, char* argv[])
                     {
                         FN[s]++;
                     }   
-                }      
+                }
+
+                // if (ImgTmp[i*nW+j]==0 && ImgBin[i*nW+j]==0) TP[s]++;
+                // if (ImgTmp[i*nW+j]==0 && ImgBin[i*nW+j]==255) FP[s]++;
+                // if (ImgTmp[i*nW+j]==255 && ImgBin[i*nW+j]==255) TN[s]++;
+                // if (ImgTmp[i*nW+j]==255 && ImgBin[i*nW+j]==0) FN[s]++;      
             }
          } 
     }
@@ -91,7 +96,7 @@ int main(int argc, char* argv[])
         double spe = (double) TP[i]/ (double)(TP[i]+FN[i]);
         double sen = (double) TN[i]/ (double) (TN[i]+FP[i]);
 
-        printf("%i %i %i %i %i %f %f\n",i, TP[i], TN[i], FP[i], FN[i],spe,1.0-sen);
+        printf("%i, TP = %i, TN = %i, FP =  %i, FN =  %i, spe = %f, sen =  %f\n",i, TP[i], TN[i], FP[i], FN[i],spe,1-sen);
     }
     
 
