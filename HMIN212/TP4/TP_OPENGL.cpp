@@ -45,12 +45,7 @@ GLvoid window_display();
 GLvoid window_reshape(GLsizei width, GLsizei height); 
 GLvoid window_key(unsigned char key, int x, int y); 
 
-//structur Point
-// typedef struct {
-//   float  x;
-//   float  y;
-//   float  z;
-// } Point;
+
 //class point
 class Point
 {
@@ -67,6 +62,7 @@ class Point
     Point(float x, float y, float z):x(x), y(y), z(z){
     }
 }; 
+
 //class Vector
 class Vector
 {
@@ -93,7 +89,7 @@ void DrawCurve(Point* TabPointOfCurve, long nbPoint){
   }
   glEnd();
 }
-
+//
 void HermiteCubicCurve(Point P0, Point P1, Vector V0, Vector V1, long nbU, Point* pointTab){
 
   float f1, f2, f3, f4;
@@ -110,16 +106,15 @@ void HermiteCubicCurve(Point P0, Point P1, Vector V0, Vector V1, long nbU, Point
       Point p = Point (f1*P0.x + f2*P1.x + f3*V0.x + f4*V1.x, 
                       f1*P0.y + f2*P1.y + f3*V0.y + f4*V1.y,
                       f1*P0.z + f2*P1.z + f3*V0.z + f4*V1.z);
-      // printf("tapPoint = %f %f %f\n", pointTab[i].x, pointTab[i].y, pointTab[i].z);
-      // printf(" p = %f %f %f\n", p.x, p.y, p.z);
-      // printf("u = %f\n", u);
       pointTab[i] = p;
       u+=pas;
 
   }
-  //return pointTab;
 }
-
+/**
+ * Exercice 2
+ * 
+*/
 //fonction factoriel
 long fact (long x)
 {
@@ -131,6 +126,7 @@ long fact (long x)
 float polyBertstein(float u, long n, long i){
   return (float) (fact(n)/(fact(i)*fact(n-i)))*pow(u,i)*pow(1-u,n-i);
 }
+
 //courbe de bezier
 void BezierCurveByBernstein(Point* TabControlPoint, long nbControlPoint, Point* pointTab, long nbU){
   float u =0;
@@ -165,22 +161,26 @@ void BezierCurveByCasteljau(Point* TabControlPoint, long nbControlPoint, long nb
   Point P[nbControlPoint][nbControlPoint];
       //initalisation
   for(long j = 0; j < nbControlPoint; j++){
-    P[0][j] = TabControlPoint[i];
+    P[0][j] = TabControlPoint[j];
   }
-  for(int j = 0; j < nbU; j++ ){
-    for(long i = 1; i < nbControlPoint-1; i++){
 
-      for(long k= 0 ; k < nbControlPoint ; k++){
-        P[k+1][i] = Point((1-u)*P[k][i].x + u*P[k][i+1].x,
-        (1-u)*P[k][i].y + u*P[k][i+1].y,
-        (1-u)*P[k][i].z + u*P[k][i+1].z);
+
+  for(int j = 0; j < nbU; j++ ){
+    for(long k = 0; k < nbControlPoint-1; k++){
+      for(long i= 0 ; i < nbControlPoint - (k+1) ; i++){
+        P[k+1][i] = Point( 
+           (1.0-u)*P[k][i].x + u*P[k][i+1].x,
+           (1.0-u)*P[k][i].y + u*P[k][i+1].y,
+           (1.0-u)*P[k][i].z + u*P[k][i+1].z);
       }
     }
-    pointTab[i] = P[nbU-1][i];
-    u+=pas;
-  }
+    pointTab[j] = P[nbControlPoint-1][0];
 
+    u+=pas;
+
+  }
 }
+
 int main(int argc, char **argv) 
 {  
   // initialisation  des param�tres de GLUT en fonction
@@ -321,9 +321,10 @@ void render_scene()
   Point pointTab[nbU];
 
 
-  BezierCurveByBernstein(TabControlPoint, nbControlPoint, pointTab, nbU);
+  //BezierCurveByBernstein(TabControlPoint, nbControlPoint, pointTab, nbU);
+  //DrawCurve(pointTab, nbU);
+  BezierCurveByCasteljau(TabControlPoint, nbControlPoint, nbU, pointTab);
   DrawCurve(pointTab, nbU);
-
 
  // cr�ation d'un polygone
 /*	glBegin(GL_POLYGON);
