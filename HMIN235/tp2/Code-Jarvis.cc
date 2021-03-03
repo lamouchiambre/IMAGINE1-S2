@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <math.h> //pour cos() et sin()
 #include <list>
+#include <vector>
 
 using namespace std;
 
@@ -122,7 +123,7 @@ list<point>  Jarvis(int n, point sommet[]){
   printf("min %i\n", min);
   
   envconv.push_back(sommet[min]);
-
+/*
   int point_courant = min; //indice du point courant
   //int prec = min;
   do{
@@ -165,6 +166,91 @@ list<point>  Jarvis(int n, point sommet[]){
 
   return envconv;
 }
+*/
+  int point_courant = min; //indice du point courant
+  //int prec = min;
+  do{
+    int max = 0;
+    
+    // chercher le plus à gauche
+    bool flag = true;
+    int p = 0;
+    if(point_courant == 1){
+      p=2;
+    }else{
+      p=1;
+    }
+    flag = true;
+    for (int i = 0; i < n; i++)
+    {
+      if (AnglePolaireInferieur(sommet[point_courant], sommet[p], sommet[i]))
+      {
+        //flag = false;
+        p=i;
+        
+      }
+    }
+
+    //printf("fin_________________\n");
+
+    point_courant = p;
+    //printf("%li\n", envconv.size());
+    envconv.push_back(sommet[point_courant]);
+
+    j++;
+
+  }while(point_courant != min );
+  //for (list<point>::iterator it=envconv.begin(); it != envconv.end(); ++it)
+    //cout << ' ' << (*it).abscisse << ' '<<(*it).ordonnee<<", ";
+
+  return envconv;
+}
+//********************************************//
+
+// Pelure d'oignon
+
+list<list<point>>  Oignon(int n, point sommet[]){
+  list<list<point>> oignon;
+  
+  bool vide = false;
+  //tant que Q n'est pas vide
+  int n_tmp = n;
+  list<point> envconv;
+  point** p;
+
+  //copy de sommet dans v_sommet
+  vector<point> v_sommet;
+  for(int i = 0; i <n ; i++){
+    v_sommet.push_back(sommet[i]);
+  }
+
+  printf("debut Oignon \n");
+  int iter = 3;
+  while(n_tmp > 0){
+    //envconv = Jarvis(n, sommet);
+    envconv = Jarvis(n_tmp, v_sommet.data());
+    printf("1- n_tmp = %i\n", n_tmp);
+    oignon.push_back(envconv);
+    n_tmp = 1 + n_tmp - (int) envconv.size();
+    printf("2- n_tmp = %i envconv.size = %li\n", n_tmp, envconv.size());
+ 
+    
+    v_sommet.clear();
+    for (list<point>::iterator it=envconv.begin(); it != envconv.end(); ++it)
+      for(int i = 0; i < n; i++){
+        if(sommet[i].abscisse != (*it).abscisse && sommet[i].ordonnee != (*it).ordonnee){
+          v_sommet.push_back(sommet[i]);
+        }
+    }
+    envconv.clear();
+    iter--;
+    
+  }
+  
+
+  //return envconv;
+  return oignon;
+}
 
 //********************************************//
 
@@ -178,6 +264,7 @@ int main(){
   AffichagePointsSVG(n,sommet);
   envconv=Jarvis(n,sommet);
   AffichageEnvConvSVG(n,sommet,envconv);
+  Oignon(n, sommet);
 }
 
 //********************************************//
@@ -262,6 +349,59 @@ void AffichageEnvConvSVG(int n, point sommet[], list<point> envconv){
 
     output <<  "<line x1=\"" << x1 << "\" y1=\"" << y1 << "\" x2=\"" << x2 << "\" y2=\"" << y2
 	   << "\" stroke=\"black\" />"<<endl;
+    }
+  }
+
+  
+  output << "</svg>"<<endl;
+
+  output.close();
+}
+void AffichageOignonSVG(int n, point sommet[], list<list<point>> envconv){
+
+  ofstream output;
+  output.open("oignon.svg");//
+  output << "<?xml version=\"1.0\" encoding=\"utf-8\"?>"<<endl;
+  output << "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"800\" height=\"800\">"<<endl;
+  output << "<title>Points dans le plan</title>"<<endl;
+
+  output << endl;
+
+  output << "<rect width=\"800\" height=\"800\" x=\"0\" y=\"0\" fill=\"white\" />"<<endl;
+  
+  for(int i=0;i<n;i++){
+    int x1=50+ sommet[i].abscisse;
+    int y1=sommet[i].ordonnee; y1=800-y1;
+    int x2=50+ sommet[i].abscisse;
+    int y2=sommet[i].ordonnee; y2=800-y2;
+
+    
+    output << "<circle cx=\"" << x1 << "\" cy=\"" << y1 << "\"" << " r=\"6\"/>" << endl;
+    output << "<circle cx=\"" << x2 << "\" cy=\"" << y2 << "\""  << " r=\"6\"/>" << endl;
+  
+    output << "<text x=\"" << x1-28 << "\" y=\"" << y1 << "\">S" << i << "</text>"<<endl;
+    
+  }
+  output << endl;
+
+  list<list<point>>::iterator oig;
+  for(oig=envconv.begin();oig!=envconv.end();oig++){
+    list<point>::iterator it;
+    for(it=oig.begin();it!=oig.end();it++){
+      
+      list<point>::iterator itsuiv;
+      itsuiv=it; itsuiv++;
+      if(itsuiv!=oig.end()){
+
+      int x1=50+ it->abscisse;
+      int y1=it->ordonnee; y1=800-y1;
+      int x2=50+ itsuiv->abscisse;
+      int y2= itsuiv->ordonnee; y2=800-y2;
+
+
+      output <<  "<line x1=\"" << x1 << "\" y1=\"" << y1 << "\" x2=\"" << x2 << "\" y2=\"" << y2
+      << "\" stroke=\"black\" />"<<endl;
+      }
     }
   }
 

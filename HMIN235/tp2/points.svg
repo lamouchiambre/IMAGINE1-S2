@@ -3,65 +3,65 @@
 <title>Points dans le plan</title>
 
 <rect width="800" height="800" x="0" y="0" fill="white" />
-<circle cx="559" cy="525" r="6"/>
-<circle cx="559" cy="525" r="6"/>
-<text x="531" y="525">S0</text>
-<circle cx="690" cy="311" r="6"/>
-<circle cx="690" cy="311" r="6"/>
-<text x="662" y="311">S1</text>
-<circle cx="262" cy="653" r="6"/>
-<circle cx="262" cy="653" r="6"/>
-<text x="234" y="653">S2</text>
-<circle cx="410" cy="218" r="6"/>
-<circle cx="410" cy="218" r="6"/>
-<text x="382" y="218">S3</text>
-<circle cx="171" cy="464" r="6"/>
-<circle cx="171" cy="464" r="6"/>
-<text x="143" y="464">S4</text>
-<circle cx="490" cy="205" r="6"/>
-<circle cx="490" cy="205" r="6"/>
-<text x="462" y="205">S5</text>
-<circle cx="707" cy="610" r="6"/>
-<circle cx="707" cy="610" r="6"/>
-<text x="679" y="610">S6</text>
-<circle cx="443" cy="542" r="6"/>
-<circle cx="443" cy="542" r="6"/>
-<text x="415" y="542">S7</text>
-<circle cx="617" cy="556" r="6"/>
-<circle cx="617" cy="556" r="6"/>
-<text x="589" y="556">S8</text>
-<circle cx="569" cy="107" r="6"/>
-<circle cx="569" cy="107" r="6"/>
-<text x="541" y="107">S9</text>
-<circle cx="368" cy="517" r="6"/>
-<circle cx="368" cy="517" r="6"/>
-<text x="340" y="517">S10</text>
-<circle cx="442" cy="246" r="6"/>
-<circle cx="442" cy="246" r="6"/>
-<text x="414" y="246">S11</text>
-<circle cx="728" cy="609" r="6"/>
-<circle cx="728" cy="609" r="6"/>
-<text x="700" y="609">S12</text>
-<circle cx="130" cy="316" r="6"/>
-<circle cx="130" cy="316" r="6"/>
-<text x="102" y="316">S13</text>
-<circle cx="379" cy="122" r="6"/>
-<circle cx="379" cy="122" r="6"/>
-<text x="351" y="122">S14</text>
-<circle cx="234" cy="613" r="6"/>
-<circle cx="234" cy="613" r="6"/>
-<text x="206" y="613">S15</text>
-<circle cx="436" cy="339" r="6"/>
-<circle cx="436" cy="339" r="6"/>
-<text x="408" y="339">S16</text>
-<circle cx="591" cy="295" r="6"/>
-<circle cx="591" cy="295" r="6"/>
-<text x="563" y="295">S17</text>
-<circle cx="307" cy="654" r="6"/>
-<circle cx="307" cy="654" r="6"/>
-<text x="279" y="654">S18</text>
-<circle cx="384" cy="471" r="6"/>
-<circle cx="384" cy="471" r="6"/>
-<text x="356" y="471">S19</text>
+<circle cx="663" cy="313" r="6"/>
+<circle cx="663" cy="313" r="6"/>
+<text x="635" y="313">S0</text>
+<circle cx="752" cy="409" r="6"/>
+<circle cx="752" cy="409" r="6"/>
+<text x="724" y="409">S1</text>
+<circle cx="216" cy="239" r="6"/>
+<circle cx="216" cy="239" r="6"/>
+<text x="188" y="239">S2</text>
+<circle cx="436" cy="670" r="6"/>
+<circle cx="436" cy="670" r="6"/>
+<text x="408" y="670">S3</text>
+<circle cx="587" cy="667" r="6"/>
+<circle cx="587" cy="667" r="6"/>
+<text x="559" y="667">S4</text>
+<circle cx="663" cy="422" r="6"/>
+<circle cx="663" cy="422" r="6"/>
+<text x="635" y="422">S5</text>
+<circle cx="385" cy="273" r="6"/>
+<circle cx="385" cy="273" r="6"/>
+<text x="357" y="273">S6</text>
+<circle cx="717" cy="175" r="6"/>
+<circle cx="717" cy="175" r="6"/>
+<text x="689" y="175">S7</text>
+<circle cx="538" cy="207" r="6"/>
+<circle cx="538" cy="207" r="6"/>
+<text x="510" y="207">S8</text>
+<circle cx="599" cy="498" r="6"/>
+<circle cx="599" cy="498" r="6"/>
+<text x="571" y="498">S9</text>
+<circle cx="330" cy="349" r="6"/>
+<circle cx="330" cy="349" r="6"/>
+<text x="302" y="349">S10</text>
+<circle cx="615" cy="617" r="6"/>
+<circle cx="615" cy="617" r="6"/>
+<text x="587" y="617">S11</text>
+<circle cx="531" cy="498" r="6"/>
+<circle cx="531" cy="498" r="6"/>
+<text x="503" y="498">S12</text>
+<circle cx="283" cy="622" r="6"/>
+<circle cx="283" cy="622" r="6"/>
+<text x="255" y="622">S13</text>
+<circle cx="647" cy="242" r="6"/>
+<circle cx="647" cy="242" r="6"/>
+<text x="619" y="242">S14</text>
+<circle cx="574" cy="315" r="6"/>
+<circle cx="574" cy="315" r="6"/>
+<text x="546" y="315">S15</text>
+<circle cx="360" cy="607" r="6"/>
+<circle cx="360" cy="607" r="6"/>
+<text x="332" y="607">S16</text>
+<circle cx="664" cy="656" r="6"/>
+<circle cx="664" cy="656" r="6"/>
+<text x="636" y="656">S17</text>
+<circle cx="171" cy="411" r="6"/>
+<circle cx="171" cy="411" r="6"/>
+<text x="143" y="411">S18</text>
+<circle cx="293" cy="470" r="6"/>
+<circle cx="293" cy="470" r="6"/>
+<text x="265" y="470">S19</text>
 
 </svg>
