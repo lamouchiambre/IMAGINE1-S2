@@ -80,9 +80,14 @@ class Vector
     }
 };
 
-//
+/**
+ * Exercice 1
+ * 
+*/
 void DrawCurve(Point* TabPointOfCurve, long nbPoint){
   glBegin(GL_LINE_STRIP);
+  glColor3f(1.0, 1.0, 1.0);
+  
   for(int i = 0; i < nbPoint; i++){
     Point p = TabPointOfCurve[i];
     glVertex3f(p.x, p.y, p.z);
@@ -111,6 +116,7 @@ void HermiteCubicCurve(Point P0, Point P1, Vector V0, Vector V1, long nbU, Point
 
   }
 }
+
 /**
  * Exercice 2
  * 
@@ -153,7 +159,11 @@ void BezierCurveByBernstein(Point* TabControlPoint, long nbControlPoint, Point* 
 
   }
 }
-//
+
+/**
+ * Exercice 3
+ * 
+*/
 void BezierCurveByCasteljau(Point* TabControlPoint, long nbControlPoint, long nbU, Point* pointTab){
   int i =0;
   float u = 0;
@@ -180,6 +190,38 @@ void BezierCurveByCasteljau(Point* TabControlPoint, long nbControlPoint, long nb
 
   }
 }
+
+void BezierCurveByCasteljau2(Point* TabControlPoint, long nbControlPoint, long nbU, Point* pointTab){
+  int i =0;
+  float u = 0;
+  float pas = (float) 1.0/(nbU-1);
+  Point P[nbControlPoint][nbControlPoint];
+      //initalisation
+  for(long j = 0; j < nbControlPoint; j++){
+    P[0][j] = TabControlPoint[j];
+  }
+
+
+  for(int j = 0; j < nbU; j++ ){
+    for(long k = 0; k < nbControlPoint-1; k++){
+      glBegin(GL_LINE_STRIP);
+      glColor3f(0.0, 1.0, 0.0);
+      for(long i= 0 ; i < nbControlPoint - (k+1) ; i++){
+        P[k+1][i] = Point( 
+           (1.0-u)*P[k][i].x + u*P[k][i+1].x,
+           (1.0-u)*P[k][i].y + u*P[k][i+1].y,
+           (1.0-u)*P[k][i].z + u*P[k][i+1].z);
+           glVertex3f(P[k+1][i].x, P[k+1][i].y, P[k+1][i].z);
+      }
+      glEnd();
+    }
+    pointTab[j] = P[nbControlPoint-1][0];
+
+    u+=pas;
+
+  }
+}
+
 
 int main(int argc, char **argv) 
 {  
@@ -279,7 +321,8 @@ GLvoid window_key(unsigned char key, int x, int y)
 void render_scene()
 {
 //D�finition de la couleur
- glColor3f(1.0, 1.0, 1.0);
+  glLineWidth(1.0);
+  glColor3f(1.0, 1.0, 1.0);
 
   //  Nous cr�ons ici un polygone. Nous pourrions aussi cr�er un triangle ou des lignes. Voir ci-dessous les parties 
   // en commentaires (il faut commenter le bloc qui ne vous int�resse pas et d�commenter celui que vous voulez tester.
@@ -297,18 +340,24 @@ void render_scene()
   // Point tabP[2] = {p1, p2};
   // DrawCurve(tabP, 3);
 
-    
-  // Point P0 = Point(0,0,0);
-  // Point P1 = Point(2,0,0);
-  // Vector V0 = Vector(1,1,0);
-  // Vector V1 = Vector(1,-1,0);
-  // int nbU = 10;
-  // Point tabPoint[nbU];
-  // HermiteCubicCurve(P0, P1, V0, V1, nbU, tabPoint);
-  // for(int i = 0; i< nbU; i++ ){
-  //   printf(" p = %f %f %f\n", tabPoint[i].x, tabPoint[i].y, tabPoint[i].z);
-  // }
-  // DrawCurve(tabPoint, nbU);
+  //Exercice 1
+
+  /*
+    Point P0 = Point(0,0,0);
+    Point P1 = Point(2,0,0);
+    Vector V0 = Vector(1,1,0);
+    Vector V1 = Vector(1,-1,0);
+    int nbU = 10;
+    Point tabPoint[nbU];
+    HermiteCubicCurve(P0, P1, V0, V1, nbU, tabPoint);
+    for(int i = 0; i< nbU; i++ ){
+      printf(" p = %f %f %f\n", tabPoint[i].x, tabPoint[i].y, tabPoint[i].z);
+    }
+    DrawCurve(tabPoint, nbU);
+  */
+
+  
+  /*Premier  jeu de données
   int nbU = 20;
   long nbControlPoint = 5;
   Point P0 = Point(-2,1.0,0.0);
@@ -319,12 +368,45 @@ void render_scene()
   Point TabControlPoint[nbControlPoint] = {P0,P1,P2,P3,P4};
   //Point TabControlPoint2[2] = {P0,P5};
   Point pointTab[nbU];
+  */
 
+/*Deuxieme jeu de données
+  int nbU = 20;
+  long nbControlPoint = 4;
+  Point P0 = Point(-2,1.0,0.0);
+  Point P2 = Point(0.0, 0.5,0.0);
+  Point P3 = Point(0.5, -2.0,0.0);
+  Point P4 = Point(2.0,-2.0,0.0);
+  Point TabControlPoint[nbControlPoint] = {P0,P2,P3,P4};
+  //Point TabControlPoint2[2] = {P0,P5};
+  Point pointTab[nbU];
+  */
 
-  //BezierCurveByBernstein(TabControlPoint, nbControlPoint, pointTab, nbU);
-  //DrawCurve(pointTab, nbU);
-  BezierCurveByCasteljau(TabControlPoint, nbControlPoint, nbU, pointTab);
-  DrawCurve(pointTab, nbU);
+  //Exercice 2 : 
+
+  /*
+    DrawCurve(TabControlPoint, nbControlPoint);
+    BezierCurveByBernstein(TabControlPoint, nbControlPoint, pointTab, nbU);
+    DrawCurve(pointTab, nbU);
+  */
+
+  //Exercice 3 : 
+
+  /* Afficher BezierCurveByCasteljau simplement
+
+    BezierCurveByCasteljau(TabControlPoint, nbControlPoint, nbU, pointTab);
+    DrawCurve(pointTab, nbU);
+
+  */
+ 
+  /* Afficher les étape intermediaire de BezierCurveByCasteljau
+    
+    BezierCurveByCasteljau2(TabControlPoint, nbControlPoint, nbU, pointTab);
+    BezierCurveByCasteljau(TabControlPoint, nbControlPoint, nbU, pointTab);
+    DrawCurve(pointTab, nbU);
+
+  */
+
 
  // cr�ation d'un polygone
 /*	glBegin(GL_POLYGON);
