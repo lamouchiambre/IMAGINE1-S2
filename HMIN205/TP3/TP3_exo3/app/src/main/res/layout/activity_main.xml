@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/layotuPrincipal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView android:id="@+id/User"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compteur = ">
+    </TextView>
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="txt">
+    </TextView>
+
+    <TextView android:id="@+id/nomDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisissez votre nom :">
+    </TextView>
+
+    <EditText android:id="@+id/nom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="18sp">
+    </EditText>
+
+    <TextView android:id="@+id/prenomDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisissez votre prènom :">
+    </TextView>
+
+    <EditText android:id="@+id/prenom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:textSize="18sp">
+    </EditText>
+
+    <TextView android:id="@+id/ageDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisissez votre age :">
+    </TextView>
+
+    <EditText android:id="@+id/age"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:textSize="18sp">
+    </EditText>
+
+    <TextView android:id="@+id/mdpDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisissez votre mot de passe :">
+    </TextView>
+
+    <EditText
+        android:id="@+id/mdp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textSize="18sp">
+    </EditText>
+
+    <TextView android:id="@+id/telDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saisissez votre mot de passe :">
+    </TextView>
+
+    <EditText android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:textSize="18sp">
+    </EditText>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Soumettre"
+        >
+    </Button>
+
+</LinearLayout>
