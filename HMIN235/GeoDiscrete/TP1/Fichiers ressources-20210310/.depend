@@ -1,0 +1,2 @@
+pgm_basic_io.o: pgm_basic_io.c pgm_basic_io.h
+pgm2.o: pgm2.c pgm_basic_io.h
