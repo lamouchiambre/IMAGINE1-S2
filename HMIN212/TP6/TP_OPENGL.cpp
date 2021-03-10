@@ -545,9 +545,9 @@ void render_scene()
 
     long nbControlPoint = 3;
 
-    Point P0 = Point(-2,1.0,0.0);
+    Point P0 = Point(-2, 1.0, 0.0);
     Point P1 = Point(-1.0, 1.0,0.0);
-    Point P2 = Point(0.0, 0.5,0.0);
+    Point P2 = Point(0.0, -1.5,0.0);
     // Point TabControlPoint_1[nbControlPoint] = {P0,P1,P2};
 
     Point P4 = Point(1,2.0,0.0);
@@ -556,10 +556,10 @@ void render_scene()
     
     Point P8 = Point(1,2.0,1.0);
     Point P9 = Point(-1.0, 1.5,1.0);
-    Point P10 = Point(0.0, 0.5,1.0);
+    Point P10 = Point(-3.0, 0.5,2.0);
 
-    long nbU = 10;
-    long nbV = 10;
+    long nbU = 40;
+    long nbV = 40;
 
     Point** GrilleControlPoint = new Point*[nbControlPoint];
     for(int i = 0; i < nbControlPoint; i++){
