@@ -3,9 +3,9 @@ CXX_FLAGS	= -Wall -g -O0 -ansi -pedantic -std=c99
 
 LD_FLAGS 	=
 
-PROGS		= pgm2
+PROGS		= tp1
 
-SOURCES		= pgm_basic_io.c pgm2.c
+SOURCES		= tp1.c pgm_basic_io.c
 
 HEADERS		= pgm_basic_io.c
 

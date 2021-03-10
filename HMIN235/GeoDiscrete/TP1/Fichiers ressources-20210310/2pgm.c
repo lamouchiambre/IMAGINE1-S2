@@ -17,17 +17,20 @@
    with GNU Emacs; see the file COPYING.  If not, write to the Free
    Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  
-  @(#) $Id: pgm2.c,v 1.1 2000/03/21 19:12:20 fiorio Exp $
+  @(#) $Id: 2pgm.c,v 1.2 2000/03/21 20:30:23 fiorio Exp $
  
-  $Log: pgm2.c,v $
+  $Log: 2pgm.c,v $
+  Revision 1.2  2000/03/21 20:30:23  fiorio
+  *** empty log message ***
+
   Revision 1.1  2000/03/21 19:12:20  fiorio
   Initial revision
 
 
 */
 
-#ifndef pgm2_c
-#define pgm2_c
+#ifndef _2pgm_c
+#define _2pgm_c
 
 #include "pgm_basic_io.h"
 
@@ -53,11 +56,10 @@ int main(int argc, const char* argv[])
   }
   else{
     fichier = fopen(argv[1],"w+");
-    FILE * fichier2=fopen("test.pgm","w+");
     if(fichier!=NULL){
-      img     = litPGM(fichier,&w,&h);
+      img = litPGM(stdin,&w,&h);
       if(img!=NULL){
-	if( (fichier2=ecritPGM(stdout,img,w,h)) != NULL ) ret = 0;
+	if( (fichier=ecritPGM(fichier,img,w,h)) != NULL ) ret = 0;
       }
     }
   }

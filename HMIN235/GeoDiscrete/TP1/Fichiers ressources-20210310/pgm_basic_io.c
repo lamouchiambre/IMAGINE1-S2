@@ -44,10 +44,10 @@
 
 /* --------------------------------------------------------------- 
  *  Function litPGM : lit une image au format PGM P5 et la stocke
- *                    dans une matrice d'unsigned char. Réalise
- *                    l'allocation mémoire
+ *                    dans une matrice d'unsigned char. Rï¿½alise
+ *                    l'allocation mï¿½moire
  *
- *  @param FILE* : le fichier contenant l'image (éventuellement stdin)
+ *  @param FILE* : le fichier contenant l'image (ï¿½ventuellement stdin)
  *  @return  int* : le nombre de colonnes (la largeur)
  *  @return  int* : le nombre de lignes (la hauteur)
  *  @return unsigned char* : la matrice contenant l'image
@@ -55,7 +55,7 @@
 unsigned char* litPGM(FILE* f, int* w, int* h)
 {
   char ch[255]; /* chaine tampon pour la lecture dans l'image */
-  int c;        /* caractère pour lire la valeur des pixels  */
+  int c;        /* caractï¿½re pour lire la valeur des pixels  */
   int i=0;      /* i compteur de boucle */
   int s=0;      /* s taille de l'image  */
   unsigned char* ret = NULL;
@@ -64,14 +64,14 @@ unsigned char* litPGM(FILE* f, int* w, int* h)
   if( strncmp(ch,"P5",2)!=0 )  ret=NULL; /* si pas P5 alore ERREUR */
   else{
     fgets(ch,255,f); /* la taille */
-    while(ch[0]=='#')  fgets(ch,255,f); /* lecture éventuelle des
+    while(ch[0]=='#')  fgets(ch,255,f); /* lecture ï¿½ventuelle des
 					   commentaires */
     sscanf(ch,"%d %d",w,h);
     fgets(ch,255,f); /* le fameux 255 */
     s = (*w)*(*h);
     ret = (unsigned char*) malloc(s*sizeof(unsigned char));
     if( (c!=EOF) && (ret!=NULL)){ /* 255 bien lu et l'allocation s'est bien
-				     passée */
+				     passï¿½e */
       i=0;
       while( (i<s) && (c!=EOF)){
 	ret[i++]=(unsigned char) (c = fgetc(f));
@@ -86,11 +86,11 @@ unsigned char* litPGM(FILE* f, int* w, int* h)
 /* --------------------------------------------------------------- 
  *  Function ecritPGM : 
  *
- *  @param FILE* : le fichier dans lequel on écrit (éventuellement stdout)
+ *  @param FILE* : le fichier dans lequel on ï¿½crit (ï¿½ventuellement stdout)
  *  @param unsigned char*: la matrice contenant l'image
  *  @param int : la largeur (nombre de colonnes)
  *  @param int : la hauteur (nombre de lignes)
- *  @return FILE* : NULL si erreur, le fichier dans lequel on a écrit.
+ *  @return FILE* : NULL si erreur, le fichier dans lequel on a ï¿½crit.
  * --------------------------------------------------------------- */
 FILE* ecritPGM(FILE* f, unsigned  char* img, int w, int h)
 {
