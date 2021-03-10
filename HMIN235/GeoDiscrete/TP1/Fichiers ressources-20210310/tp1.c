@@ -54,7 +54,7 @@ int main(int argc, const char* argv[])
     int i = 1;
     int r = 0;
     //printf("i = i");
-    int rayon = 20;
+    int rayon = 32;
 
     // while(r < rayon){
     //     r = img2[x0+i-1+y0*w]+ 1;
@@ -124,19 +124,40 @@ int main(int argc, const char* argv[])
 
     // }
 
+    // img2[x0+y0*w] = 0;
+    // while(r < rayon){
+    //     r = img2[x0+i-1+y0*w]+ 1;
+    //     img2[x0+i+(y0)*w] = r; //img[x0+(y0+i)*w]+ 1; 
+    //     img2[x0+i+(y0-1)*w] = r;
+    //     img[x0+i+(y0)*w] = (unsigned char) r;
+    //     int j = 0;
+    //     int val1 = 0;
+    //     int val2 = 0;
+
+    //     while(j <i && val1 <=rayon ){
+    //         val1= img2[x0+i+(y0-j)*w]+1;
+    //         val2= img2[(x0-1)+i+(y0-(1+j))*w]+1;
+    //         img2[x0+i+(y0-(1+j))*w] = min(val1,val2);
+    //         img[x0+i+(y0-(1+j))*w] = (unsigned char) min(val1,val2);
+    //         j++;
+    //     }
+        
+    //     i++;
+
+    // }
     img2[x0+y0*w] = 0;
     while(r < rayon){
-        r = img2[x0+i-1+y0*w]+ 1;
+        r = img2[x0+i-1+y0*w]+ 3;
         img2[x0+i+(y0)*w] = r; //img[x0+(y0+i)*w]+ 1; 
-        img2[x0+i+(y0-1)*w] = r;
+        //img2[x0+i+(y0-1)*w] = r+1;
         img[x0+i+(y0)*w] = (unsigned char) r;
         int j = 0;
         int val1 = 0;
         int val2 = 0;
 
         while(j <i && val1 <=rayon ){
-            val1= img2[x0+i+(y0-j)*w]+1;
-            val1= img2[(x0-1)+i+(y0-(1+j))*w]+1;
+            val1= img2[x0+i+(y0-j)*w]+3;
+            val2= img2[(x0-1)+i+(y0-j)*w]+4;
             img2[x0+i+(y0-(1+j))*w] = min(val1,val2);
             img[x0+i+(y0-(1+j))*w] = (unsigned char) min(val1,val2);
             j++;
@@ -145,7 +166,17 @@ int main(int argc, const char* argv[])
         i++;
 
     }
-
+    int t = min(w,h)/2;
+    for (int i = 0; i < t; i++)
+    {
+        for(int j = 0; j < i; j++){
+            img[(y0+j)+(x0+i)*w] = img[(x0+i)+(y0-j)*w];
+            img[(y0+j)+(x0-i)*w] = img[(x0+i)+(y0-j)*w];
+            img[(y0-j)+(x0-i)*w] = img[(x0+i)+(y0-j)*w];
+            img[(x0-i)+(y0-j)*w] = img[(x0+i)+(y0-j)*w];
+        }
+    }
+    
 
 
     fichier = fopen("bonjour.pgm","w+");
