@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" height="800">
+<title>Points dans le plan</title>
+
+<rect width="800" height="800" x="0" y="0" fill="white" />
+<circle cx="689" cy="610" r="6"/>
+<circle cx="689" cy="610" r="6"/>
+<text x="661" y="610">S0</text>
+<circle cx="379" cy="720" r="6"/>
+<circle cx="379" cy="720" r="6"/>
+<text x="351" y="720">S1</text>
+<circle cx="430" cy="211" r="6"/>
+<circle cx="430" cy="211" r="6"/>
+<text x="402" y="211">S2</text>
+<circle cx="244" cy="121" r="6"/>
+<circle cx="244" cy="121" r="6"/>
+<text x="216" y="121">S3</text>
+<circle cx="724" cy="483" r="6"/>
+<circle cx="724" cy="483" r="6"/>
+<text x="696" y="483">S4</text>
+<circle cx="369" cy="416" r="6"/>
+<circle cx="369" cy="416" r="6"/>
+<text x="341" y="416">S5</text>
+<circle cx="507" cy="281" r="6"/>
+<circle cx="507" cy="281" r="6"/>
+<text x="479" y="281">S6</text>
+<circle cx="747" cy="448" r="6"/>
+<circle cx="747" cy="448" r="6"/>
+<text x="719" y="448">S7</text>
+<circle cx="738" cy="416" r="6"/>
+<circle cx="738" cy="416" r="6"/>
+<text x="710" y="416">S8</text>
+<circle cx="452" cy="435" r="6"/>
+<circle cx="452" cy="435" r="6"/>
+<text x="424" y="435">S9</text>
+<circle cx="394" cy="212" r="6"/>
+<circle cx="394" cy="212" r="6"/>
+<text x="366" y="212">S10</text>
+<circle cx="380" cy="138" r="6"/>
+<circle cx="380" cy="138" r="6"/>
+<text x="352" y="138">S11</text>
+<circle cx="314" cy="90" r="6"/>
+<circle cx="314" cy="90" r="6"/>
+<text x="286" y="90">S12</text>
+<circle cx="501" cy="342" r="6"/>
+<circle cx="501" cy="342" r="6"/>
+<text x="473" y="342">S13</text>
+<circle cx="640" cy="474" r="6"/>
+<circle cx="640" cy="474" r="6"/>
+<text x="612" y="474">S14</text>
+<circle cx="377" cy="339" r="6"/>
+<circle cx="377" cy="339" r="6"/>
+<text x="349" y="339">S15</text>
+<circle cx="388" cy="584" r="6"/>
+<circle cx="388" cy="584" r="6"/>
+<text x="360" y="584">S16</text>
+<circle cx="555" cy="564" r="6"/>
+<circle cx="555" cy="564" r="6"/>
+<text x="527" y="564">S17</text>
+<circle cx="171" cy="407" r="6"/>
+<circle cx="171" cy="407" r="6"/>
+<text x="143" y="407">S18</text>
+<circle cx="222" cy="513" r="6"/>
+<circle cx="222" cy="513" r="6"/>
+<text x="194" y="513">S19</text>
+
+<line x1="379" y1="720" x2="222" y2="513" stroke="black" />
+<line x1="222" y1="513" x2="171" y2="407" stroke="black" />
+<line x1="171" y1="407" x2="244" y2="121" stroke="black" />
+<line x1="244" y1="121" x2="314" y2="90" stroke="black" />
+<line x1="314" y1="90" x2="380" y2="138" stroke="black" />
+<line x1="380" y1="138" x2="738" y2="416" stroke="black" />
+<line x1="738" y1="416" x2="747" y2="448" stroke="black" />
+<line x1="747" y1="448" x2="689" y2="610" stroke="black" />
+<line x1="689" y1="610" x2="379" y2="720" stroke="black" />
+<line x1="388" y1="584" x2="369" y2="416" stroke="black" />
+<line x1="369" y1="416" x2="377" y2="339" stroke="black" />
+<line x1="377" y1="339" x2="394" y2="212" stroke="black" />
+<line x1="394" y1="212" x2="430" y2="211" stroke="black" />
+<line x1="430" y1="211" x2="507" y2="281" stroke="black" />
+<line x1="507" y1="281" x2="724" y2="483" stroke="black" />
+<line x1="724" y1="483" x2="555" y2="564" stroke="black" />
+<line x1="555" y1="564" x2="388" y2="584" stroke="black" />
+<line x1="640" y1="474" x2="452" y2="435" stroke="black" />
+<line x1="452" y1="435" x2="501" y2="342" stroke="black" />
+<line x1="501" y1="342" x2="640" y2="474" stroke="black" />
+</svg>

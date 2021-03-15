@@ -14,143 +14,34 @@ typedef struct {
   int numero;
 } point;
 
-typedef struct {
-  int  abscisse;
-  int  ordonnee;
-  int nSegment; //numero du segment contenant ce point
-  char extr; // 'd' pour debut de segment, 'f' pour fin de segment
-} pointSeg;
-
-typedef struct {
-    point deb;
-    point fin;
-}seg;
-
 void AffichagePointsSVG(int n, point sommet[]);
 void AffichageEnvConvSVG(int n, point sommet[], vector<point> envconv);
-bool Intersectent(seg s1, seg s2);
-vector<point>  Graham(int n, point sommet[]);
+
 //********************************************//
 
-//Test si un sommet appartien a un ensemble
-bool appartient(point p, vector<point> tab){
-    int i = 0;
-    bool estLa = false;
-
-    while (!estLa && i<tab.size())
-    {
-        if (tab[i].numero == p.numero)
-        {
-            estLa = true;
-        }
-        i++;
-    }
-    return estLa;
-    
-}
-
 //Generation au hasard de l'ensemble des points
+
 bool estDansDisque(int x, int y){
   return (x-400)*(x-400) +(y-400)*(y-400) <= 350*350;
 }
-
-// verifier retourner la liste dans 
-vector<point> liste_sans(vector<point> l1,vector<point> sans){
-  vector<point> ret;
-  for (point p : l1)
-  {
-    bool estLa = false;
-    for (point s : sans)
-    {
-      if(p.numero == s.numero){
-        estLa = true;
-      }
-    }
-    if (!estLa)
-    {
-      ret.push_back(p);
-    }
-    
-  }
-  return ret;
-}
-
 void PointAuHasard(int n, point sommet[]){
-    srand(time(NULL));
+  srand(time(NULL));
 
-    int i = 0;
-    while (i < n)
+  int i = 0;
+  while (i < n)
+  {
+    int x = rand() % 800;
+    int y = rand() % 800;
+    if (estDansDisque(x,y))
     {
-        int x = rand() % 800;
-        int y = rand() % 800;
-        if (estDansDisque(x,y))
-        {
-            point point;
-            point.abscisse = x;
-            point.ordonnee = y;
-            point.numero = i;
-            sommet[i] = point;
-            i++;
-        }
+      point point;
+      point.abscisse = x;
+      point.ordonnee = y;
+      sommet[i] = point;
+      i++;
     }
-    vector<point> point_conv = Graham(n, sommet);
-    vector<seg> G = vector<seg>();
-
-    for(int i = 0; i < point_conv.size()-1; i++){
-        seg a;
-        a.deb = point_conv[i];
-        a.fin = point_conv[i+1];
-        G.push_back(a);
-    }
-    // for (int i = 0; i < n; i++)
-    // {
-    //     if (!appartient(sommet[i], point_conv))
-    //     {   
-    //         int i1 = 0;
-    //         int i2 = 0;
-    //         bool trouver = false;
-    //         seg a1;
-    //         seg a2;
-    //         while (!trouver && i1 < n)
-    //         {
-    //             int s1 = 0;
-    //             int s2 = 0;
-                
-    //             a1.deb = sommet[i];
-    //             a1.fin = sommet[i1];
-
-    //             a2.deb = sommet[i];
-    //             a2.fin = sommet[i2];
-
-    //             while(s2 < n && !trouver){
-    //                 if (!Intersectent(a1,a2)){
-    //                     trouver = true;
-    //                     //s2 = n;
-    //                 }
-    //                 s2++;
-    //             }
-    //             i1++;
-    //             i2++;
-    //         }
-    //         G.push_back(a1);
-    //         G.push_back(a2);
-    //     }
-      
-    // }
-  
-  
-  
-  /*
-  E = ensemble arrete de l'ensemble convexe
-  pour chaque sommet s !(appartient au cycle convexe)
-    pour chaque sommet s1 et s2 tel que s1 != s2
-        si !(E+{ss1, ss2} contient une intersection) 
-            ajouter les arretes ss1 et ss2 dans E
-
-  
-  */
+  }
 }
-
 
 //********************************************//
 
@@ -187,11 +78,12 @@ void TriPol(int n, point sommetRestants[], point p0){
   qsort_r(sommetRestants, n-1, sizeof(point), ComparePol, &p0);
 }
 
+
 //********************************************//
 
 vector<point>  Graham(int n, point sommet[]){
   vector<point> envconv;
-
+  
   int min=0; //indice du sommet le plus bas
   for(int i=0;i<n;i++){
     if(sommet[min].ordonnee>sommet[i].ordonnee){min=i;}
@@ -215,7 +107,9 @@ vector<point>  Graham(int n, point sommet[]){
       {
         sommetTrier[i] = j;
       }
+      
     }
+    
   }
 
   for(int i = 0; i < n-1 ; i++){
@@ -227,7 +121,7 @@ vector<point>  Graham(int n, point sommet[]){
 
   envconv.push_back(sommetRestants[0]);
   envconv.push_back(sommetRestants[1]);
-
+  
   for(int i=2;i<n-1;i++){
 
     point dernier = envconv.back();
@@ -245,6 +139,7 @@ vector<point>  Graham(int n, point sommet[]){
 
       avant_dernier = envconv.back();
       envconv.push_back(dernier);
+      
     }
 
     envconv.push_back(sommetRestants[i]);
@@ -259,74 +154,6 @@ vector<point>  Graham(int n, point sommet[]){
   return envconv; 
 }
 
-
-
-vector<point> Graph(int n, point sommet[]){
-  srand(time(NULL));
-  vector<point> ensconv = Graham(n, sommet);
-  vector<point> v_sommet;
-
-  for (int i = 0; i < n; i++)
-  {
-    v_sommet.push_back(sommet[i]);
-  }
-  seg s1;
-  s1.deb = ensconv[0];
-  s1.fin = ensconv[1];
-  
-  seg s2;
-  s2.deb = ensconv[1];
-  s2.fin = ensconv[2];
-  printf("s1(%i, %i) et s2(%i, %i) intersectent %i\n",s1.deb.numero, s1.fin.numero, s2.deb.numero, s2.fin.numero, Intersectent(s1, s2) );
-  vector<point> other_sommet = liste_sans(v_sommet, ensconv);
-
-  for (point p : other_sommet)
-  {
-    int nb1 = rand() % n;
-    int nb2 = rand() % n;
-
-    //ensconv.push_back(p);
-    //ensconv.push_back(sommet[nb1]);
-
-  }
-  /*
-  Pour chaque point qui n'appartient pas
-  */
-  vector<seg> arete;
-  for (point p : other_sommet){
-    int i = 0;
-    bool stop = false;
-    bool trouver = false;
-    point p1;
-    seg a1;
-    while(i < n && !stop)
-    { 
-      stop = true;
-      p1 = v_sommet[i];
-      a1.deb = p;
-      a1.fin = p1;
-
-      for (seg d : arete)
-      {
-        if(Intersectent(a1,d)){
-          stop = false;
-        }
-      }
-      i++;
-    }
-    // point p0 = v_sommet[0];
-    // v_sommet.erase(v_sommet.begin());
-    // v_sommet.push_back(p0);
-    printf("p = %i, i = %i point = %i, stop = %i\n",p.numero, i, p1.numero, stop);
-    if (stop)
-    {
-      arete.push_back(a1);
-    }
-  }
-  
-  return ensconv;
-}
-
 //********************************************//
 
 int main(){
@@ -337,8 +164,7 @@ int main(){
   
   PointAuHasard(n,sommet);
   AffichagePointsSVG(n,sommet);
-  //envconv=Graham(n,sommet);
-  envconv = Graph(n,sommet);
+  envconv=Graham(n,sommet);
   AffichageEnvConvSVG(n,sommet,envconv);
 }
 
@@ -384,7 +210,6 @@ void AffichagePointsSVG(int n, point sommet[]){
 //Un fichier segments.svg est cree, visualisable avec un visionneur de document ou un navigateur
 
 void AffichageEnvConvSVG(int n, point sommet[], vector<point> envconv){
-
 
   ofstream output;
   output.open("envconv.svg");//
@@ -432,42 +257,4 @@ void AffichageEnvConvSVG(int n, point sommet[], vector<point> envconv){
   output << "</svg>"<<endl;
 
   output.close();
-}
-
-//Intersection 
-//********************************************//
-
-//Renvoie Vrai si les deux segments s1 et s2 s'intersectent
-//Dans un premier temps, on pourra supposer que deux segments ne sont jamais
-//portes par une meme droite
-
-
-bool Intersectent(seg s1, seg s2){
-
-  //conversion en long long pour eviter un depacement d'int.
-  point p1=s1.deb;
-  point p2=s1.fin;
-  point p3=s2.deb;
-  point p4=s2.fin;
-  
-  long long x1= (long long) p1.abscisse;
-  long long x2= (long long) p2.abscisse;
-  long long x3= (long long) p3.abscisse;
-  long long x4= (long long) p4.abscisse;
-
-  long long y1= (long long) p1.ordonnee;
-  long long y2= (long long) p2.ordonnee;
-  long long y3= (long long) p3.ordonnee;
-  long long y4= (long long) p4.ordonnee;
-
-  long long det_p1p2_p1p3 = (x2-x1)*(y3-y1) - (x3-x1)*(y2-y1);
-  long long det_p1p2_p1p4 = (x2-x1)*(y4-y1) - (x4-x1)*(y2-y1);
-  long long det_p3p4_p3p1 = (x4-x3)*(y1-y3) - (x1-x3)*(y4-y3);
-  long long det_p3p4_p3p2 = (x4-x3)*(y2-y3) - (x2-x3)*(y4-y3);//bug derniere ligne
-  //printf("det_p1p2_p1p3 %lli, det_p1p2_p1p4 %lli, det_p3p4_p3p1 %lli, det_p3p4_p3p2 %lli \n",
-  //  det_p1p2_p1p3,
-  //   det_p1p2_p1p4, 
-  //   det_p3p4_p3p1, 
-  //   det_p3p4_p3p2);
-  return (det_p1p2_p1p3*det_p1p2_p1p4 < 0) && (det_p3p4_p3p1*det_p3p4_p3p2 < 0) ;
 }

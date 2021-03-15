@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" height="800">
+<title>Points dans le plan</title>
+
+<rect width="800" height="800" x="0" y="0" fill="white" />
+<circle cx="401" cy="91" r="6"/>
+<circle cx="401" cy="91" r="6"/>
+<text x="373" y="91">S0</text>
+<circle cx="469" cy="253" r="6"/>
+<circle cx="469" cy="253" r="6"/>
+<text x="441" y="253">S1</text>
+<circle cx="228" cy="469" r="6"/>
+<circle cx="228" cy="469" r="6"/>
+<text x="200" y="469">S2</text>
+<circle cx="624" cy="375" r="6"/>
+<circle cx="624" cy="375" r="6"/>
+<text x="596" y="375">S3</text>
+<circle cx="748" cy="449" r="6"/>
+<circle cx="748" cy="449" r="6"/>
+<text x="720" y="449">S4</text>
+<circle cx="629" cy="404" r="6"/>
+<circle cx="629" cy="404" r="6"/>
+<text x="601" y="404">S5</text>
+<circle cx="557" cy="90" r="6"/>
+<circle cx="557" cy="90" r="6"/>
+<text x="529" y="90">S6</text>
+<circle cx="190" cy="238" r="6"/>
+<circle cx="190" cy="238" r="6"/>
+<text x="162" y="238">S7</text>
+<circle cx="544" cy="521" r="6"/>
+<circle cx="544" cy="521" r="6"/>
+<text x="516" y="521">S8</text>
+<circle cx="572" cy="546" r="6"/>
+<circle cx="572" cy="546" r="6"/>
+<text x="544" y="546">S9</text>
+<circle cx="462" cy="100" r="6"/>
+<circle cx="462" cy="100" r="6"/>
+<text x="434" y="100">S10</text>
+<circle cx="391" cy="182" r="6"/>
+<circle cx="391" cy="182" r="6"/>
+<text x="363" y="182">S11</text>
+<circle cx="517" cy="382" r="6"/>
+<circle cx="517" cy="382" r="6"/>
+<text x="489" y="382">S12</text>
+<circle cx="485" cy="434" r="6"/>
+<circle cx="485" cy="434" r="6"/>
+<text x="457" y="434">S13</text>
+<circle cx="501" cy="702" r="6"/>
+<circle cx="501" cy="702" r="6"/>
+<text x="473" y="702">S14</text>
+<circle cx="713" cy="514" r="6"/>
+<circle cx="713" cy="514" r="6"/>
+<text x="685" y="514">S15</text>
+<circle cx="274" cy="467" r="6"/>
+<circle cx="274" cy="467" r="6"/>
+<text x="246" y="467">S16</text>
+<circle cx="550" cy="604" r="6"/>
+<circle cx="550" cy="604" r="6"/>
+<text x="522" y="604">S17</text>
+<circle cx="535" cy="400" r="6"/>
+<circle cx="535" cy="400" r="6"/>
+<text x="507" y="400">S18</text>
+<circle cx="280" cy="284" r="6"/>
+<circle cx="280" cy="284" r="6"/>
+<text x="252" y="284">S19</text>
+
+</svg>

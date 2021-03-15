@@ -2,7 +2,6 @@
 #include <fstream>
 #include <stdlib.h>
 #include <set>
-#include <TP1_prof.h>
 
 using namespace std;
 
@@ -232,22 +231,22 @@ bool Intersection(int n, seg segments[]){
 
 
 
-// int main(){
+int main(){
 
-//  int const n=10;
+ int const n=10;
 
-//  // Le tableau de segments
-//  seg segments[n]={0};
+ // Le tableau de segments
+ seg segments[n]={0};
   
-//   SegmentsAuHasard(n,segments);
-//   AffichageSegmentsSVG(n,segments);
+  SegmentsAuHasard(n,segments);
+  AffichageSegmentsSVG(n,segments);
    
-//   if(Intersection(n,segments)){
-//     cout << "Il y a une intersection." << endl;
-//   }else{
-//     cout <<"Il n'y a pas d'intersection." << endl;
-//   }
-// }
+  if(Intersection(n,segments)){
+    cout << "Il y a une intersection." << endl;
+  }else{
+    cout <<"Il n'y a pas d'intersection." << endl;
+  }
+}
 
 
 
