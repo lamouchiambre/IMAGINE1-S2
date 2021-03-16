@@ -235,8 +235,8 @@ external/glfw-3.1.2/tests/clean: external/glfw-3.1.2/tests/CMakeFiles/tearing.di
 # Target rules for target CMakeFiles/TP3_shaders.dir
 
 # All Build rule for target.
-CMakeFiles/TP3_shaders.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 CMakeFiles/TP3_shaders.dir/all: external/glfw-3.1.2/src/CMakeFiles/glfw.dir/all
+CMakeFiles/TP3_shaders.dir/all: external/CMakeFiles/GLEW_1130.dir/all
 	$(MAKE) -f CMakeFiles/TP3_shaders.dir/build.make CMakeFiles/TP3_shaders.dir/depend
 	$(MAKE) -f CMakeFiles/TP3_shaders.dir/build.make CMakeFiles/TP3_shaders.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/TP3 - Pipeline graphique/TP3 - Pipeline graphique-20210209/TP3_GLSL/build/CMakeFiles" --progress-num=3,4,5 "Built target TP3_shaders"
