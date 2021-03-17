@@ -1,105 +1,95 @@
 turtles-own [
   flockmates         ;; agentset des tortues voisines
   nearest-neighbor   ;; tortue la plus proche
-  sol_pres
-  nearest-sol
 ]
-breed [solitaires solitaire] ;; les solitaires
-breed [oiseaux ouseau]
-
-solitaires-own []
 
 to setup
   clear-all
-  create-oiseaux population
-    [ ;;set color yellow
+  create-turtles population
+    [
       set size 1.5
       setxy random-xcor random-ycor
       set flockmates no-turtles
-      set nearest-neighbor no-turtles
-      set sol_pres nobody
-      set nearest-sol nobody
-      ifelse random-float 1 < (taux_blue * 0.01)
+      set nearest-neighbor nobody
+
+      ifelse random 20 < 10
       [
         set color blue
+      ][
+        set color green
       ]
-      [
-        set color red
-      ]
-  ]
-  create-solitaires taux_solitaire
-  [
-    set size 3
-    setxy random-xcor random-ycor
-    set color orange
-    set shape "airplane"
-;    set flockmates no-turtles
-;    set nearest-neighbor nobody
-;    set sol_pres no-turtles
-;    set nearest-sol nobody
-    ;;set flockmates no-turtles
-    ;;set nearest-neighbor nobody
+
   ]
   reset-ticks
 end
 
 to go
-  ask oiseaux [ flock ] ;; choisir direction
+  ask turtles [ flock-vect ] ;; choisir direction
   ask turtles [ fd 0.5 ] ;; faire un pas
   tick
 end
 
 ;; PROCEDURES TORTUES
 to flock
-  ifelse any? solitaires in-radius 3
-  [
-    rt random 30
-    lt random 30
-  ]
-  [
   find-flockmates
-  ;;find-solitaire
   if any? flockmates
     [ find-nearest-neighbor
       ifelse distance nearest-neighbor < minimum-separation
         [ separate ]
         [ align
           cohere ] ]
-  ]
 end
 
-to flock-vecteur
+to flock-vect
   find-flockmates
   if any? flockmates
-  [find-nearest-neighbor
-    set heading angleFromVect
-    additionvect additionvect alignement coherence eviter
-
+  [
+    find-nearest-neighbor
+    turn-towards angleFromVect vect-direction max-align-turn
   ]
 end
 
-to find-flockmates  ;; trouver les voisins
-  set flockmates other oiseaux in-radius vision with [color = [color] of myself]
+to-report vect-direction
+  let Va multiplyScalarvect 0.5 vect-align
+  let Vs multiplyScalarvect 0.5 vect-separate
+  let Vc multiplyScalarvect 0.5 vect-cohere
+
+  report additionvect Vs additionvect Va Vc
 end
 
-to find-solitaire
-  set sol_pres other solitaires in-radius vision ;;with [color != orange]
+to-report vect-align
+  let x-component sum [dx] of flockmates
+  let y-component sum [dy] of flockmates
+  report (list x-component y-component)
+end
+
+to-report vect-separate
+  let Vs (list 0 0)
+  ifelse nearest-neighbor = nobody [
+    set Vs vectFromAngle heading 0
+  ][
+    set Vs vectFromAngle (towards nearest-neighbor + 180) (1 / distance nearest-neighbor)
+  ]
+  report Vs
+end
+
+to-report vect-cohere
+  let x-component mean [sin (towards myself + 180)] of flockmates
+  let y-component mean [cos (towards myself + 180)] of flockmates
+  report (list x-component y-component)
+end
+
+
+to find-flockmates  ;; trouver les voisins
+  set flockmates other turtles in-radius vision with [color = [color] of myself]
 end
 
 to find-nearest-neighbor ;; voisin le plus proche
   set nearest-neighbor min-one-of flockmates [distance myself]
 end
 
-to find-nearest-sol ;; voisin le plus proche
-  set nearest-sol min-one-of sol_pres [distance myself]
-end
-
 to separate ;;; separation
   turn-away ([heading] of nearest-neighbor) max-separate-turn
-end
-
-to separateS ;;; separation
-  turn-away ([heading] of nearest-sol) max-separate-turn
 end
 
 to align ;;; alignement
@@ -304,7 +294,7 @@ max-separate-turn
 max-separate-turn
 0.0
 20.0
-18.0
+1.0
 0.25
 1
 degrees
@@ -338,36 +328,6 @@ minimum-separation
 0.25
 1
 patches
-HORIZONTAL
-
-SLIDER
-19
-332
-191
-365
-taux_blue
-taux_blue
-0
-population
-78.0
-1
-1
-NIL
-HORIZONTAL
-
-SLIDER
-28
-390
-200
-423
-taux_solitaire
-taux_solitaire
-0
-population
-5.0
-1
-1
-NIL
 HORIZONTAL
 
 @#$#@#$#@

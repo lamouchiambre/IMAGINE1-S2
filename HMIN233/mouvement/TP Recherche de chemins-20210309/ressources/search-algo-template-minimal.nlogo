@@ -98,8 +98,7 @@ to search
   ]
   while [current != nobody][
     ask get-patch current [set pcolor green]
-    set current get-parent current
-  ]
+    set current (get-parent current)]
 end
 
 to search-step
@@ -118,8 +117,13 @@ end
 
 ;; A DEFINIR en fonction des algos
 to-report init-current
-  ;;report (list patch-here 0 patch-here [])
   report (list patch-here 0 nobody [])
+end
+
+to-report dist-patches [p1 p2]
+  let x [pxcor] of p1 - [pxcor] of p2
+  let y [pycor] of p1 - [pycor] of p2
+  report sqrt (x * x + y * y)
 end
 
 ;; peut etre defini de maniere generique
@@ -131,12 +135,23 @@ let aset ([neighbors] of (get-patch current)) with [obstacle = 0]
     let lst1 [self] of aset ;; transformer le set de patche en liste ...
     set lst1 (remove-nodes lst1 out-nodes) ;; supprime les lieux qui ont déjà été visités
     ;; on cree un noeud de recherche
-    let result map [ x -> make-node
+
+    if algorithm = "dijkstra"[
+      let result map [ x -> make-node
                             x
                             (get-val current + 1) ;;0 ;; choisir un critere
                             current ]
                    lst1 ;; make a list of nodes [patch value]
+      report result
+    ]
+    if algorithm = "random-search" [
+      let result map [ x -> make-node
+                            x
+                            0 ;; choisir un critere
+                            current ]
+                   lst1 ;; make a list of nodes [patch value]
     report result
+  ]
   ]
   [
     show (sentence "coincé ;-) ")
@@ -158,7 +173,8 @@ end
 ;; A modifier : ajouter les nouveaux noeuds generes a la liste existante.
 ;; attention a ne pas avoir des doublons
 to-report merge-nodes [lst-new lst-ref]
-  let lst-filter []
+  ;;let lst-filter []
+  let res []
   let cnt 0
   foreach lst-new
   [elem-new ->
@@ -169,9 +185,9 @@ to-report merge-nodes [lst-new lst-ref]
       [set cnt cnt + 1]
     ]
     if cnt = 0
-    [set lst-filter fput elem-new lst-filter]
+    [set res fput elem-new res]
   ]
-  report sentence lst-filter lst-ref
+  report sentence res lst-ref
 end
 
 ;; pour supprimer un noeud de la liste des OUT-NODES
@@ -423,8 +439,8 @@ CHOOSER
 230
 algorithm
 algorithm
-"random-search"
-0
+"random-search" "dijkstra"
+1
 
 @#$#@#$#@
 ## WHAT IS IT?
