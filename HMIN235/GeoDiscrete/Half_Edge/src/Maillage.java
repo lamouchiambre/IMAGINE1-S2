@@ -93,6 +93,20 @@ public class Maillage {
 		
 	}
 	
+	public ArrayList<HEdge> insidence(Vertex s){
+		ArrayList<HEdge> list  = new ArrayList<HEdge>();
+		HEdge eh = s.getEdge();
+		while (eh.getOpposite() != null) {
+			list.add(eh);
+			list.add(eh.getOpposite());
+			eh = eh.getOpposite();
+			for(int i = 0; i <2; i++) {
+				eh = eh.getNext();
+			}
+		}
+		return list;
+	}
+	
 	public ArrayList<Vertex> getSommetFace(Face f){
 		ArrayList<Vertex> sommets = new ArrayList<Vertex>();
 		for(HEdge he : f.getFaces()) {
