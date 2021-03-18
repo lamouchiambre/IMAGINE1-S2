@@ -6,4 +6,4 @@
 
 #include "SourcePath.h"
 
-std::string source_path = "/home/noura/Documents/raytracer-template-master";
+std::string source_path = "/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/test_ray/raytracer-template/raytracer-template";
