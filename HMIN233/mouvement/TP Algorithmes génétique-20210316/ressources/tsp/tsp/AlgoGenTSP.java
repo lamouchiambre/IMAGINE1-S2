@@ -87,20 +87,53 @@ public class AlgoGenTSP{
 		return ind;
 	}
 	
+	public boolean appartient(int tab1[], int n1, int tab2[], int n2){
+		for(int i = 0; i < n1; i ++) {
+			for(int j = 0; j < n2; j++) {
+				if(tab1[i] == tab2[j]) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean sansDoublon(int tab[], int n) {
+		for(int i = 0; i < n; i++) {
+			for(int j = 0; j < n; j++) {
+				if(tab[i] == tab[j] && i != j ) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public Individu croisement(Individu i1, Individu i2) {
 		Individu ind = new Individu();
 		Random random = new Random();
 		int pivot;
-		pivot = random.nextInt(nbVilles - 1);
+		pivot = 1 + random.nextInt(nbVilles - 2);
 		System.out.println("pivot = " + pivot );
 		int chemin[] = new int[nbVilles - 1];
-		for(int i = 0; i < nbVilles-1; i++) {
-			if ( i < pivot ) {
-				chemin[i] = i1.getCheminVille()[i];
-			}else {
-				chemin[i] = i2.getCheminVille()[i];
+		int fin = 0; 
+		do{
+			chemin = new int[nbVilles - 1];
+			for(int i = 0; i < nbVilles-1; i++) {
+				if ( i < pivot ) {
+					chemin[i] = i1.getCheminVille()[i];
+					//System.out.print("*" + chemin[i] + " ");
+				}else {
+					chemin[i] = i2.getCheminVille()[i];
+					//System.out.print("+" + chemin[i] + " ");
+				}
 			}
-		}
+			pivot = (pivot+1)%(nbVilles - 2);
+			fin++;
+			System.out.println("-");
+		}while(sansDoublon(chemin,nbVilles - 1) && fin < (nbVilles - 1)  );
+		//System.out.println("fin while");
 		ind.setCheminVille(chemin);
 		
 		return ind;
@@ -112,7 +145,7 @@ public class AlgoGenTSP{
 		}
 	}
 	
-	public void cycle() {
+	public void cycle(int pr_max) { //ajouter nbmut
 		//result = taillePopulation - (taillePopulation * 30 /100)
 		this.triePopulation();
 		Random random = new Random();
@@ -120,7 +153,7 @@ public class AlgoGenTSP{
 		ArrayList<Individu> new_populations = new ArrayList<Individu>();
 		ArrayList<Individu> best_populations = new ArrayList<Individu>();
 		
-		int nbPolgen = this.getPopulations().size() - (this.getPopulations().size()*30)/100 ;
+		int nbPolgen = this.getPopulations().size() - (this.getPopulations().size()*pr_max)/100 ;
 		int new_N = this.getPopulations().size();
 		
 		int nb_mut = random.nextInt(nbPolgen);
@@ -147,6 +180,13 @@ public class AlgoGenTSP{
 		 
 		 this.setPopulations(new_populations);
 		
+	}
+	public Individu search__sol(int nb_cycle) {
+		for (int i = 0; i < nb_cycle; i++) {
+			cycle(30);
+		}
+		triePopulation();
+		return this.populations.get(0);
 	}
 	
 	public void triePopulation() {

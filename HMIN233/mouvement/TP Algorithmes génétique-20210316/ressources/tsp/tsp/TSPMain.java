@@ -39,10 +39,13 @@ public static void main(String[] args) {
 		System.out.println("croisement de 0 et 1");
 		System.out.println(gen.croisement(gen.getPopulations().get(0), gen.getPopulations().get(1)));
 		System.out.println("cycle");
-		gen.cycle();
+		
+		System.out.println("best solution : " + gen.search__sol(10000));
+
 		for(int i = 0; i < gen.getPopulations().size() ; i++ ) {
 			System.out.println(gen.getPopulations().get(i));
 		}
+		
 		// ....
 	}
 	

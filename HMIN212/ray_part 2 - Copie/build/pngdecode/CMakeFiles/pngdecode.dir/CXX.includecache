@@ -1,0 +1,102 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/png.cpp
+./png.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/png.h
+stdlib.h
+-
+stdexcept
+-
+limits.h
+-
+string.h
+-
+stdio.h
+-
+errno.h
+-
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/png.h
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/pngdec.cpp
+./pngdec.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/pngdec.h
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/pngdec.h
+./png.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/png.h
+./zdec.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zdec.h
+stdio.h
+-
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/pngenc.cpp
+pngenc.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/pngenc.h
+stdlib.h
+-
+stdio.h
+-
+time.h
+-
+string.h
+-
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/pngenc.h
+./png.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/png.h
+./zenc.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zenc.h
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zdec.cpp
+./zdec.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zdec.h
+stdlib.h
+-
+stdio.h
+-
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zdec.h
+./zss.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zss.h
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zenc.cpp
+./zenc.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zenc.h
+stdlib.h
+-
+limits.h
+-
+string.h
+-
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zenc.h
+./zss.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zss.h
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zss.cpp
+stdlib.h
+-
+./zss.h
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zss.h
+string.h
+-
+limits.h
+-
+stdio.h
+-
+
+/mnt/c/Users/lamou/OneDrive/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2 - Copie/pngdecode/zss.h
+
