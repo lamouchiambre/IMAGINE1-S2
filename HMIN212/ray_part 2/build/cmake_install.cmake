@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template
+# Install script for directory: /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/glfw-3.2/cmake_install.cmake")
-  include("/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/pngdecode/cmake_install.cmake")
+  include("/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build/glfw-3.2/cmake_install.cmake")
+  include("/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build/pngdecode/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

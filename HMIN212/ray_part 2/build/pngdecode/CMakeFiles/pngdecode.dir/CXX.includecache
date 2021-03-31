@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/png.cpp
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/png.cpp
 ./png.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/png.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/png.h
 stdlib.h
 -
 stdexcept
@@ -22,11 +22,11 @@ stdio.h
 errno.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/png.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/png.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/pngdec.cpp
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/pngdec.cpp
 ./pngdec.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/pngdec.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/pngdec.h
 string.h
 -
 stdio.h
@@ -34,17 +34,17 @@ stdio.h
 stdlib.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/pngdec.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/pngdec.h
 ./png.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/png.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/png.h
 ./zdec.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zdec.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zdec.h
 stdio.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/pngenc.cpp
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/pngenc.cpp
 pngenc.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/pngenc.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/pngenc.h
 stdlib.h
 -
 stdio.h
@@ -54,27 +54,27 @@ time.h
 string.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/pngenc.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/pngenc.h
 ./png.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/png.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/png.h
 ./zenc.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zenc.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zenc.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zdec.cpp
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zdec.cpp
 ./zdec.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zdec.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zdec.h
 stdlib.h
 -
 stdio.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zdec.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zdec.h
 ./zss.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zss.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zss.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zenc.cpp
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zenc.cpp
 ./zenc.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zenc.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zenc.h
 stdlib.h
 -
 limits.h
@@ -82,15 +82,15 @@ limits.h
 string.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zenc.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zenc.h
 ./zss.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zss.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zss.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zss.cpp
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zss.cpp
 stdlib.h
 -
 ./zss.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zss.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zss.h
 string.h
 -
 limits.h
@@ -98,5 +98,5 @@ limits.h
 stdio.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode/zss.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode/zss.h
 

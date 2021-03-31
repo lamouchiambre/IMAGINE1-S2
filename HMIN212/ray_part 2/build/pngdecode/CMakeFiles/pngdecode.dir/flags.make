@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/deps -I/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/include 
+CXX_INCLUDES = -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/deps" -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/include" 
 

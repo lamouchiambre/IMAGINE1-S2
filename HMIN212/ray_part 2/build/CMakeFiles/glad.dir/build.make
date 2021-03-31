@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template
+CMAKE_SOURCE_DIR = "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build
+CMAKE_BINARY_DIR = "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/glad.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/glad.dir/flags.make
 
 CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.o: CMakeFiles/glad.dir/flags.make
 CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.o: ../glfw-3.2/deps/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.o   -c /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/deps/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.o   -c "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/deps/glad.c"
 
 CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/deps/glad.c > CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/deps/glad.c" > CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.i
 
 CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/deps/glad.c -o CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/deps/glad.c" -o CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.s
 
 # Object files for target glad
 glad_OBJECTS = \
@@ -80,7 +80,7 @@ glad_EXTERNAL_OBJECTS =
 libglad.a: CMakeFiles/glad.dir/glfw-3.2/deps/glad.c.o
 libglad.a: CMakeFiles/glad.dir/build.make
 libglad.a: CMakeFiles/glad.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libglad.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libglad.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/glad.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glad.dir/link.txt --verbose=$(VERBOSE)
 
@@ -94,6 +94,6 @@ CMakeFiles/glad.dir/clean:
 .PHONY : CMakeFiles/glad.dir/clean
 
 CMakeFiles/glad.dir/depend:
-	cd /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/CMakeFiles/glad.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2" "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2" "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build" "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build" "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build/CMakeFiles/glad.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/glad.dir/depend
 

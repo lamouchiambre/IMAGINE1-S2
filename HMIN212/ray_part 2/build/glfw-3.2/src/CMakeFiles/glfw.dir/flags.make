@@ -6,5 +6,5 @@ C_FLAGS = -O3 -DNDEBUG -fPIC   -Wall
 
 C_DEFINES = -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/include -I/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src -I/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/build/glfw-3.2/src 
+C_INCLUDES = -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/include" -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src" -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/build/glfw-3.2/src" 
 

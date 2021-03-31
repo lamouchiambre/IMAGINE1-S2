@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/pngdecode
+# Install script for directory: /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/pngdecode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

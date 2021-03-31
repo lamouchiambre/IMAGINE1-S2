@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/include/GLFW/glfw3.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/include/GLFW/glfw3.h
 stddef.h
 -
 stdint.h
@@ -46,7 +46,7 @@ GL/glext.h
 GL/glu.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/cocoa_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/cocoa_joystick.h
 IOKit/IOKitLib.h
 -
 IOKit/IOCFPlugIn.h
@@ -56,7 +56,7 @@ IOKit/hid/IOHIDLib.h
 IOKit/hid/IOHIDKeys.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/cocoa_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/cocoa_platform.h
 stdint.h
 -
 dlfcn.h
@@ -70,15 +70,15 @@ Carbon/Carbon.h
 ApplicationServices/ApplicationServices.h
 -
 posix_tls.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_tls.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_tls.h
 cocoa_joystick.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/cocoa_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/cocoa_joystick.h
 nsgl_context.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/nsgl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/nsgl_context.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/context.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/context.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 assert.h
 -
 stdio.h
@@ -90,9 +90,9 @@ limits.h
 stdio.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/egl_context.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/egl_context.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 stdio.h
 -
 stdlib.h
@@ -100,13 +100,13 @@ stdlib.h
 assert.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/egl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/egl_context.h
 EGL/eglplatform.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/glx_context.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/glx_context.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 string.h
 -
 stdlib.h
@@ -114,11 +114,11 @@ stdlib.h
 assert.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/glx_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/glx_context.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/init.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/init.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 string.h
 -
 stdlib.h
@@ -128,9 +128,9 @@ stdio.h
 stdarg.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/input.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/input.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 assert.h
 -
 float.h
@@ -138,25 +138,25 @@ float.h
 stdlib.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 glfw_config.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/glfw_config.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/glfw_config.h
 ../include/GLFW/glfw3.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/include/GLFW/glfw3.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/include/GLFW/glfw3.h
 cocoa_platform.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/cocoa_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/cocoa_platform.h
 win32_platform.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/win32_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/win32_platform.h
 x11_platform.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/x11_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/x11_platform.h
 wl_platform.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/wl_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/wl_platform.h
 mir_platform.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/mir_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/mir_platform.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/linux_joystick.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/linux_joystick.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 linux/joystick.h
 -
 sys/types.h
@@ -180,11 +180,11 @@ string.h
 unistd.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/linux_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/linux_joystick.h
 regex.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/mir_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/mir_platform.h
 sys/queue.h
 -
 pthread.h
@@ -194,19 +194,19 @@ dlfcn.h
 mir_toolkit/mir_client_library.h
 -
 posix_tls.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_tls.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_tls.h
 posix_time.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_time.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_time.h
 linux_joystick.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/linux_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/linux_joystick.h
 xkb_unicode.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/xkb_unicode.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/xkb_unicode.h
 egl_context.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/egl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/egl_context.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/monitor.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/monitor.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 assert.h
 -
 math.h
@@ -220,31 +220,31 @@ stdlib.h
 limits.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/nsgl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/nsgl_context.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_time.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_time.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 sys/time.h
 -
 time.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_time.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_time.h
 stdint.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_tls.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_tls.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_tls.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_tls.h
 pthread.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/vulkan.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/vulkan.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 assert.h
 -
 string.h
@@ -252,11 +252,11 @@ string.h
 stdlib.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/wgl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/wgl_context.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/win32_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/win32_joystick.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/win32_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/win32_platform.h
 wctype.h
 -
 windows.h
@@ -272,15 +272,15 @@ dbt.h
 malloc.h
 -
 win32_joystick.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/win32_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/win32_joystick.h
 wgl_context.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/wgl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/wgl_context.h
 egl_context.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/egl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/egl_context.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/window.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/window.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 assert.h
 -
 string.h
@@ -290,7 +290,7 @@ stdlib.h
 float.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/wl_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/wl_platform.h
 wayland-client.h
 -
 xkbcommon/xkbcommon.h
@@ -298,23 +298,23 @@ xkbcommon/xkbcommon.h
 dlfcn.h
 -
 posix_tls.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_tls.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_tls.h
 posix_time.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_time.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_time.h
 linux_joystick.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/linux_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/linux_joystick.h
 xkb_unicode.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/xkb_unicode.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/xkb_unicode.h
 egl_context.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/egl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/egl_context.h
 wayland-relative-pointer-unstable-v1-client-protocol.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/wayland-relative-pointer-unstable-v1-client-protocol.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/wayland-relative-pointer-unstable-v1-client-protocol.h
 wayland-pointer-constraints-unstable-v1-client-protocol.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/wayland-pointer-constraints-unstable-v1-client-protocol.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/wayland-pointer-constraints-unstable-v1-client-protocol.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/x11_init.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/x11_init.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 X11/Xresource.h
 -
 stdlib.h
@@ -328,9 +328,9 @@ stdio.h
 locale.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/x11_monitor.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/x11_monitor.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 limits.h
 -
 stdlib.h
@@ -338,7 +338,7 @@ stdlib.h
 string.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/x11_platform.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/x11_platform.h
 unistd.h
 -
 signal.h
@@ -364,21 +364,21 @@ X11/extensions/Xinerama.h
 X11/extensions/xf86vmode.h
 -
 posix_tls.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_tls.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_tls.h
 posix_time.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/posix_time.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/posix_time.h
 linux_joystick.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/linux_joystick.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/linux_joystick.h
 xkb_unicode.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/xkb_unicode.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/xkb_unicode.h
 glx_context.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/glx_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/glx_context.h
 egl_context.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/egl_context.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/egl_context.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/x11_window.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/x11_window.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 X11/cursorfont.h
 -
 X11/Xmd.h
@@ -398,11 +398,11 @@ errno.h
 assert.h
 -
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/xkb_unicode.c
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/xkb_unicode.c
 internal.h
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/internal.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/internal.h
 
-/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray/raytracer-template/raytracer-template/glfw-3.2/src/xkb_unicode.h
+/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/ray_part 2/glfw-3.2/src/xkb_unicode.h
 
 glfw-3.2/src/glfw_config.h
 
