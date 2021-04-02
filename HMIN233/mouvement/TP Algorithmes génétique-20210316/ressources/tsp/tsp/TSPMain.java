@@ -21,7 +21,7 @@ public static void main(String[] args) {
 		// a vous de jouer !
 		AlgoGenTSP gen = new AlgoGenTSP(distances,nombreVilles);
 		
-		gen.genererPopulationAlea(5);
+		gen.genererPopulationAlea(100);
 		for(int i = 0; i < gen.getPopulations().size() ; i++ ) {
 			System.out.println(gen.getPopulations().get(i));
 		}
@@ -38,15 +38,18 @@ public static void main(String[] args) {
 		System.out.println(gen.getPopulations().get(0));
 		System.out.println("croisement de 0 et 1");
 		System.out.println(gen.croisement(gen.getPopulations().get(0), gen.getPopulations().get(1)));
-		System.out.println("cycle");
-		
-		System.out.println("best solution : " + gen.search__sol(10000));
+		System.out.println("#########################################");
+		System.out.println("-------------SEARCH SOLUTION-------------");
+		System.out.println("#########################################");
+		//gen.cycle(30);
+		//System.out.println("cycle");
+		//gen.cycle(30);
+		System.out.println("best solution : " + gen.search__sol(1000));
 
 		for(int i = 0; i < gen.getPopulations().size() ; i++ ) {
 			System.out.println(gen.getPopulations().get(i));
 		}
-		
-		// ....
+
 	}
 	
 	

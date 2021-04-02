@@ -227,25 +227,77 @@ bool trieShere(Sphere o1, Sphere o2){
 /* ----------  return color, right now shading is approx based      --------- */
 /* ----------  depth                                                --------- */
 vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
-  vec4 color = vec4(0.0,0.0,0.0,0.0);
 
+  GLState::light_ambient  = vec4(lightColor.x, lightColor.y, lightColor.z, 1.0 );
+  GLState::light_diffuse  = vec4(lightColor.x, lightColor.y, lightColor.z, 1.0 );
+  GLState::light_specular = vec4(lightColor.x, lightColor.y, lightColor.z, 1.0 );
+
+  vec4 color = vec4(0.0,0.0,0.0,0.0);
+  Object* o = NULL;
   if(depth > maxDepth){ return color; }
 
   Object::IntersectionValues result;
+  Object::IntersectionValues o_res;
   double min  = std::numeric_limits<double>::infinity();
+  bool inte = false;
+  //std::cout << "------start--------" <<std::endl;
   for (int i = 0; i < sceneObjects.size(); i++)
   {
       result = sceneObjects[i]->intersect(p0,E);
-      //std::cout << result.t << std::endl;
-      //std::cout << result.t << std::endl;
+
       if(result.t < min){
-        color = sceneObjects[i]->shadingValues.color;
         min = result.t;
-      }
+        o_res  = result;
+        inte = true;
+        o = sceneObjects[i];
+        color = sceneObjects[i]->shadingValues.color;
+        }
   }
+   
+
+  if (!inte)
+  {
+    return vec4(1.0,1.0,1.0,1.0);
+  }
+
+  //les vecteurs
+  vec3 vue = normalize(vec3(cameraPosition.x - o_res.P.x  , cameraPosition.y - o_res.P.y, cameraPosition.z  - o_res.P.z));
+  vec3 lum = normalize(vec3(lightPosition.x - o_res.P.x, lightPosition.y - o_res.P.y, lightPosition.z - o_res.P.z));
+  vec3 norm = normalize(vec3(o_res.N.x, o_res.N.y, o_res.N.z));
+  vec3 ray = normalize(vec3(E.x, E.y, E.z));
+
+  color4 material_ambient(o->shadingValues.color.x * o->shadingValues.Ka,
+                          o->shadingValues.color.y * o->shadingValues.Ka,
+                          o->shadingValues.color.z * o->shadingValues.Ka, 1.0 );
+
+  color4 material_diffuse(o->shadingValues.color.x * o->shadingValues.Kd,
+                          o->shadingValues.color.y * o->shadingValues.Kd,
+                          o->shadingValues.color.z * o->shadingValues.Kd, 1.0 );
+
+  color4 material_specular(o->shadingValues.color.x * o->shadingValues.Ks,
+                           o->shadingValues.color.y * o->shadingValues.Ks,
+                           o->shadingValues.color.z * o->shadingValues.Ks, 1.0 );
+
+  float material_shininess = o->shadingValues.Kn;
+
+  color4 ambient_product  = GLState::light_ambient * material_ambient;
+
+  float dot_f = dot(lum, norm) < 0.0 ? 0.0 : dot(lum, norm)>1.0 ? 1.0: dot(lum, norm);
+  color4 diffuse_product = GLState::light_diffuse * material_diffuse * dot_f;
   
+  color4 specular_product = GLState::light_specular * material_specular * pow(std::max(0.0f, dot(reflect(ray, norm), vue)), material_shininess);
+  
+  color = diffuse_product + ambient_product; // + specular_product;
+  
+  
+  color.x = color.x > 1.0 ? 1.0 : color.x;
+  color.y = color.y > 1.0 ? 1.0 : color.y;
+  color.z = color.z > 1.0 ? 1.0 : color.z;
+  color.w = color.w > 1.0 ? 1.0 : color.w;
+  std::cout << color.x << " " << color.y << " " << color.z << " " << color.w << std::endl;
+  //std::cout << min << " - "<< normalize(lum).x << " " << normalize(lum).y <<" " << normalize(lum).z <<" " << "and"<< normalize(norm).x <<" " << normalize(norm).y <<" " << normalize(norm).z << " dot = " << dot_f << std::endl;
+
   return color;
-  
 }
 
 /* -------------------------------------------------------------------------- */
@@ -403,8 +455,6 @@ void initCornellBox(){
   }
 }
 
-
-/* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 void initUnitSphere(){
   cameraPosition = point4( 0.0, 0.0, 10.0, 1.0 );
@@ -413,19 +463,19 @@ void initUnitSphere(){
   
   sceneObjects.clear();
   
-  {
-  sceneObjects.push_back(new Sphere("Diffuse sphere"));
-  Object::ShadingValues _shadingValues;
-  _shadingValues.color = vec4(0.0,0.0,1.0,1.0);
-  _shadingValues.Ka = 0.0;
-  _shadingValues.Kd = 1.0;
-  _shadingValues.Ks = 0.0;
-  _shadingValues.Kn = 16.0;
-  _shadingValues.Kt = 0.0;
-  _shadingValues.Kr = 0.0;
-  sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  }
+  // {
+  // sceneObjects.push_back(new Sphere("Diffuse sphere"));
+  // Object::ShadingValues _shadingValues;
+  // _shadingValues.color = vec4(0.0,0.0,1.0,1.0);
+  // _shadingValues.Ka = 0.0;
+  // _shadingValues.Kd = 1.0;
+  // _shadingValues.Ks = 0.0;
+  // _shadingValues.Kn = 16.0;
+  // _shadingValues.Kt = 0.0;
+  // _shadingValues.Kr = 0.0;
+  // sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+  // sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  // }
     {
   sceneObjects.push_back(new Sphere("sphere 2", vec3(1.0, -1.25, 0.5),0.2));
   Object::ShadingValues _shadingValues;

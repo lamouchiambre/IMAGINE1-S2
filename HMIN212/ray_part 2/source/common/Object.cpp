@@ -12,12 +12,13 @@
 /* -------------------------------------------------------------------------- */
 Object::IntersectionValues Sphere::intersect(vec4 p0, vec4 V){
   IntersectionValues result;
-  //TODO: Ray-sphere setup
-  result.P = p0;
-  result.N = V;
+
+  //this->center;
+  //vec4 norm = center//vec4(p0.x - this->center.x, p0.y - this->center.y, p0.z - this->center.z, 0);
   result.t = raySphereIntersection(p0,V);
+  result.P = p0 +  result.t * V;
   result.ID_ = 1;
-  //std::cout << center.x << " " << center.y << " " << center.z << std::endl;
+  result.N = normalize(result.P - this->center);
   return result;
 }
 
@@ -40,13 +41,10 @@ double Sphere::raySphereIntersection(vec4 p0, vec4 V){
     if (t1 > EPSILON){
       //prendre t1;
       t = t1;
-      //(( t1*V.x - p0.x )*( t1*V.x - p0.x ) + ( t1*V.y - p0.y)*(t1*V.y - p0.y) + (t1*V.z - p0.z)*(t1*V.z - p0.z));
     } else
     {
       if(t1 < EPSILON && t2 > EPSILON){
         t = t2;
-        //(( t2*V.x - p0.x )*( t2*V.x - p0.x ) + ( t2*V.y - p0.y)*(t2*V.y - p0.y) + (t2*V.z - p0.z)*(t2*V.z - p0.z));
-        //std::cout << "t2 " ;
       }
     } 
   }
@@ -61,9 +59,8 @@ Object::IntersectionValues Square::intersect(vec4 p0, vec4 V){
   IntersectionValues result;
   //TODO: Ray-square setup
   result.P = p0;
-  result.N = V;
+  result.N = this->normal;
   result.t = raySquareIntersection(p0,V);
-  
   result.ID_ = 2;
   return result;
 }

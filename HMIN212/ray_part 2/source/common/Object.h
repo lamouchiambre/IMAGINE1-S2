@@ -33,7 +33,7 @@ public:
     typedef struct{
         double t; //distance d'un point de rayon  et l'origine
         vec4 P; //origine du rayon
-        vec4 N; //vecteur directeur
+        vec4 N; //vecteur normal
         int ID_;
         std::string name;
     } IntersectionValues;
