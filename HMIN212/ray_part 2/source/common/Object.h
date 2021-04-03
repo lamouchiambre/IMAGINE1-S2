@@ -28,7 +28,7 @@ public:
         float Kt;
         float Ka;
         float Kr;
-    } ShadingValues; //l'ombre
+    } ShadingValues;
 
     typedef struct{
         double t; //distance d'un point de rayon  et l'origine

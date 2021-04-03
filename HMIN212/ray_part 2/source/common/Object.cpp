@@ -58,9 +58,10 @@ double Sphere::raySphereIntersection(vec4 p0, vec4 V){
 Object::IntersectionValues Square::intersect(vec4 p0, vec4 V){
   IntersectionValues result;
   //TODO: Ray-square setup
-  result.P = p0;
+  
   result.N = this->normal;
   result.t = raySquareIntersection(p0,V);
+  result.P = p0 +  result.t * V;
   result.ID_ = 2;
   return result;
 }

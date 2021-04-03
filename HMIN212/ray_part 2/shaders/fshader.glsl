@@ -31,7 +31,6 @@ void main()
   
   float Kd = max( dot(L, N), 0.0 );
   vec4  diffuse = Kd*DiffuseProduct;
-  
   float Ks = pow( max(dot(V, R), 0.0), Shininess );
   
   //Phong/Blinn used the half angle approx:
@@ -42,7 +41,7 @@ void main()
   if( dot(L, N) < 0.0 ) {
     fragColor = vec4(0.0, 0.0, 0.0, 1.0);
   }else{
-    fragColor = ambient + diffuse + specular;
+    fragColor =  diffuse + specular + ambient;
   }
   
 }
