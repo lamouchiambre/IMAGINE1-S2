@@ -1,6 +1,5 @@
 package tsp;
 
-import java.util.ArrayList;
 import java.util.*;
 
 public class TSPMain{
@@ -8,6 +7,7 @@ public static void main(String[] args) {
 		int nombreVilles = 10;
 		int distances[][] = new int[nombreVilles][nombreVilles];
 		int chemin[] = new int[nombreVilles - 1];
+		Random rand = new Random();
 		// generer les distances entre chaque villes
 		// la ligne (dimension 1) représente la ville de depart
 		// la colonne (dimension 2) représente la ville d'arrive
@@ -23,7 +23,7 @@ public static void main(String[] args) {
 		
 		gen.genererPopulationAlea(100);
 		for(int i = 0; i < gen.getPopulations().size() ; i++ ) {
-			System.out.println(gen.getPopulations().get(i));
+			//System.out.println(gen.getPopulations().get(i));
 		}
 		
 		System.out.println("trie de la population");
@@ -31,25 +31,23 @@ public static void main(String[] args) {
 		gen.triePopulation();
 		
 		for(int i = 0; i < gen.getPopulations().size() ; i++ ) {
-			System.out.println(gen.getPopulations().get(i));
+			//System.out.println(gen.getPopulations().get(i));
 		}
-		System.out.println("mutation de la 0");
-		gen.getPopulations().get(0).mutation();
-		System.out.println(gen.getPopulations().get(0));
-		System.out.println("croisement de 0 et 1");
-		System.out.println(gen.croisement(gen.getPopulations().get(0), gen.getPopulations().get(1)));
+		//System.out.println("mutation de la 0");
+		//gen.getPopulations().get(0).mutation();
+		//System.out.println(gen.getPopulations().get(10));
+		//System.out.println("croisement de 0 et 1");
+		//System.out.println(gen.croisement(gen.getPopulations().get(0), gen.getPopulations().get(1)));
 		System.out.println("#########################################");
 		System.out.println("-------------SEARCH SOLUTION-------------");
 		System.out.println("#########################################");
-		//gen.cycle(30);
-		//System.out.println("cycle");
-		//gen.cycle(30);
-		System.out.println("best solution : " + gen.search__sol(10));
+
+		System.out.println("best solution : " + gen.search__sol(1000));
 
 		for(int i = 0; i < gen.getPopulations().size() ; i++ ) {
-			System.out.println(gen.getPopulations().get(i));
+			//System.out.println(gen.getPopulations().get(i));
 		}
-
+		System.out.println(rand.nextDouble());
 	}
 	
 	

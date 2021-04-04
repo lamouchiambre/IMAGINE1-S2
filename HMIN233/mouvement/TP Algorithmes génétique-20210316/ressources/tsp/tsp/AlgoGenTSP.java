@@ -210,8 +210,7 @@ public class AlgoGenTSP{
 		}
 	}
 	
-	public void cycle(int pr_max) { //ajouter nbmut
-		//result = taillePopulation - (taillePopulation * 30 /100)
+	public void cycle(int pr_max) {
 		//System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		this.triePopulation();
 		Random random = new Random();
@@ -228,7 +227,6 @@ public class AlgoGenTSP{
 		for(int i = 0; i < nbPolgen; i++) {
 			best_populations.add(this.populations.get(i)); 
 			new_populations.add(this.populations.get(i)); 
-			//System.out.println("1- "+this.populations.get(i));
 		}
 		for(int i = 0; i < new_N - (nbPolgen + nb_mut) ; i++) {
 			 int nb1 = random.nextInt(nbPolgen);
@@ -239,29 +237,24 @@ public class AlgoGenTSP{
 			 Individu inf = new Individu();
 			 inf = this.cross(new_populations.get(nb1),new_populations.get(nb2));
 			 new_populations.add(inf);
-			 //System.out.println("3- "+inf);
 		 }
-		//System.out.println("nbPolgen = "+ nbPolgen + " nbMut = " + nb_mut);
 		//on effectue des mutation
-		//System.out.println(" ");
+//		for(int i = 0; i < nb_mut  ; i++) {
+//			 int nb1 = random.nextInt(nbPolgen);
+//			 Individu inf = new Individu();
+//			 inf = best_populations.get(nb1).mutation2();
+//			 new_populations.add(inf);
+//		 }
 		for(int i = 0; i < nb_mut  ; i++) {
-			 int nb1 = random.nextInt(nbPolgen);
-			 Individu inf = new Individu();
-			 inf = best_populations.get(nb1).mutation2();
-			 new_populations.add(inf);
-			 //System.out.println("2- "+inf);
-		 }
-		//System.out.println(" ");
-		 
-		 //System.out.println("new_populations.size() = "+new_populations.size());
-		 //this.setPopulations(this.getPopulations());
+		 int nb1 = random.nextInt(new_populations.size());
+		 Individu inf = new Individu();
+		 inf = new_populations.get(nb1).mutation2();
+		 new_populations.add(inf);
+	 }
+
 		 this.setPopulations(new_populations);
-		 for(Individu ind : this.getPopulations()) {
-			 //System.out.println("g_p = " + ind);
-		 }
-		 //System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-		
 	}
+	
 	public Individu search__sol(int nb_cycle) {
 		for (int i = 0; i < nb_cycle; i++) {
 			cycle(30);
