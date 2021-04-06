@@ -214,6 +214,7 @@ public class AlgoGenTSP{
 		//System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
 		this.triePopulation();
 		Random random = new Random();
+		System.out.println(this.populations.get(0));
 		
 		ArrayList<Individu> new_populations = new ArrayList<Individu>();
 		ArrayList<Individu> best_populations = new ArrayList<Individu>();

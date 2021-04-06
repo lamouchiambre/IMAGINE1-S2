@@ -42,7 +42,7 @@ public static void main(String[] args) {
 		System.out.println("-------------SEARCH SOLUTION-------------");
 		System.out.println("#########################################");
 
-		System.out.println("best solution : " + gen.search__sol(1000));
+		System.out.println("best solution : " + gen.search__sol(10));
 
 		for(int i = 0; i < gen.getPopulations().size() ; i++ ) {
 			//System.out.println(gen.getPopulations().get(i));
