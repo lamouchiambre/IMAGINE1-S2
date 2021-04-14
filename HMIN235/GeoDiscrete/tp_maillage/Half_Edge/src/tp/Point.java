@@ -14,7 +14,7 @@ public class Point {
 
 	@Override
 	public String toString() {
-		return "Point [" + x + ", " + y + ", " + z + "]";
+		return " (" + x + ", " + y + ", " + z + ")";
 	}
 
 	public Point() {

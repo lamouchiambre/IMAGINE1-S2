@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2"
+CMAKE_SOURCE_DIR = "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build"
+CMAKE_BINARY_DIR = "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -148,19 +148,6 @@ glfw: cmake_check_build_system
 glfw/fast:
 	$(MAKE) -f glfw-3.2/src/CMakeFiles/glfw.dir/build.make glfw-3.2/src/CMakeFiles/glfw.dir/build
 .PHONY : glfw/fast
-
-#=============================================================================
-# Target rules for targets named docs
-
-# Build rule for target.
-docs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 docs
-.PHONY : docs
-
-# fast build rule for target.
-docs/fast:
-	$(MAKE) -f glfw-3.2/docs/CMakeFiles/docs.dir/build.make glfw-3.2/docs/CMakeFiles/docs.dir/build
-.PHONY : docs/fast
 
 #=============================================================================
 # Target rules for targets named pngdecode
@@ -348,7 +335,6 @@ help:
 	@echo "... raytracer"
 	@echo "... glad"
 	@echo "... glfw"
-	@echo "... docs"
 	@echo "... pngdecode"
 	@echo "... glfw-3.2/deps/glad.o"
 	@echo "... glfw-3.2/deps/glad.i"

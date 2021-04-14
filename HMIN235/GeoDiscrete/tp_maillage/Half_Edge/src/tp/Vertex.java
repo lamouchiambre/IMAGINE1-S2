@@ -6,11 +6,12 @@ public class Vertex {
 	public Vertex() {
 		// TODO Auto-generated constructor stub
 		this.point = new Point(0,0,0);
-		this.he = new HalfEdge(this);
+		this.he = null;
+				//new HalfEdge(this);
 	}
 	@Override
 	public String toString() {
-		return "Vertex [point=" + point + "]";
+		return "[" + point + "]";
 	}
 	public Vertex(Point p) {
 		// TODO Auto-generated constructor stub

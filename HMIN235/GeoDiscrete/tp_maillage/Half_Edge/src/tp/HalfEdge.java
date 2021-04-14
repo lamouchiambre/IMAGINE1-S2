@@ -13,6 +13,9 @@ public class HalfEdge {
 	}
 	public HalfEdge(Vertex vertex) {
 		// TODO Auto-generated constructor stub
+		if(vertex.he == null ) {
+			vertex.he = this;
+		}
 		this.vertex = vertex;
 		this.opposite = this;
 		this.prev = this;
@@ -20,7 +23,7 @@ public class HalfEdge {
 	}
 	@Override
 	public String toString() {
-		return "HalfEdge [" + vertex + " ==> " + this.opposite.vertex + "]";
+		return  vertex + " ==> " + this.opposite.vertex ;
 	}
 	
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2
+# Install script for directory: /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/glfw-3.2/src/cmake_install.cmake")
-  include("/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/glfw-3.2/docs/cmake_install.cmake")
+  include("/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/glfw-3.2/src/cmake_install.cmake")
 
 endif()
 

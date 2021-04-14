@@ -1,4 +1,4 @@
-# Install script for directory: /home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2/src
+# Install script for directory: /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

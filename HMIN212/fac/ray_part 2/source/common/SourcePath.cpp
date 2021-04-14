@@ -6,4 +6,4 @@
 
 #include "SourcePath.h"
 
-std::string source_path = "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2";
+std::string source_path = "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2";

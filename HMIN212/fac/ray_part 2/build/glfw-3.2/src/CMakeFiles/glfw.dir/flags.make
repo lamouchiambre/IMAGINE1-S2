@@ -6,5 +6,5 @@ C_FLAGS = -O3 -DNDEBUG -fPIC   -Wall
 
 C_DEFINES = -D_GLFW_USE_CONFIG_H
 
-C_INCLUDES = -I"/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2/include" -I"/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2/src" -I"/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/glfw-3.2/src" 
+C_INCLUDES = -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2/include" -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/glfw-3.2/src" -I"/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/glfw-3.2/src" 
 

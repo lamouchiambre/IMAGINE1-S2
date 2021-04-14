@@ -156,11 +156,6 @@ struct Skeleton {
         buildStructure();
     }
 
-
-
-
-
-
     void computeGlobalTransformationParameters( SkeletonTransformation & transfo ) {
         std::vector< Vec3 > & articulationsTransformedPosition = transfo.articulationsTransformedPosition;
         articulationsTransformedPosition.resize( articulations.size() );

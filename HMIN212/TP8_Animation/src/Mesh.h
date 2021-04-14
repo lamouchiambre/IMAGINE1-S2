@@ -59,7 +59,10 @@ struct MeshTriangle {
 
 
 
-
+float projectionP(Vec3 C, Vec3 A, Vec3 u){
+    float norme = ((C.x() - A.x())*u.x() + (C.y() - A.y())*u.y() + (C.z() - A.z())*u.z())/ sqrt(u.x()*u.x() + u.y()*u.y() + u.z()*u.z());
+    return norme;
+}
 class Mesh {
 public:
     std::vector<MeshVertex> V;
@@ -78,17 +81,66 @@ public:
         // you should compute weights for each vertex w.r.t. the skeleton bones
         // so each vertex will have B weights (B = number of bones)
         // these weights shoud be stored in vertex.w:
-
-        for( unsigned int i = 0 ; i < V.size() ; ++i ) {
+        int n = 25;
+        for( unsigned int i = 0 ; i < V.size() ; i++ ) {
             MeshVertex & vertex = V[ i ];
-            for(int j = 0; i < skeleton.bones.size();j++){
-                Vec3 P0 = skeleton.articulations[skeleton.bones[i].joints[0]].p;
-                Vec3 P1 = skeleton.articulations[skeleton.bones[i].joints[1]].p;
-                Vec3 v = P1 - P0;
+            float s_w = 0.0;
+            //printf("##########################################\n");
+            for(int j = 0; j < skeleton.bones.size();j++){
                 
-                Vec3 Vp = Vec3(P0[0], P0[1], P0[2]);
+                Vec3 P0 = skeleton.articulations[skeleton.bones[j].joints[0]].p;
+                Vec3 P1 = skeleton.articulations[skeleton.bones[j].joints[1]].p;
+                /*printf("P0 %f %f %f\n",P0.x(), P0.y(), P0.z());
+                printf("P1 %f %f %f\n",P1.x(), P1.y(), P1.z());
+                */
+                Vec3 vecAB = P1 - P0;
+                Vec3 vecAC = V[i].p - P0;
+                
+                Vec3 vecBA = P0 - P1;
+                Vec3 vecBC = V[i].p - P1;
+
+                //calcule de la projection
+                Vec3 uAB = vecAB;
+                Vec3 uBA = vecBA;
+                uAB.normalize();
+                uBA.normalize();
+                float size_p0C = projectionP(V[i].p, P0, uAB);
+                float size_p1C = projectionP(V[i].p, P1, uBA);
+                /*printf("proj %f \n", size_p0C);*/
+
+                Vec3 VH0 = P0 + Vec3(uAB.x()*size_p0C, uAB.y()*size_p0C, uAB.z()*size_p0C);
+                
+                Vec3 VH1 = P1 + Vec3(uBA.x()*size_p1C, uBA.y()*size_p1C, uBA.z()*size_p1C);
+                float d = 0;
+
+                if (size_p0C < size_p1C)
+                {
+                    if(uAB.dot(vecAB ,vecAC) > 0){
+                        d = 1;
+                    }else{
+                        d = 1 + abs(size_p0C);
+                    }
+                }else
+                {
+                    if (uBA.dot(vecBA, vecBC) > 0)
+                    {
+                        d = 1;
+                    }else
+                    {
+                        d = 1 + abs(size_p1C);
+                    }
+                }
+                s_w += pow(1/d, n);
+                V[i].w.push_back(pow(1/d, n));
+
+                //printf("w%i %f\n", i, V[i].w[j]);
 
             }
+            for (int k = 0; k < V[i].w.size(); k++)
+            {
+                V[i].w[k] /= s_w;
+            }
+            
         }
 
 
@@ -109,18 +161,26 @@ public:
         glEnd ();
     }
 
-    void drawTransformedMesh( SkeletonTransformation const & transfo ) const {
+   void drawTransformedMesh( SkeletonTransformation const & transfo ) const {
         std::vector< Vec3 > newPositions( V.size() );
 
         //---------------------------------------------------//
         //---------------------------------------------------//
         // code to change :
         for( unsigned int i = 0 ; i < V.size() ; ++i ) {
-            Vec3 p = V[i].p;
-
+            Vec3 p = Vec3(0.0, 0.0, 0.0); //V[i].p;
+            //printf("-----------------\n");
+            //printf("P1 %f %f %f\n",p.x(), p.y(), p.z());
             // Indications:
             // you should use the skinning weights to blend the transformations of the vertex position by the bones.
-
+            for (unsigned int j = 0 ; j < V[i].w.size() ; ++j)
+            {
+                Mat3 rotation = transfo.boneTransformations[j].worldSpaceRotation;
+                Vec3 translation = transfo.boneTransformations[j].worldSpaceTranslation;
+                //printf("%f\n",V[i].w[j]);
+                p += V[i].w[j] * (rotation * V[i].p + translation);
+            }
+            //printf("P1 %f %f %f\n",p.x(), p.y(), p.z());
             newPositions[ i ] = p;
         }
         //---------------------------------------------------//
@@ -134,7 +194,7 @@ public:
                 const MeshVertex & v = V[T[i].v[j]];
                 Vec3 p = newPositions[ T[i].v[j] ];
                 glNormal3f (v.n[0], v.n[1], v.n[2]);
-                glVertex3f (v.p[0], v.p[1], v.p[2]);
+                glVertex3f (p[0], p[1], p[2]);
             }
         glEnd ();
     }

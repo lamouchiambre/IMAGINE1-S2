@@ -111,7 +111,7 @@ double Square::raySquareIntersection(vec4 p0, vec4 V){
         double p3 = dot(cd, cp);
         double p4 = dot(da, dp);
 
-        if(!(p1 > EPSILON && p2 > EPSILON && p3 > EPSILON && p4 > EPSILON)){
+        if(!(p1 >= -EPSILON && p2 >= -EPSILON && p3 >= -EPSILON && p4 >= -EPSILON)){
           t = std::numeric_limits< double >::infinity();
         }
 

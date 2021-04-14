@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2"
+CMAKE_SOURCE_DIR = "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build"
+CMAKE_BINARY_DIR = "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/pngdecode/CMakeFiles/progress.marks"
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" 0
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/pngdecode/CMakeFiles/progress.marks"
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/clean
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/preinstall
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/preinstall
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 pngdecode/CMakeFiles/pngdecode.dir/rule:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/CMakeFiles/pngdecode.dir/rule
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f CMakeFiles/Makefile2 pngdecode/CMakeFiles/pngdecode.dir/rule
 .PHONY : pngdecode/CMakeFiles/pngdecode.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ pngdecode: pngdecode/CMakeFiles/pngdecode.dir/rule
 
 # fast build rule for target.
 pngdecode/fast:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/build
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/build
 .PHONY : pngdecode/fast
 
 png.o: png.cpp.o
@@ -131,7 +131,7 @@ png.o: png.cpp.o
 
 # target to build an object file
 png.cpp.o:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/png.cpp.o
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/png.cpp.o
 .PHONY : png.cpp.o
 
 png.i: png.cpp.i
@@ -140,7 +140,7 @@ png.i: png.cpp.i
 
 # target to preprocess a source file
 png.cpp.i:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/png.cpp.i
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/png.cpp.i
 .PHONY : png.cpp.i
 
 png.s: png.cpp.s
@@ -149,7 +149,7 @@ png.s: png.cpp.s
 
 # target to generate assembly for a file
 png.cpp.s:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/png.cpp.s
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/png.cpp.s
 .PHONY : png.cpp.s
 
 pngdec.o: pngdec.cpp.o
@@ -158,7 +158,7 @@ pngdec.o: pngdec.cpp.o
 
 # target to build an object file
 pngdec.cpp.o:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngdec.cpp.o
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngdec.cpp.o
 .PHONY : pngdec.cpp.o
 
 pngdec.i: pngdec.cpp.i
@@ -167,7 +167,7 @@ pngdec.i: pngdec.cpp.i
 
 # target to preprocess a source file
 pngdec.cpp.i:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngdec.cpp.i
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngdec.cpp.i
 .PHONY : pngdec.cpp.i
 
 pngdec.s: pngdec.cpp.s
@@ -176,7 +176,7 @@ pngdec.s: pngdec.cpp.s
 
 # target to generate assembly for a file
 pngdec.cpp.s:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngdec.cpp.s
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngdec.cpp.s
 .PHONY : pngdec.cpp.s
 
 pngenc.o: pngenc.cpp.o
@@ -185,7 +185,7 @@ pngenc.o: pngenc.cpp.o
 
 # target to build an object file
 pngenc.cpp.o:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngenc.cpp.o
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngenc.cpp.o
 .PHONY : pngenc.cpp.o
 
 pngenc.i: pngenc.cpp.i
@@ -194,7 +194,7 @@ pngenc.i: pngenc.cpp.i
 
 # target to preprocess a source file
 pngenc.cpp.i:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngenc.cpp.i
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngenc.cpp.i
 .PHONY : pngenc.cpp.i
 
 pngenc.s: pngenc.cpp.s
@@ -203,7 +203,7 @@ pngenc.s: pngenc.cpp.s
 
 # target to generate assembly for a file
 pngenc.cpp.s:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngenc.cpp.s
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/pngenc.cpp.s
 .PHONY : pngenc.cpp.s
 
 zdec.o: zdec.cpp.o
@@ -212,7 +212,7 @@ zdec.o: zdec.cpp.o
 
 # target to build an object file
 zdec.cpp.o:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zdec.cpp.o
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zdec.cpp.o
 .PHONY : zdec.cpp.o
 
 zdec.i: zdec.cpp.i
@@ -221,7 +221,7 @@ zdec.i: zdec.cpp.i
 
 # target to preprocess a source file
 zdec.cpp.i:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zdec.cpp.i
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zdec.cpp.i
 .PHONY : zdec.cpp.i
 
 zdec.s: zdec.cpp.s
@@ -230,7 +230,7 @@ zdec.s: zdec.cpp.s
 
 # target to generate assembly for a file
 zdec.cpp.s:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zdec.cpp.s
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zdec.cpp.s
 .PHONY : zdec.cpp.s
 
 zenc.o: zenc.cpp.o
@@ -239,7 +239,7 @@ zenc.o: zenc.cpp.o
 
 # target to build an object file
 zenc.cpp.o:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zenc.cpp.o
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zenc.cpp.o
 .PHONY : zenc.cpp.o
 
 zenc.i: zenc.cpp.i
@@ -248,7 +248,7 @@ zenc.i: zenc.cpp.i
 
 # target to preprocess a source file
 zenc.cpp.i:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zenc.cpp.i
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zenc.cpp.i
 .PHONY : zenc.cpp.i
 
 zenc.s: zenc.cpp.s
@@ -257,7 +257,7 @@ zenc.s: zenc.cpp.s
 
 # target to generate assembly for a file
 zenc.cpp.s:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zenc.cpp.s
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zenc.cpp.s
 .PHONY : zenc.cpp.s
 
 zss.o: zss.cpp.o
@@ -266,7 +266,7 @@ zss.o: zss.cpp.o
 
 # target to build an object file
 zss.cpp.o:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zss.cpp.o
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zss.cpp.o
 .PHONY : zss.cpp.o
 
 zss.i: zss.cpp.i
@@ -275,7 +275,7 @@ zss.i: zss.cpp.i
 
 # target to preprocess a source file
 zss.cpp.i:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zss.cpp.i
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zss.cpp.i
 .PHONY : zss.cpp.i
 
 zss.s: zss.cpp.s
@@ -284,7 +284,7 @@ zss.s: zss.cpp.s
 
 # target to generate assembly for a file
 zss.cpp.s:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zss.cpp.s
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(MAKE) -f pngdecode/CMakeFiles/pngdecode.dir/build.make pngdecode/CMakeFiles/pngdecode.dir/zss.cpp.s
 .PHONY : zss.cpp.s
 
 # Help Target
@@ -325,6 +325,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/home/e20160018322/Bureau/IMAGINE1-s2/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
