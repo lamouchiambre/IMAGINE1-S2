@@ -7,6 +7,8 @@
 
 #include "common.h"
 #include "SourcePath.h"
+#include <math.h> 
+#include <time.h>
 
 using namespace Angel;
 
@@ -15,7 +17,7 @@ typedef vec4  point4;
 
 
 //Scene variables
-enum{_SPHERE, _SQUARE, _BOX};
+enum{_SPHERE, _SQUARE, _BOX, _OFF};
 int scene = _SPHERE; //Simple sphere, square or cornell box
 std::vector < Object * > sceneObjects;
 point4 lightPosition;
@@ -236,6 +238,8 @@ bool trieShere(Sphere o1, Sphere o2){
   return true;
 }
 
+/*--------------------------------------------------------------------------- */
+
 /* -------------------------------------------------------------------------- */
 /* ----------  cast Ray = p0 + t*dir and intersect with sphere      --------- */
 /* ----------  return color, right now shading is approx based      --------- */
@@ -245,7 +249,8 @@ vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
   //GLState::light_ambient  = vec4(lightColor.x, lightColor.y, lightColor.z, 1.0 );
   //GLState::light_diffuse  = vec4(lightColor.x, lightColor.y, lightColor.z, 1.0 );
   //GLState::light_specular = vec4(lightColor.x, lightColor.y, lightColor.z, 1.0 );
-
+  
+  srand(time(NULL));
   vec4 color = vec4(0.0,0.0,0.0,0.0);
   Object* o = NULL;
   if(depth > maxDepth){ return color; }
@@ -287,33 +292,75 @@ vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
   float ez = pow(inter_lum.z - o_res.P.z,2);
 
   //calcule ombres
-  Object* o2 = NULL;
-  bool trouver = false;
-  Object::IntersectionValues result2;
-  Object::IntersectionValues o_res2;
-  double min2  = std::numeric_limits<double>::infinity();
-  for (int i = 0; i < sceneObjects.size(); i++)
+  vec4 shadow = vec4(0.0, 0.0, 0.0, 1.0);
+  int nb_shadow = 20;
+  for (int i = 0; i < nb_shadow; i++)
   {
-      // result2 = sceneObjects[i]->intersect(lightPosition, normalize(o_res.P - lightPosition) );
-      // if(result2.t < min2){
-      //   o_res2  = result2;
-      //   o2 = sceneObjects[i];
-      //   min2 = result2.t;
-      //   }
-      result2 = sceneObjects[i]->intersect(o_res.P, normalize(lightPosition - o_res.P));
-        if(result2.t < min2){
-          trouver == true;
-          o_res2  = result2;
-          o2 = sceneObjects[i];
-          min2 = result2.t;
-          }
+    //std::cout <<"-----"<<std::endl;
+    //std::cout<<lightPosition<<std::endl;
+    vec4 lum_div = vec4(lightPosition.x + (rand()%100/500.0)  , lightPosition.y + (rand()%100/500.0), lightPosition.z + (rand()%100/500.0), lightPosition.w);
+    //std::cout<<lum_div<<std::endl;
+    Object* o2 = NULL;
+    bool trouver = false;
+    Object::IntersectionValues result2;
+    Object::IntersectionValues o_res2;
+    double min2  = std::numeric_limits<double>::infinity();
+    for (int i = 0; i < sceneObjects.size(); i++)
+    {
+          result2 = sceneObjects[i]->intersect(lum_div, normalize( o_res.P - lum_div ));
+
+          if(result2.t < min2){
+            trouver = true;
+            o_res2  = result2;
+            o2 = sceneObjects[i];
+            min2 = result2.t;
+            }
+    }
+    float taille = pow(pow((lum_div.x - o_res.P.x), 2) + pow((lum_div.y - o_res.P.y), 2) + pow((lum_div.z - o_res.P.z),2), 0.5);
+
+    if ( (min2 <= taille - 0.5 ) )
+    {
+      //std::cout<< "o_res2.name : " << o2->name << " o.name :" << o->name << " | " << min2 << " - " <<taille <<std::endl;
+      //std::cout << " blbl : " << (float)(1.0/nb_shadow) << std::endl;
+      shadow += vec4((float)(1.0/(nb_shadow)), (float) (1.0/(nb_shadow)), (float) (1.0/(nb_shadow)), 0);
+      
+      //return o2->shadingValues.color;
+      //return vec4(0.0, 0.0, 0.0, 0.0);
+    }
   }
-  float taille = pow(pow((lightPosition.x - o_res.P.x), 2) + pow((lightPosition.y - o_res.P.y), 2) + pow((lightPosition.z - o_res.P.z),2), 0.5);
-  std::cout<< min2 <<" "<< o2->name <<std::endl;
-  if ( trouver )
-  {
-    return vec4(0.0, 0.0, 0.0, 1.0);
-  }
+  //std::cout<< "-------------" <<std::endl;
+  //std::cout<< shadow <<std::endl;
+  shadow*=0.1;
+  //std::cout<< shadow <<std::endl;
+  shadow.w = 1;
+  //std::cout<< shadow.x << " , " << shadow.y << " , " << shadow.z <<std::endl;
+  
+  // Object* o2 = NULL;
+  // bool trouver = false;
+  // Object::IntersectionValues result2;
+  // Object::IntersectionValues o_res2;
+  // double min2  = std::numeric_limits<double>::infinity();
+  // for (int i = 0; i < sceneObjects.size(); i++)
+  // {
+  //       result2 = sceneObjects[i]->intersect(lightPosition, normalize( o_res.P - lightPosition ));
+
+  //       if(result2.t < min2){
+  //         trouver = true;
+  //         o_res2  = result2;
+  //         o2 = sceneObjects[i];
+  //         min2 = result2.t;
+  //         }
+  // }
+  // float taille = pow(pow((lightPosition.x - o_res.P.x), 2) + pow((lightPosition.y - o_res.P.y), 2) + pow((lightPosition.z - o_res.P.z),2), 0.5);
+
+  // if ( (min2 <= taille - 0.5 ) )
+  // {
+  //   //std::cout<< "o_res2.name : " << o2->name << " o.name :" << o->name << " | " << min2 << " - " <<taille <<std::endl;
+  //   std::cout<<p0.x<<" "<<p0.y << " " << p0.z <<std::endl;
+  //   gridShadow(p0);
+  //   return o2->shadingValues.color;
+  //   //return vec4(0.0, 0.0, 0.0, 0.0);
+  // }
   
   //std::cout <<"o2 = "<< o2->name <<" o = "<< o->name <<std::endl;
   //std::cout <<"lum = "<< normalize(o_res.P - lightPosition).x<<" "<< normalize(o_res.P - lightPosition).y<<" "<< normalize(o_res.P - lightPosition).z <<" "<<normalize(o_res.P - lightPosition).w<<std::endl;
@@ -353,15 +400,55 @@ vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
   //dot(reflect(lum, norm), vue)
   
   color = diffuse_product + ambient_product + specular_product;
-  
+  color -= shadow;
+  vec4 reflexion = reflect( normalize(E),  normalize(o_res.N));
   //std::cout << lum.x <<" "<<lum.y<<" " <<lum.z <<std::endl;
-  color.x = color.x > 1.0 ? 1.0 : color.x;
-  color.y = color.y > 1.0 ? 1.0 : color.y;
-  color.z = color.z > 1.0 ? 1.0 : color.z;
+  vec4 color_Mir = vec4(0,0,0,0);
+  vec4 color_Trans = vec4(0,0,0,0);
+
+  if (o->shadingValues.Ks > 0)
+  {
+    color_Mir = o->shadingValues.Ks*castRay(o_res.P, reflexion, o, depth + 1);
+  }
+  
+  if(o->shadingValues.Kt > 0){
+    vec4 E2 = normalize(E);
+    vec4 normale = -o_res.N;
+    double cosA = dot(E2, normale);
+
+    double angleA = acos(cosA);
+    double ind;
+    if(o == lastHitObject || lastHitObject == NULL )
+    {
+      ind = 1.0/o->shadingValues.Kr;
+    }else
+    {
+      ind = 1.0;//lastHitObject->shadingValues.Kr;
+    }
+    double new_angleA = asin(ind*sin(angleA));
+    vec4 Nplan = normalize(cross(E, o_res.N));
+    vec4 rotate = normale*cos(new_angleA) +(1-cos(new_angleA))*Nplan*dot(Nplan, normale)+ sin(new_angleA)*cross(Nplan, normale);
+    std::cout << "######## "<<depth<<" ##########" << std::endl;
+    std::cout << (o == NULL? "null" : o->name) << std::endl;
+    std::cout<<"cosA : " << cosA <<std::endl;
+    std::cout<<"E2 : " << E2<<"  normal"<< normale <<std::endl;
+    std::cout<<"dot : " << dot(E2, normale) <<std::endl;
+    std::cout << "Nplan" << Nplan << " E " << E << " o_res.N " << o_res.N << std::endl;
+    std::cout << "rotate : " << rotate << " angleA " << angleA << " new angleA " << new_angleA << std::endl;
+    //vec4 rotate = vecx*cosA +(1-cosA)*Nplan*dot(Nplan, vecx)+ sin(angleA)*cross(Nplan, vecx);
+    color_Trans = o->shadingValues.Kt*castRay(o_res.P, rotate, o, depth + 1);
+    std::cout<<"color_Trans : " << color_Trans <<std::endl;
+
+    std::cout<<"##################"<<std::endl;
+  }
+  color = color + color_Mir + color_Trans;
+
+  color.x = color.x > 1.0 ? 1.0 : color.x < 0.0 ? 0.0 : color.x;
+  color.y = color.y > 1.0 ? 1.0 : color.y < 0.0 ? 0.0 : color.y;
+  color.z = color.z > 1.0 ? 1.0 : color.z < 0.0 ? 0.0 : color.z;
   color.w = o->shadingValues.color.w;
-
-
-  return color;
+  
+  return color; // + castRay(o_res.P, reflexion, lastHitObject, depth + 1);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -401,23 +488,23 @@ static void error_callback(int error, const char* description)
 void initCornellBox(){
   cameraPosition = point4( 0.0, 0.0, 6.0, 1.0 );
   lightPosition = point4( 0.0, 1.5, 0.0, 1.0 );
-  lightColor = color4( 1.0, 1.0, 1.0, 1.0);
+  lightColor = color4( 1.0, 0.5, 1.0, 1.0);
   
   sceneObjects.clear();
   
-// { //Back Wall
-//     sceneObjects.push_back(new Square("Back Wall", Translate(0.0, 0.0, -2.0)*Scale(2.0,2.0,1.0)));
-//     Object::ShadingValues _shadingValues;
-//     _shadingValues.color = vec4(1.0,0.7,0.1,1.0);
-//     _shadingValues.Ka = 0.0;
-//     _shadingValues.Kd = 1.0;
-//     _shadingValues.Ks = 0.0;
-//     _shadingValues.Kn = 16.0;
-//     _shadingValues.Kt = 0.0;
-//     _shadingValues.Kr = 0.0;
-//     sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-//     sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-//   }
+{ //Back Wall
+    sceneObjects.push_back(new Square("Back Wall", Translate(0.0, 0.0, -2.0)*Scale(2.0,2.0,1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(1.0,0.7,0.1,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
   { //Left Wall
     sceneObjects.push_back(new Square("Left Wall", RotateY(90)*Translate(0.0, 0.0, -2.0)*Scale(2.0,2.0,1.0)));
@@ -433,83 +520,82 @@ void initCornellBox(){
     sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
   }
   
-  // { //Right Wall
-  //   sceneObjects.push_back(new Square("Right Wall", RotateY(-90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0 )));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(0.5,0.0,0.5,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+  { //Right Wall
+    sceneObjects.push_back(new Square("Right Wall", RotateY(-90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0 )));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(0.5,0.0,0.5,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
-  // { //Floor
-  //   sceneObjects.push_back(new Square("Floor", RotateX(-90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(0.5,0.2,0.4,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+  { //Floor
+    sceneObjects.push_back(new Square("Floor", RotateX(-90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(0.5,0.2,0.4,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
-  // { //Ceiling
-  //   sceneObjects.push_back(new Square("Ceiling", RotateX(90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(1.0,1.0,0.2,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+  { //Ceiling
+    sceneObjects.push_back(new Square("Ceiling", RotateX(90)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(1.0,1.0,0.2,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
-  // { //Front Wall
-  //   sceneObjects.push_back(new Square("Front Wall",RotateY(180)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
-  //   Object::ShadingValues _shadingValues;
-  //   _shadingValues.color = vec4(1.0,0.5,0.6,1.0);
-  //   _shadingValues.Ka = 0.0;
-  //   _shadingValues.Kd = 1.0;
-  //   _shadingValues.Ks = 0.0;
-  //   _shadingValues.Kn = 16.0;
-  //   _shadingValues.Kt = 0.0;
-  //   _shadingValues.Kr = 0.0;
-  //   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  //   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
+  { //Front Wall
+    sceneObjects.push_back(new Square("Front Wall",RotateY(180)*Translate(0.0, 0.0, -2.0)*Scale(2.0, 2.0, 1.0)));
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(1.0,0.5,0.6,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
   
-  
-  // {
-  // sceneObjects.push_back(new Sphere("Glass sphere", vec3(1.0, -1.25, 0.5),0.75));
-  // Object::ShadingValues _shadingValues;
-  // _shadingValues.color = vec4(1.0,0.0,0.0,1.0);
-  // _shadingValues.Ka = 0.0;
-  // _shadingValues.Kd = 1.0;
-  // _shadingValues.Ks = 0.0;
-  // _shadingValues.Kn = 16.0;
-  // _shadingValues.Kt = 1.0;
-  // _shadingValues.Kr = 1.4;
-  // sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
-  // sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
-  // }
   
   {
-  sceneObjects.push_back(new Sphere("Mirrored Sphere", vec3(-1.0, 0.75, 0.5),0.75));
+  sceneObjects.push_back(new Sphere("Glass sphere", vec3(1.0, -1.25, 0.5),0.75));
+  Object::ShadingValues _shadingValues;
+  _shadingValues.color = vec4(1.0,0.0,0.0,1.0);
+  _shadingValues.Ka = 0.0;
+  _shadingValues.Kd = 0.0;
+  _shadingValues.Ks = 0.0;
+  _shadingValues.Kn = 16.0;
+  _shadingValues.Kt = 1.0;
+  _shadingValues.Kr = 1.4;
+  sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+  sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
+  {
+  sceneObjects.push_back(new Sphere("Mirrored Sphere",0.75));
   Object::ShadingValues _shadingValues;
   _shadingValues.color = vec4(1.0,0.2,0.4,1.0);
   _shadingValues.Ka = 0.0;
-  _shadingValues.Kd = 1.0;
+  _shadingValues.Kd = 0.0;
   _shadingValues.Ks = 1.0;
   _shadingValues.Kn = 16.0;
   _shadingValues.Kt = 0.0;
@@ -580,6 +666,81 @@ void initUnitSquare(){
 
 }
 
+void initOff(){
+  cameraPosition = point4( 0.0, 0.0, 3.0, 1.0 );
+  lightPosition = point4( 0.0, 0.0, 4.0, 1.0 );
+  lightColor = color4( 1.0, 1.0, 1.0, 1.0);
+
+  sceneObjects.clear();
+
+  // std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
+  // std::vector<vec3> vertices;
+  // std::vector<vec2> uvs;
+  // std::vector<vec3> faces;
+
+  // FILE * file = std::fopen("../source/Maillages/bunny.off", "r");
+
+  // Mesh m = Mesh("../source/Maillages/cube.obj");
+  {
+    sceneObjects.push_back( new Mash("test Cube") );
+    Object::ShadingValues _shadingValues;
+    _shadingValues.color = vec4(0.0,1.0,1.0,1.0);
+    _shadingValues.Ka = 0.0;
+    _shadingValues.Kd = 1.0;
+    _shadingValues.Ks = 0.0;
+    _shadingValues.Kn = 16.0;
+    _shadingValues.Kt = 0.0;
+    _shadingValues.Kr = 0.0;
+    sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
+    sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
+  }
+  //std::cout << m <<std::endl;
+
+
+  // if( file == NULL ){
+  //   printf("Impossible to open the file !\n");
+  //   //return false;
+  // }
+  // int i = 0;
+  // int t1, t2, t3;
+  // double s1, s2, s3;
+  // int s_1, s_2, s_3;
+
+  // char lineHeader[128];
+  //   // lit le premier mot de la ligne
+  // int res = fscanf(file, "%s", lineHeader);
+  // fscanf(file, "%i %i %i\n", &t1, &t2, &t3 );
+
+
+
+  // while( i < t1 ){
+  //   if (res == EOF)
+  //     break; // EOF = End Of File (fin de fichier). Quitte la boucle.
+
+  //   fscanf(file, "%lf %lf %lf\n", &s1, &s2, &s3 );
+  //   //printf("s %lf %lf %lf\n", s1, s2, s3);
+  //   vertices.push_back(vec3(s1, s2, s3));
+    
+  //   i++;
+  // }
+
+  // while (i < t1 + t2)
+  // {
+  //   if (res == EOF)
+  //     break; // EOF = End Of File (fin de fichier). Quitte la boucle.
+  //   fscanf(file, "%d %d %d %d\n",&s1, &s_1, &s_2, &s_3 );
+  //   //printf("f %d %d %d\n", s_1, s_2, s_3);
+  //   faces.push_back(vec3(vertices[s_1], vertices[s_2], vertices[s_3]));
+  //   i++;
+  // }
+
+  // for(int j = 0; j < 5; j++){
+  //   std::cout << faces[j] << std::endl;
+  // }
+  
+
+}
+
 /*----------------------------------------------------------------------------*/
 void initGL(){
 
@@ -632,6 +793,7 @@ void initGL(){
   glGenBuffers( sceneObjects.size(), &GLState::objectBuffer[0] );
 
   for(unsigned int i=0; i < sceneObjects.size(); i++){
+    std::cout<< sceneObjects[i]->name <<std::endl;
     glBindVertexArray( GLState::objectVao[i] );
     glBindBuffer( GL_ARRAY_BUFFER, GLState::objectBuffer[i] );
     size_t vertices_bytes = sceneObjects[i]->mesh.vertices.size()*sizeof(vec4);
@@ -642,6 +804,8 @@ void initGL(){
     glBufferSubData( GL_ARRAY_BUFFER, offset, vertices_bytes, &sceneObjects[i]->mesh.vertices[0] );
     offset += vertices_bytes;
     glBufferSubData( GL_ARRAY_BUFFER, offset, normals_bytes,  &sceneObjects[i]->mesh.normals[0] );
+
+    std::cout << sceneObjects[i]->mesh.normals[0] << std::endl;
 
     glEnableVertexAttribArray( GLState::vNormal );
     glEnableVertexAttribArray( GLState::vPosition );
@@ -704,6 +868,15 @@ static void keyCallback(GLFWwindow* window, int key, int scancode, int action, i
             initGL();
             scene = _BOX;
         }
+    }
+    if (key == GLFW_KEY_4 && action == GLFW_PRESS){
+
+        if( scene != _OFF ){
+            initOff();
+            initGL();
+            scene = _OFF;
+        }
+
     }
     if (key == GLFW_KEY_R && action == GLFW_PRESS)
         rayTrace();
@@ -866,6 +1039,9 @@ int main(void){
     case _BOX:
       initCornellBox();
       break;
+    case _OFF:
+      initOff();
+      break;
   }
 
   initGL();
@@ -907,6 +1083,9 @@ int main(void){
         GLState::projection = Perspective( 45.0, aspect, 0.01, 100.0 );
         break;
       case _BOX:
+        GLState::projection = Perspective( 45.0, aspect, 4.5, 100.0 );
+        break;
+      case _OFF:
         GLState::projection = Perspective( 45.0, aspect, 4.5, 100.0 );
         break;
     }

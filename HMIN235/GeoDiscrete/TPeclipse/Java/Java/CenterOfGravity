@@ -1,0 +1,26 @@
+public class CenterOfGravity{
+//     public  var center : Point
+//     private var weight : Double
+
+//     public init(points: [Point]){
+//         var sx : Double = 0
+//         var sy : Double = 0
+//         var sz : Double = 0
+//         for p in points{
+//             sx += p.x
+//             sy += p.y
+//             sz += p.z
+//         }
+//         let w : Double = Double(points.count)
+//         self.center = Point(x: sx/w, y: sy/w, z: sz/w)
+//         self.weight = w
+//     }
+    
+//     public mutating func add(point p: Point){
+//         let w = self.weight + 1
+//         self.center = Point(x: (self.center.x * self.weight + p.x)/w,
+//                             y: (self.center.y * self.weight + p.y)/w,
+//                             z: (self.center.z * self.weight + p.z)/w)
+//         self.weight = w
+//     }
+}

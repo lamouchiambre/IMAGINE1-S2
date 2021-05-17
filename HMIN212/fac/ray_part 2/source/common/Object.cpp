@@ -8,6 +8,24 @@
 #include <math.h>
 #include "common.h"
 
+Object::IntersectionValues Mash::intersect(vec4 p0, vec4 V){
+  IntersectionValues result;
+
+  //this->center;
+  //vec4 norm = center//vec4(p0.x - this->center.x, p0.y - this->center.y, p0.z - this->center.z, 0);
+  result.t = rayMashIntersection(p0,V);
+  result.P = p0 +  result.t * V;
+  result.ID_ = 1;
+  result.N = p0;
+  return result;
+}
+
+double Mash::rayMashIntersection(vec4 p0, vec4 V){
+  double t = std::numeric_limits< double >::infinity();
+
+  return t;
+}
+
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 Object::IntersectionValues Sphere::intersect(vec4 p0, vec4 V){

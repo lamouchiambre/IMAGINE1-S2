@@ -19,6 +19,7 @@ public:
 
     friend class Sphere;
     friend class Square;
+    friend class Mash;
 
     typedef struct{
         vec4 color;
@@ -86,7 +87,16 @@ private:
     double radius;
 };
 
+class Mash : public Object{
+    public:
+        Mash(std::string name) : Object(name) { mesh.loadOBJ("../source/Maillages/cow.obj"); };
 
+        virtual IntersectionValues intersect(vec4 p0, vec4 V);
+    
+    private:
+        double rayMashIntersection(vec4 p0, vec4 V);
+
+};
 class Square : public Object{
 public:
 

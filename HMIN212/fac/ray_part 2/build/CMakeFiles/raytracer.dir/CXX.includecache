@@ -197,4 +197,8 @@ common.h
 /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/source/common.h
 SourcePath.h
 /mnt/d/Users/user/Documents/GitHub/IMAGINE1-S2/HMIN212/fac/ray_part 2/source/SourcePath.h
+math.h
+-
+time.h
+-
 
