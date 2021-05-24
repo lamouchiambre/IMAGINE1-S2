@@ -10,6 +10,8 @@
 #include <math.h> 
 #include <time.h>
 
+#define PI 3.14159265
+
 using namespace Angel;
 
 typedef vec4  color4;
@@ -333,44 +335,6 @@ vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
   shadow*=0.1;
   //std::cout<< shadow <<std::endl;
   shadow.w = 1;
-  //std::cout<< shadow.x << " , " << shadow.y << " , " << shadow.z <<std::endl;
-  
-  // Object* o2 = NULL;
-  // bool trouver = false;
-  // Object::IntersectionValues result2;
-  // Object::IntersectionValues o_res2;
-  // double min2  = std::numeric_limits<double>::infinity();
-  // for (int i = 0; i < sceneObjects.size(); i++)
-  // {
-  //       result2 = sceneObjects[i]->intersect(lightPosition, normalize( o_res.P - lightPosition ));
-
-  //       if(result2.t < min2){
-  //         trouver = true;
-  //         o_res2  = result2;
-  //         o2 = sceneObjects[i];
-  //         min2 = result2.t;
-  //         }
-  // }
-  // float taille = pow(pow((lightPosition.x - o_res.P.x), 2) + pow((lightPosition.y - o_res.P.y), 2) + pow((lightPosition.z - o_res.P.z),2), 0.5);
-
-  // if ( (min2 <= taille - 0.5 ) )
-  // {
-  //   //std::cout<< "o_res2.name : " << o2->name << " o.name :" << o->name << " | " << min2 << " - " <<taille <<std::endl;
-  //   std::cout<<p0.x<<" "<<p0.y << " " << p0.z <<std::endl;
-  //   gridShadow(p0);
-  //   return o2->shadingValues.color;
-  //   //return vec4(0.0, 0.0, 0.0, 0.0);
-  // }
-  
-  //std::cout <<"o2 = "<< o2->name <<" o = "<< o->name <<std::endl;
-  //std::cout <<"lum = "<< normalize(o_res.P - lightPosition).x<<" "<< normalize(o_res.P - lightPosition).y<<" "<< normalize(o_res.P - lightPosition).z <<" "<<normalize(o_res.P - lightPosition).w<<std::endl;
-  
-  //std::cout << o2 <<std::endl;
-  // std::cout << o->mesh.center.x <<" "<< o->mesh.center.y <<" "<< o->mesh.center.z <<std::endl;
-  // if (o2 != o && o2 != NULL)
-  // {
-  //   return vec4(0.0, 0.0, 0.0, 1.0);
-  // }
 
   vec3 norm = normalize(vec3(o_res.N.x, o_res.N.y, o_res.N.z));
   vec3 ray = normalize(vec3(E.x, E.y, E.z));
@@ -417,29 +381,44 @@ vec4 castRay(vec4 p0, vec4 E, Object *lastHitObject, int depth){
     double cosA = dot(E2, normale);
 
     double angleA = acos(cosA);
+    //double angleA = 1;
+
     double ind;
+    double new_angleA;
     if(o == lastHitObject || lastHitObject == NULL )
     {
       ind = 1.0/o->shadingValues.Kr;
+      
     }else
     {
-      ind = 1.0;//lastHitObject->shadingValues.Kr;
-    }
-    double new_angleA = asin(ind*sin(angleA));
-    vec4 Nplan = normalize(cross(E, o_res.N));
-    vec4 rotate = normale*cos(new_angleA) +(1-cos(new_angleA))*Nplan*dot(Nplan, normale)+ sin(new_angleA)*cross(Nplan, normale);
-    std::cout << "######## "<<depth<<" ##########" << std::endl;
-    std::cout << (o == NULL? "null" : o->name) << std::endl;
-    std::cout<<"cosA : " << cosA <<std::endl;
-    std::cout<<"E2 : " << E2<<"  normal"<< normale <<std::endl;
-    std::cout<<"dot : " << dot(E2, normale) <<std::endl;
-    std::cout << "Nplan" << Nplan << " E " << E << " o_res.N " << o_res.N << std::endl;
-    std::cout << "rotate : " << rotate << " angleA " << angleA << " new angleA " << new_angleA << std::endl;
-    //vec4 rotate = vecx*cosA +(1-cosA)*Nplan*dot(Nplan, vecx)+ sin(angleA)*cross(Nplan, vecx);
-    color_Trans = o->shadingValues.Kt*castRay(o_res.P, rotate, o, depth + 1);
-    std::cout<<"color_Trans : " << color_Trans <<std::endl;
+      ind = o->shadingValues.Kr; //lastHitObject->shadingValues.Kr;
+      // new_angleA = 0.0;
+      // printf("AHHHHHHHHHHHHHH");
 
-    std::cout<<"##################"<<std::endl;
+    }
+    // new_angleA = 0.0;
+    // new_angleA = asin(ind*sin(angleA));
+    new_angleA = angleA - asin(ind*sin(angleA));
+    // new_angleA = std::ceil(new_angleA * 100.0) / 100.0;
+
+
+    // double new_angleA = asin(ind*sin(angleA));
+    std::cout<<"---------depth-------- "<<depth<<std::endl;
+    std::cout<<angleA<<" "<<new_angleA<<std::endl;
+    vec4 Nplan = normalize(cross(E, o_res.N));
+    //vec4 Nplan = normalize(cross( o_res.N, E));
+
+    Nplan.w = 1;
+    // std::cout << dot(Nplan,normale) << std::endl;
+    vec4 rotate = E*cos(new_angleA) +(1-cos(new_angleA))*Nplan*dot(Nplan, E)+ sin(new_angleA)*cross(Nplan, E);
+    rotate.w = 1;
+    //vec4 rotate = vecx*cosA +(1-cosA)*Nplan*dot(Nplan, vecx)+ sin(angleA)*cross(Nplan, vecx);
+    //rotate
+    std::cout<< " E : " << E << " rotate : " << rotate << std::endl;
+    color_Trans = o->shadingValues.Kt*castRay(o_res.P, rotate, o, depth + 1);
+    //std::cout<<"color_Trans : " << color_Trans <<std::endl;
+
+    //std::cout<<"##################"<<std::endl;
   }
   color = color + color_Mir + color_Trans;
 
@@ -576,7 +555,6 @@ void initCornellBox(){
     sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
   }
   
-  
   {
   sceneObjects.push_back(new Sphere("Glass sphere", vec3(1.0, -1.25, 0.5),0.75));
   Object::ShadingValues _shadingValues;
@@ -586,12 +564,12 @@ void initCornellBox(){
   _shadingValues.Ks = 0.0;
   _shadingValues.Kn = 16.0;
   _shadingValues.Kt = 1.0;
-  _shadingValues.Kr = 1.4;
+  _shadingValues.Kr = 1.0;
   sceneObjects[sceneObjects.size()-1]->setShadingValues(_shadingValues);
   sceneObjects[sceneObjects.size()-1]->setModelView(mat4());
   }
   {
-  sceneObjects.push_back(new Sphere("Mirrored Sphere",0.75));
+  sceneObjects.push_back(new Sphere("Mirrored Sphere",vec3(-1.0, -1.25, 0.5),0.75));
   Object::ShadingValues _shadingValues;
   _shadingValues.color = vec4(1.0,0.2,0.4,1.0);
   _shadingValues.Ka = 0.0;
